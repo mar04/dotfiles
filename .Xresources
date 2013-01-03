@@ -1,0 +1,61 @@
+! --[ Font Rendering ]-------------------------------------
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.autohint: true
+Xft.lcdfilter: lcddefault
+
+
+! --[ Rodent ]----------------------------------------------
+Xcursor.theme: Vanilla-DMZ
+Xcursor.size:  24
+
+
+! --[ URxvt - General ]-------------------------------------
+URxvt.loginShell:false
+URxvt.scrollBar:false
+URxvt.saveLines:5000
+URxvt.cursorColor:#83C048
+URxvt.highlightColor:#444444
+URxvt.font: xft:UbuntuMono:pixelsize=16
+URxvt.boldFont: xft:UbuntuMono:pixelsize=16:bold
+URxvt.internalborder: 0
+URxvt.underlinecolor: #999999
+URxvt.letterSpace: -1
+!URxvt.cutchars: "()*,<>[]{}|'"
+!URxvt.print-pipe: cat >/tmp/xxx
+URxvt.visualBell: false
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
+!URxvt.scrollWithBuffer: true
+!URxvt.scrollTtyOutput: false
+!URxvt.scrollTtyKeypress: true
+
+! --[ URxvt - URL/Clipboard Handling ]----------------------
+!URxvt.perl-ext-common:      default,url-select,keyboard-select
+!URxvt.keysym.M-u:           perl:url-select:select_next
+!URxvt.url-select.launcher:  chromium
+!URxvt.url-select.underline: true
+!URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+!URxvt.keysym.M-s:           perl:keyboard-select:search
+
+! --[ URxvt - colors ]--------------------------------------
+URxvt.depth: 32
+URxvt.background: rgba:2222/2222/2222/eeee
+!URxvt.background: rgba:2222/2222/2222/bbbb
+URxvt.foreground:#eeeeee
+
+! --[ Color Scheme ]----------------------------------------
+!#include ".config/xcolors/dwmrob"
+!#include ".config/xcolors/derp"
+!#include ".config/xcolors/digerati"
+!#include ".config/xcolors/gnometerm"
+!#include ".config/xcolors/jasonwryan"
+!#include ".config/xcolors/phrak1"
+!#include ".config/xcolors/rezza"
+!#include ".config/xcolors/rydgel"
+!#include ".config/xcolors/shiva"
+#include ".config/xcolors/tango"
+!#include ".config/xcolors/zenburn"
