@@ -1,5 +1,8 @@
 # Write your default config options here!
+[default]
 ao=pulse
-vo=xv
+vo=vaapi
 af=scaletempo
-
+stop-xscreensaver="yes"
+#heartbeat-cmd="xscreensaver-command -deactivate &"
+font="Droid Sans"

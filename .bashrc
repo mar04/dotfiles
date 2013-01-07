@@ -17,16 +17,17 @@ export PS1=$PS0
 
 
 PATH=$PATH:/home/mariusz/.local/bin
-PATH=$PATH:/home/mariusz/.local/android-sdk-linux/tools
-PATH=$PATH:/home/mariusz/.local/android-sdk-linux/platform-tools
+#PATH=$PATH:/home/mariusz/.local/android-sdk-linux/tools
+#PATH=$PATH:/home/mariusz/.local/android-sdk-linux/platform-tools
 PATH=$PATH:/mariusz/.local/maple13_installation/bin
 export PATH
 
 export PAGER=less
-export EDITOR=e
+export EDITOR=emacs
 export VISUAL=$EDITOR
 
 alias ls="ls -h --color --group-directories-first"
+alias ll="ls -l"
 alias lll="ll -ctr"
 alias tree="tree -AC"
 alias df="df -h"
