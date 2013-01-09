@@ -16,11 +16,11 @@ Xft.lcdfilter: lcddefault
 ! --[ URxvt - General ]-------------------------------------
 URxvt.loginShell:false
 URxvt.scrollBar:false
-URxvt.saveLines:5000
+URxvt.saveLines: 8192
 URxvt.cursorColor:#83C048
 URxvt.highlightColor:#444444
-URxvt.font: xft:UbuntuMono:pixelsize=16
-URxvt.boldFont: xft:UbuntuMono:pixelsize=16:bold
+URxvt.font: xft:UbuntuMono:size=12
+URxvt.boldFont: xft:UbuntuMono:size=16:bold
 URxvt.internalborder: 0
 URxvt.underlinecolor: #999999
 URxvt.letterSpace: -1
@@ -29,15 +29,17 @@ URxvt.letterSpace: -1
 !URxvt.visualBell: false
 !URxvt.iso14755: false
 !URxvt.iso14755_52: false
-!URxvt.scrollWithBuffer: true
-!URxvt.scrollTtyOutput: false
-!URxvt.scrollTtyKeypress: true
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+URxvt.pointerBlank: true
 
 ! --[ URxvt - URL/Clipboard Handling ]----------------------
 !URxvt.perl-ext-common:      default,url-select,keyboard-select
 !URxvt.keysym.M-u:           perl:url-select:select_next
 !URxvt.url-select.launcher:  chromium
 !URxvt.url-select.underline: true
+!URxvt.colorUL: #4682B4
 !URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 !URxvt.keysym.M-s:           perl:keyboard-select:search
 
@@ -60,26 +62,3 @@ URxvt.foreground:#eeeeee
 #include "/home/mariusz/.config/xcolors/tango"
 !#include ".config/xcolors/zenburn"
 
-! -- [ XScreenSaver ] ------------------------------
-xscreensaver.Dialog.headingFont:        -*-droid sans-bold-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-droid sans-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-droid sans-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-droid sans-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-droid sans-bold-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-droid sans-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-droid sans-bold-r-*-*-14-*-*-*-*-*-*-* 
-xscreensaver.Dialog.foreground:         #ffffff
-xscreensaver.Dialog.background:         #111111
-xscreensaver.Dialog.topShadowColor:     #111111
-xscreensaver.Dialog.bottomShadowColor:  #111111
-xscreensaver.Dialog.Button.foreground:  #666666
-xscreensaver.Dialog.Button.background:  #ffffff
-xscreensaver.Dialog.text.foreground:    #666666
-xscreensaver.Dialog.text.background:    #ffffff
-xscreensaver.Dialog.internalBorderWidth:24
-xscreensaver.Dialog.borderWidth:        20
-xscreensaver.Dialog.shadowThickness:    2
-xscreensaver.passwd.thermometer.foreground:  #ff0000
-xscreensaver.passwd.thermometer.background:  #000000
-xscreensaver.passwd.thermometer.width:       8
-xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y

@@ -11,7 +11,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-feh --bg-fill "$HOME/pic/artwork/hardy.png"
+
+feh --no-fehbg --bg-fill "$HOME/pic/artwork/hardy.png"
 
 setxkbmap \
     -layout us,pl \
@@ -20,18 +21,21 @@ setxkbmap \
     -option compose:lctrl \
     -option terminate:ctrl_alt_bksp
 
-#xset-b dpms 120 180 240
+xset -b dpms 180 240 360
+
 #fonts?
 #emacs daemon?
+
+#consider removing -merge
+#do not background this
 xrdb -merge ~/.Xresources
 
 xscreensaver -no-splash &
 
 urxvtd -q -o -f
 
-# export the current environment, in case it needs to be debugged
-env > ~/.xenv
-
 i3
 
-# what to do next?
+# avoid leaving open terminal session
+exit
+

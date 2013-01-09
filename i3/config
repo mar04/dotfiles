@@ -1,20 +1,15 @@
 set $mod Mod4
 
-# font for window titles. ISO 10646 = Unicode
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font xft: Droid Sans 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec urxvtc
-
 # kill focused window
 bindsym $mod+Q kill
 
-# start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
+bindsym $mod+Return exec urxvtc
 
 # change focus
 bindsym $mod+j focus left
@@ -90,14 +85,8 @@ bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exit
 
 set $p 1
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+mode "resize" {
         bindsym j resize shrink width $p px or $p ppt
         bindsym k resize grow height $p px or $p ppt
         bindsym l resize shrink height $p px or $p ppt
@@ -121,18 +110,6 @@ bar {
 }
 
 
-#exec --no-startup-id /usr/libexec/gnome-settings-daemon
-#exec --no-startup-id gnome-screensaver
-exec --no-startup-id start-pulseaudio-x11
-#exec --no-startup-id abrt-applet
-#exec --no-startup-id /usr/bin/seapplet
-#exec --no-startup-id urxvt256cd -q -f -o
-#exec --no-startup-id unclutter
-#exec --no-startup-id emacs --daemon
-#exec xcompmgr
-
-
-
 #it's too hard to tell witch window has focus :( 
 #new_window 1pixel
 #except for terminals :)
@@ -143,11 +120,13 @@ hide_edge_borders both
 bindsym $mod+M exec --no-startup-id amixer sset Master toggle 
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
-#bindsym $mod+Ctrl+L exec --no-startup-id gnome-screensaver-command -l
-bindsym $mod+O exec emacs
-#bindsym $mod+B exec --no-startup-id firefox
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0
+bindsym $mod+Ctrl+L exec --no-startup-id i3lock -i /home/mariusz/pic/artwork/hardy.png
+bindsym $mod+o exec emacs
+bindsym $mod+c exec --no-startup-id chromium
+
+#not needed in ArchLinux
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0
 
 bindsym $mod+t border toggle
 bindsym $mod+Y move scratchpad
@@ -166,4 +145,4 @@ client.background	#1f1f1f
 
 force_display_urgency_hint 500 ms
 
-#auto launch editor and put it in the scratchpad
+

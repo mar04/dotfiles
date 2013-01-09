@@ -1,6 +1,6 @@
 general {
         colors = false
-        interval = 5
+        interval = 1
 }
 
 order += "run_watch DHCP"
