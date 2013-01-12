@@ -8,23 +8,20 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Q kill
 
-bindsym $mod+d exec dmenu_run
-bindsym $mod+Return exec urxvtc
-
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+J move left
-bindsym $mod+Shift+K move down
-bindsym $mod+Shift+L move up
-bindsym $mod+Shift+colon move right
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -36,7 +33,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+b layout toggle all
+#bindsym $mod+n layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -68,7 +65,7 @@ bindsym $mod+0 workspace 0
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
 bindsym $mod+Shift+at move container to workspace 2
-bindsym $mod+Shift+sign move container to workspace 3
+bindsym $mod+Shift+hash move container to workspace 3
 bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
@@ -85,12 +82,18 @@ bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exit
 
 set $p 1
+set $p1 10
 
 mode "resize" {
-        bindsym j resize shrink width $p px or $p ppt
-        bindsym k resize grow height $p px or $p ppt
-        bindsym l resize shrink height $p px or $p ppt
-        bindsym semicolon resize grow width $p px or $p ppt
+        bindsym h resize shrink width $p px or $p ppt
+        bindsym j resize grow height $p px or $p ppt
+        bindsym k resize shrink height $p px or $p ppt
+        bindsym l resize grow width $p px or $p ppt
+
+        bindsym Shift+H resize shrink width $p1 px or $p1 ppt
+        bindsym Shift+J resize grow height $p1 px or $p1 ppt
+        bindsym Shift+K resize shrink height $p1 px or $p1 ppt
+        bindsym Shift+L resize grow width $p1 px or $p1 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -112,28 +115,18 @@ bar {
 
 #it's too hard to tell witch window has focus :( 
 #new_window 1pixel
-#except for terminals :)
+#except for terminals :) or not...
 for_window [class="URxvt"] border 1pixel
 for_window [class="MPlayer"] border 1pixel
-hide_edge_borders both
+for_window [class="Chromium"] hide_edge_barders both
+for_window [class="emulator64-arm"] floating enable
 
-bindsym $mod+M exec --no-startup-id amixer sset Master toggle 
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
-bindsym $mod+Ctrl+L exec --no-startup-id i3lock -i /home/mariusz/pic/artwork/hardy.png
-bindsym $mod+o exec emacs
-bindsym $mod+c exec --no-startup-id chromium
-
-#not needed in ArchLinux
-#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0
-#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0
 
 bindsym $mod+t border toggle
 bindsym $mod+Y move scratchpad
 bindsym $mod+U scratchpad show
 
 #newer versions of i3 may auto detect that kind of windows as floating
-for_window [class="emulator64-arm"] floating enable
 
 # class                 border  backgr. text    indicator
 client.focused          #285577 #285577 #888888 #2e9ef4

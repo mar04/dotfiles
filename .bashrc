@@ -6,15 +6,8 @@
 [[ $- != *i* ]] && return
 
 
-# Source global definitions
-#if [ -f /etc/bash.bashrc ]; then
-#	. /etc/bash.bashrc
-#fi
-
-# User specific aliases and functions
-
 if [ $TERM == "xterm" ]; then
-	export TERM="xterm-256color"
+	TERM="xterm-256color"
 fi
 
 
@@ -47,6 +40,7 @@ alias ll="ls -l"
 alias lll="ll -ctr"
 alias tree="tree -AC"
 alias df="df -h"
+alias urxvtd="urxvtd -q -o -f"
 #alias et="emacsclient -t"
 #alias e="emacsclient -c"
 alias cal="cal -m3"

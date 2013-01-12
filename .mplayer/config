@@ -1,5 +1,5 @@
 [default]
-ao=pulse
+ao=alsa
 vo=vaapi
 af=scaletempo
 font="Droid Sans"
