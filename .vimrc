@@ -1,5 +1,7 @@
 " Also have a look at :options and :option-list
 " check tags and ft-c-omni and omnifunc
+ runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 
 " This must be first, because it changes other options as a side effect.
 set nocompatible	" Use Vim defaults (much better!)

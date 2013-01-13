@@ -23,7 +23,7 @@ PATH=$PATH:/mariusz/.local/maple13_installation/bin
 
 BROWSER=links
 PAGER=less
-EDITOR=emacs
+EDITOR=vim
 VISUAL=$EDITOR
 
 

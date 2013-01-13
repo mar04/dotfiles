@@ -3,7 +3,6 @@ general {
         interval = 1
 }
 
-order += "run_watch DHCP"
 order += "wireless wlan0"
 order += "ethernet eth0"
 order += "volume master"
@@ -32,9 +31,6 @@ battery 0 {
 	path = "/sys/class/power_supply/BAT1/uevent"
 }
 
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
-}
 
 time {
         format = "%Y-%m-%d | %H:%M"

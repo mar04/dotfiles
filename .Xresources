@@ -50,15 +50,15 @@ URxvt.background: rgba:2222/2222/2222/eeee
 URxvt.foreground:#eeeeee
 
 ! --[ Color Scheme ]----------------------------------------
-!#include ".config/xcolors/dwmrob"
-!#include ".config/xcolors/derp"
-!#include ".config/xcolors/digerati"
-!#include ".config/xcolors/gnometerm"
-!#include ".config/xcolors/jasonwryan"
-!#include ".config/xcolors/phrak1"
-!#include ".config/xcolors/rezza"
-!#include ".config/xcolors/rydgel"
-!#include ".config/xcolors/shiva"
+!#include "/home/mariusz/.config/xcolors/dwmrob"
+!#include "/home/mariusz/.config/xcolors/derp"
+!#include "/home/mariusz/.config/xcolors/digerati"
+!#include "/home/mariusz/.config/xcolors/gnometerm"
+!#include "/home/mariusz/.config/xcolors/jasonwryan"
+!#include "/home/mariusz/.config/xcolors/phrak1"
+!#include "/home/mariusz/.config/xcolors/rezza"
+!#include "/home/mariusz/.config/xcolors/rydgel"
+!#include "/home/mariusz/.config/xcolors/shiva"
 #include "/home/mariusz/.config/xcolors/tango"
-!#include ".config/xcolors/zenburn"
+!#include "/home/mariusz/.config/xcolors/zenburn"
 

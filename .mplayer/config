@@ -3,3 +3,6 @@ ao=alsa
 vo=vaapi
 af=scaletempo
 font="Droid Sans"
+nolirc=1
+quiet=1
+

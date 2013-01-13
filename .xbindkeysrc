@@ -24,9 +24,9 @@
     Control+Mod4 + l
 
 
-"emacs"
-    m:0x40 + c:32
-    Mod4 + o
+#"emacs"
+#    m:0x41 + c:32
+#    Mod4 + o
 
 
 "chromium"
