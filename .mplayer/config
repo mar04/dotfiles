@@ -5,4 +5,5 @@ af=scaletempo
 font="Droid Sans"
 nolirc=1
 quiet=1
+heartbeat-cmd="xautolock -resetsaver"
 

@@ -10,24 +10,31 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-feh --no-fehbg --bg-fill "$HOME/pic/artwork/hardy.png"
+BCKG="$HOME/pic/artwork/hardy.png"
+
+feh --no-fehbg --bg-fill $BCKG
 
 setxkbmap \
     -layout us,pl \
     -option grp:shifts_toggle \
     -option ctrl:nocaps \
     -option compose:lctrl \
-    -option terminate:ctrl_alt_bksp
+#   -option terminate:ctrl_alt_bksp
 
 xset -b
 
 xrdb -merge ~/.Xresources
 
-urxvtd -q -o -f
-
-#emacs daemon?
-
 xbindkeys
+
+xautolock \
+	-time 5 \
+	-locker "i3lock -d -i $BCKG" \
+	-killtime 20 \
+	-killer "systemctl suspend" \
+	&
+
+urxvtd -q -o -f
 
 exec i3
 
