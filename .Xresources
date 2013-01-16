@@ -9,8 +9,10 @@ Xft.lcdfilter: lcddefault
 
 
 ! --[ Rodent ]----------------------------------------------
-!Xcursor.theme: Vanilla-DMZ
-!Xcursor.size:  24
+Xcursor.theme: Vanilla-DMZ
+!Xcursor.theme: Vanilla-DMZ-AA
+!Xcursor.theme: Bluecurve
+Xcursor.size:  24
 
 
 ! --[ URxvt - General ]-------------------------------------
