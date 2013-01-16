@@ -65,7 +65,7 @@ bindsym $mod+0 workspace 0
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
 bindsym $mod+Shift+at move container to workspace 2
-bindsym $mod+Shift+hash move container to workspace 3
+#bindsym $mod+Shift+hash move container to workspace 3
 bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
