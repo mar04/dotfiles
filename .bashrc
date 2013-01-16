@@ -14,8 +14,6 @@ PS1=$PS0
 
 
 PATH=$PATH:/home/mariusz/.local/bin
-#PATH=$PATH:/home/mariusz/.local/android-sdk-linux/tools
-#PATH=$PATH:/home/mariusz/.local/android-sdk-linux/platform-tools
 PATH=$PATH:/mariusz/.local/maple13_installation/bin
 
 
