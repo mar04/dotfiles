@@ -1,14 +1,12 @@
 #
-# ~/.bashrc
+# .bashrc - interactive shell configuration
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# check for interactive
+[[ $- = *i* ]] || return
 
-
-if [ $TERM == "xterm" ]; then
-	TERM="xterm-256color"
-fi
+shopt -s checkwinsize
+shopt -s histappend
 
 
 PS0='\[\e[0;34m\]\u\[\e[0m\]@\h \[\e[0;32m\]\w\[\e[0m\]\[\e[0;34m\] \$\[\e[0m\]'
@@ -34,7 +32,7 @@ fi
 
 # configure xdg-open
 
-#alias startx='startx &> ~/.xlog'
+alias startx='startx &> ~/.xlog ; vlock'
 alias ls="ls -h --color=auto --group-directories-first"
 alias ll="ls -l"
 alias lll="ll -ctr"
