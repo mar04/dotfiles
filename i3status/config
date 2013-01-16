@@ -1,10 +1,10 @@
 general {
         colors = false
-        interval = 1
+        interval = 3
 }
 
-order += "wireless wlan0"
-order += "ethernet eth0"
+order += "wireless wlp2s0"
+order += "ethernet enp1s0"
 order += "volume master"
 order += "battery 0"
 order += "time"
@@ -16,12 +16,12 @@ volume master {
        mixer_idx = 0
 }
 
-wireless wlan0 {
+wireless wlp2s0 {
         format_up = "WiFi: %essid %ip"
         format_down = "W: down"
 }
 
-ethernet eth0 {
+ethernet enp1s0 {
         format_up = "E: %ip"
         format_down = "E: down"
 }
