@@ -3,7 +3,7 @@
 #
 
 PATH=$PATH:/home/mariusz/bin
-PATH=$PATH:/mariusz/.local/maple13_installation/bin
+PATH=$PATH:/home/mariusz/.local/maple13_installation/bin
 
 
 export EDITOR=vim
