@@ -1,0 +1,11 @@
+[user]
+	email = mariusz.libera@gmail.com
+	name = Mariusz Libera
+[color]
+	diff = true
+	grep = true
+	pager = true
+	showbranch = true
+	status = true
+[core]
+	editor = vim

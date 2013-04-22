@@ -1,6 +1,6 @@
 [default]
 ao=alsa
-vo=vaapi
+#vo=vaapi
 af=scaletempo
 font="Droid Sans"
 nolirc=1

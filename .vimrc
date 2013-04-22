@@ -1,12 +1,20 @@
 " Also have a look at :options and :option-list
 " check tags and ft-c-omni and omnifunc
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+runtime bundle/plugin-pathogen/autoload/pathogen.vim
 
 execute pathogen#infect()
 
 " This must be first, because it changes other options as a side effect.
 set nocompatible	" Use Vim defaults (much better!)
+
+
+
+"let g:clang_use_library = 1
+"let g:clang_hl_errors = 1
+
+
+
 set hidden
 set nomodeline
 set nowrap		" do not wrap long lines
@@ -14,17 +22,26 @@ set number		" show line numbers
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 runtime ftplugin/man.vim
-let g:clang_use_library = 1
-let g:clang_hl_errors = 1
 
-
+set foldmethod=syntax
 
 
 
 " SYNTAX ---------------------------------------------------------------------
-colorscheme wombat256mod
+if $TERM == "linux"
+	colorscheme slate
+else
+	colorscheme zenburn
+	set cursorline
+endif
+
+if has('gui_running')
+	set guifont=Ubuntu\ Mono\ 12
+	colorscheme jellybeans
+	set cursorline
+endif
+
 filetype plugin indent on
-set cursorline
 set showmatch
 syntax on
 
@@ -53,12 +70,16 @@ set tabstop=8
 set smarttab
 
 
+
 set textwidth=78
+"set cc=+1
+let &colorcolumn=join(range(79,256),",")
 
 set showmatch
 
 set shiftround
 
+autocmd BufWritePost .vimrc source %
 
 
 set wildmenu
@@ -68,16 +89,22 @@ set sidescroll=5
 if &listchars ==# 'eol:$'
 	set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 	if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
-		let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+		"let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+		let &listchars = "tab:\u25b8 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
 		let &fillchars = "vert:\u259a,fold:\u00b7"
 	endif
 endif
 
-set list
+
+"set list
 
 
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guicursor+=a:blinkon0
 
-
+nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
 
 " ABBREVIATIONS --------------------------------------------------------------
@@ -100,6 +127,7 @@ set backup		" keep a backup file
 "set viewdir=/home/mariusz/.vim/views,.,/tmp
 
 if isdirectory(expand('~/.cache/vim'))
+	set viminfo+=n~/.cache/vim/viminfo
 	if &directory =~# '^\.,'
 		set directory^=~/.cache/vim/swap//
 	endif

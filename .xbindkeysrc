@@ -1,44 +1,40 @@
 
+#"termite"
+#"gnome-terminal"
+#"xterm"
 "urxvtc"
     m:0x40 + c:36
     Mod4 + Return
 
-
-"amixer sset Master 5%+"
+"vol_up"
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
-
-"amixer sset Master 5%-"
+"vol_down"
     m:0x0 + c:122
     XF86AudioLowerVolume
 
-
-"amixer sset Master toggle"
+"vol_tog"
     m:0x40 + c:58
     Mod4 + m
-
 
 #"i3lock -i /home/mariusz/pic/artwork/hardy.png"
 "xautolock -locknow"
     m:0x44 + c:46
     Control+Mod4 + l
 
-
 #"emacs"
 #    m:0x41 + c:32
 #    Mod4 + o
 
-
+#"firefox"
 "chromium"
     m:0x40 + c:54
     Mod4 + c
 
-
-"dmenu_run"
+"dmenu_run -fn "Droid Sans:size=10""
     m:0x40 + c:40
     Mod4 + d
-
 
 # not needed in ArchLinux
 #
