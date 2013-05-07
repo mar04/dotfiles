@@ -24,3 +24,7 @@ alias v="vim"
 
 alias ml='echo "Mariusz Libera <mariusz.libera@gmail.com>"'
 alias ts='echo -n `date +%F` ; echo  "  Mariusz Libera  <mariusz.libera@gmail.com>"'
+
+alias gclean='git clean -d -x -f'
+
+alias pacdump='pacman -Qeq >> ~/doc/pacman_`date +%F`'
