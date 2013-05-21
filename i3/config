@@ -109,6 +109,7 @@ bar {
 	colors {
 	       statusline #888888
 	}
+        #status_command i3status | ~/bin/i3_status_gmail
         status_command i3status
 }
 

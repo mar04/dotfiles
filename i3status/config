@@ -3,6 +3,7 @@ general {
 	interval = 5
 	color_good = "#93d44f"
 	color_bad = "#ff6565"
+	output_format = "i3bar"
 }
 
 order += "wireless wlp2s0"
@@ -21,6 +22,7 @@ ethernet enp1s0 {
 	format_up = "E: %ip"
 	format_down = "E: down"
 	color_bad = "#888888"
+	color_good = "#888888"
 }
 
 volume master {

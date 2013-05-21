@@ -25,6 +25,7 @@ runtime ftplugin/man.vim
 
 set foldmethod=syntax
 
+"set shellcmdflag="-ic'
 
 
 " SYNTAX ---------------------------------------------------------------------
@@ -72,8 +73,9 @@ set smarttab
 
 
 set textwidth=78
-"set cc=+1
-let &colorcolumn=join(range(79,256),",")
+"set colorcolumn=79
+set cc=+1
+"let &colorcolumn=join(range(79,256),",")
 
 set showmatch
 

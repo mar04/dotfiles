@@ -8,7 +8,7 @@ alias cal="cal -m3"
 alias df="df -h"
 alias diff="colordiff"
 alias du="du -h"
-alias e="emacs"
+#alias e="emacs"
 alias free="free -h"
 alias grep="grep --color=auto"
 alias j="jobs"
@@ -22,9 +22,9 @@ alias td="$EDITOR ~/doc/todo/todo"
 alias tree="tree -AC"
 alias v="vim"
 
-alias ml='echo "Mariusz Libera <mariusz.libera@gmail.com>"'
-alias ts='echo -n `date +%F` ; echo  "  Mariusz Libera  <mariusz.libera@gmail.com>"'
+#alias ml='echo "Mariusz Libera <mariusz.libera@gmail.com>"'
+#alias tslog='echo -n `date +%F` ; echo  "  Mariusz Libera  <mariusz.libera@gmail.com>"'
 
 alias gclean='git clean -d -x -f'
 
-alias pacdump='pacman -Qeq >> ~/doc/pacman_`date +%F`'
+#alias pacdump='pacman -Qeq > ~/doc/pacman_`date +%F`'

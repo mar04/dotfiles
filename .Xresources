@@ -20,9 +20,8 @@ xterm*foreground:#eeeeee
 xterm*background:#1F1F1F
 
 ! --[ URxvt ]-----------------------------------------------
-URxvt.background: rgba:2222/2222/2222/eeee
+URxvt.background:#1F1F1F
 URxvt.cursorColor:#83C048
-URxvt.depth: 32
 URxvt.foreground:#eeeeee
 URxvt.highlightColor:#444444
 URxvt.underlinecolor: #999999
