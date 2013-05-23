@@ -1,0 +1,495 @@
+info_begin
+format: 1
+mpd_version: 0.17.4
+fs_charset: UTF-8
+tag: Artist
+tag: ArtistSort
+tag: Album
+tag: AlbumArtist
+tag: AlbumArtistSort
+tag: Title
+tag: Track
+tag: Name
+tag: Genre
+tag: Date
+tag: Composer
+tag: Performer
+tag: Disc
+tag: MUSICBRAINZ_ARTISTID
+tag: MUSICBRAINZ_ALBUMID
+tag: MUSICBRAINZ_ALBUMARTISTID
+tag: MUSICBRAINZ_TRACKID
+info_end
+directory: Grzegorz Ciechowski - Wiedźmin
+mtime: 1354645055
+begin: Grzegorz Ciechowski - Wiedźmin
+song_begin: 01 - Wiedzmin.flac
+Time: 303
+Title: Wiedzmin
+Track: 01
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 02 - Pocalunek Yennefer.flac
+Time: 128
+Title: Pocalunek Yennefer
+Track: 02
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 03 - Zew Wilka.flac
+Time: 175
+Title: Zew Wilka
+Track: 03
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 04 - Pierwsza rada Jaskra.flac
+Time: 49
+Title: Pierwsza rada Jaskra
+Track: 04
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 05 - Oniria.flac
+Time: 130
+Title: Oniria
+Track: 05
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 06 - Lawina.flac
+Time: 127
+Title: Lawina
+Track: 06
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 07 - Sen Yen.flac
+Time: 132
+Title: Sen Yen
+Track: 07
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 08 - Druga rada Jaskra.flac
+Time: 70
+Title: Druga rada Jaskra
+Track: 08
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 09 - Odnajde cie, Ciri.flac
+Time: 312
+Title: Odnajde cie, Ciri
+Track: 09
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 10 - Uciekajcie !.flac
+Time: 45
+Title: Uciekajcie !
+Track: 10
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 11 - Trzecia rada Jaskra.flac
+Time: 43
+Title: Trzecia rada Jaskra
+Track: 11
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 12 - Koniec z banda Renfri.flac
+Time: 126
+Title: Koniec z banda Renfri
+Track: 12
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 13 - Jak gwiazdy nad traktem.flac
+Time: 109
+Title: Jak gwiazdy nad traktem
+Track: 13
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 14 - Smierc Renfri.flac
+Time: 45
+Title: Smierc Renfri
+Track: 14
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 15 - Bajka dla malej driady.flac
+Time: 130
+Title: Bajka dla malej driady
+Track: 15
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 16 - Leczenie ran.flac
+Time: 106
+Title: Leczenie ran
+Track: 16
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 17 - Karczma w Blaviken.flac
+Time: 27
+Title: Karczma w Blaviken
+Track: 17
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 18 - Zapachnialo Jesienia.flac
+Time: 88
+Title: Zapachnialo Jesienia
+Track: 18
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 19 - Ballada dla Yen.flac
+Time: 65
+Title: Ballada dla Yen
+Track: 19
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 20 - Czwarta rada Jaskra.flac
+Time: 127
+Title: Czwarta rada Jaskra
+Track: 20
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 21 - Ratuj, Wiedzminie.flac
+Time: 205
+Title: Ratuj, Wiedzminie
+Track: 21
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+song_begin: 22 - Nie pokonasz milosci.flac
+Time: 223
+Title: Nie pokonasz milosci
+Track: 22
+Album: Wiedzmin
+Artist: Grzegorz Ciechowski
+Genre: Soundtrack
+Date: 2001
+mtime: 1250888860
+song_end
+playlist_begin: Wiedzmin.m3u
+mtime: 1250888864
+playlist_end
+playlist_begin: Wiedzmin.cue
+mtime: 1250705450
+playlist_end
+end: Grzegorz Ciechowski - Wiedźmin
+directory: Ulver - Teaching In Silence 2004
+mtime: 1358361859
+begin: Ulver - Teaching In Silence 2004
+song_begin: 01-ulver-silence_teaches_you_how_to_sing-debt.mp3
+Time: 1445
+Artist: Ulver
+Title: Silence Teaches You How to Sing
+Album: Teaching in Silence
+Track: 1/4
+Date: 2004-03-01
+Genre: Ambient
+mtime: 1308624429
+song_end
+song_begin: 02-ulver-darling_didnt_we_kill_you-debt.mp3
+Time: 531
+Artist: Ulver
+Title: Darling Didn't We Kill You?
+Album: Teaching in Silence
+Track: 2/4
+Date: 2004-03-01
+Genre: Ambient
+mtime: 1308624430
+song_end
+song_begin: 03-ulver-speak_dead_speaker-debt.mp3
+Time: 573
+Artist: Ulver
+Title: Speak Dead Speaker
+Album: Teaching in Silence
+Track: 3/4
+Date: 2004-03-01
+Genre: Ambient
+mtime: 1308624430
+song_end
+song_begin: 04-ulver-not_saved-debt.mp3
+Time: 627
+Artist: Ulver
+Title: Not Saved
+Album: Teaching in Silence
+Track: 4/4
+Date: 2004-03-01
+Genre: Ambient
+mtime: 1308624429
+song_end
+end: Ulver - Teaching In Silence 2004
+directory: playlists
+mtime: 1354640398
+begin: playlists
+playlist_begin: tokfm.pls
+mtime: 1351418952
+playlist_end
+end: playlists
+song_begin: Amy Winehouses Lioness Hidden Treasures LP full album with cue.webm
+Time: 2847
+mtime: 1358881799
+song_end
+song_begin: Dave Stewart & Candy Dulfer - Lily Was Here.webm
+Time: 261
+mtime: 1357434235
+song_end
+song_begin: Elysian Fields ARTE Live Web.webm
+Time: 1685
+mtime: 1368470461
+song_end
+song_begin: Epic Sax Guy [Original] HD - YouTube.webm
+Time: 263
+mtime: 1357435545
+song_end
+song_begin: Eric Clapton The Cream Of Clapton Full Album.webm
+Time: 4504
+mtime: 1358871829
+song_end
+song_begin: Faith No More - Just a man - YouTube.webm
+Time: 335
+mtime: 1357431794
+song_end
+song_begin: Four Seasons Vivaldi.webm
+Time: 2519
+mtime: 1367255469
+song_end
+song_begin: Frank SinatraThe best ofFrank Sinatra collection.webm
+Time: 4542
+mtime: 1361015175
+song_end
+song_begin: Ghost In The Shell Soundtrack.webm
+Time: 2732
+mtime: 1367068735
+song_end
+song_begin: God Is An Astronaut - All Is Violent, All Is Bright.webm
+Time: 3126
+mtime: 1357435130
+song_end
+song_begin: Henry Mancini, _Pink Panther Theme_ - YouTube.webm
+Time: 187
+mtime: 1357436003
+song_end
+song_begin: Jazz Compilation 2012 Part 2.webm
+Time: 4492
+mtime: 1361015214
+song_end
+song_begin: Jazz Compilation 2012.webm
+Time: 3439
+mtime: 1361015139
+song_end
+song_begin: John Coltrane Blue Train Full Albumwmv.webm
+Time: 3557
+mtime: 1358881507
+song_end
+song_begin: Lovage Music To Make Love To Your Old Lady By Full Album.webm
+Time: 3566
+mtime: 1368470172
+song_end
+song_begin: Massive Attack Collected 2006 Full Album.webm
+Time: 4704
+mtime: 1358881982
+song_end
+song_begin: MaxRaabePalastOrchester.flv
+Time: 2603
+mtime: 1368471278
+song_end
+song_begin: Miles Davis Kind Of Blue Full Album Full HD 1080p Jazz HQ Sound 6 Gigabyte Upload.webm
+Time: 3325
+mtime: 1358881456
+song_end
+song_begin: Norah Jones Come Away with Me 2002 Debut Album Full.webm
+Time: 2677
+mtime: 1358881563
+song_end
+song_begin: Norah Jones Feels Like Home 2004 Full Album.webm
+Time: 2739
+mtime: 1358881607
+song_end
+song_begin: Norah Jones Little Broken Hearts LP Full album with cue.webm
+Time: 2768
+mtime: 1358871816
+song_end
+song_begin: Peeping Tom Peeping Tom 2007 Full Album.webm
+Time: 2645
+mtime: 1368470127
+song_end
+song_begin: Pink Floyd The Dark Side of the Moon 1973 Full Album HD 1080p.webm
+Time: 2583
+mtime: 1358602001
+song_end
+song_begin: Pink Panther - Orchestra Theme - YouTube.webm
+Time: 231
+mtime: 1357434185
+song_end
+song_begin: Renegade - CD Version.mp3
+Time: 214
+mtime: 1350812269
+song_end
+song_begin: Richard Cheese Aperitif for Destruction 2005 Full Album HD.webm
+Time: 1983
+mtime: 1364317047
+song_end
+song_begin: Richard Cheese Id Like a Virgin 2004 Full Album HD.webm
+Time: 2307
+mtime: 1364316911
+song_end
+song_begin: Richard Cheese Lounge Against The Machine 2002 Full Album HD.webm
+Time: 2090
+mtime: 1364316887
+song_end
+song_begin: Richard Cheese Ok Bartender 2009 Full Album HD.webm
+Time: 2044
+mtime: 1364316935
+song_end
+song_begin: Richard Cheese Silent Nightclub 2006 Full Album HD.webm
+Time: 1484
+mtime: 1364316958
+song_end
+song_begin: Richard Cheese Tuxicity 2002 Full Album HD.webm
+Time: 2256
+mtime: 1364317030
+song_end
+song_begin: THE VENTURES The Colorful Ventures 1961 full album.webm
+Time: 2017
+mtime: 1365194964
+song_end
+song_begin: THE VENTURES The Ventures 1961 full album.webm
+Time: 1616
+mtime: 1365194932
+song_end
+song_begin: THE VENTURES Walk Dont Run 1960 full album.webm
+Time: 1681
+mtime: 1365194971
+song_end
+song_begin: The Best of John Coltrane.webm
+Time: 2487
+mtime: 1358881520
+song_end
+song_begin: The Ventures Christmas Album Full Album 1965.webm
+Time: 1576
+mtime: 1365194945
+song_end
+song_begin: The sound of rain.flv
+Time: 599
+mtime: 1341877109
+song_end
+song_begin: Tool Aenima 1996 Full Album.webm
+Time: 4683
+mtime: 1361018301
+song_end
+song_begin: Tool LateralusFULL ALBUM HD AND HQ.webm
+Time: 4830
+mtime: 1361018299
+song_end
+song_begin: Vangelis Blade Runner 2002 Esper Edition.webm
+Time: 6766
+mtime: 1367068842
+song_end
+song_begin: Wonderwall jazz version.webm
+Time: 166
+mtime: 1364318544
+song_end
+song_begin: blood_inside.webm
+Time: 2749
+mtime: 1357435044
+song_end
+song_begin: eurythmics the best of full album.webm
+Time: 4791
+mtime: 1358871774
+song_end
+song_begin: old_stars-co_jest_1970.mp4
+Time: 196
+mtime: 1341877353
+song_end
+song_begin: perdition.webm
+Time: 3218
+mtime: 1357434917
+song_end
+song_begin: rain.flv
+Time: 1808
+mtime: 1341877105
+song_end
+song_begin: sting the best of full album.webm
+Time: 4723
+mtime: 1358871749
+song_end
+song_begin: themes_form_william.webm
+Time: 6080
+mtime: 1357434909
+song_end

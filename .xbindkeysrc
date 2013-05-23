@@ -18,8 +18,8 @@
     m:0x40 + c:58
     Mod4 + m
 
-#"i3lock -i /home/mariusz/pic/artwork/hardy.png"
-"xautolock -locknow"
+#"xautolock -locknow"
+"i3lock -i /home/mariusz/pic/artwork/arch_grey.png"
     m:0x44 + c:46
     Control+Mod4 + l
 

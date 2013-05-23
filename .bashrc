@@ -21,4 +21,5 @@ else
 fi
 
 . $HOME/.aliases
+#. $HOME/.functions
 

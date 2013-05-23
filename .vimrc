@@ -111,6 +111,7 @@ nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
 " ABBREVIATIONS --------------------------------------------------------------
 iabbrev ml Mariusz Libera
+iabbrev mtr # Maintainer: Mariusz Libera <mariusz.libera@gmail.com>
 iabbrev cpr © Mariusz Libera
 
 

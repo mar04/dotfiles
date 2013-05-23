@@ -16,11 +16,13 @@ alias ls="ls -h --color=auto --group-directories-first"
 alias ll="ls -l"
 alias lla="ll -A"
 alias m="mplayer"
+alias mpdd="mpd ~/.config/mpd/mpd.conf"
 alias rm="rm -I"
 alias startx='startx &> ~/.cache/xlog ; vlock'
 alias td="$EDITOR ~/doc/todo/todo"
 alias tree="tree -AC"
 alias v="vim"
+alias xrnat="xrandr --output LVDS1 --mode 1366x768"
 
 #alias ml='echo "Mariusz Libera <mariusz.libera@gmail.com>"'
 #alias tslog='echo -n `date +%F` ; echo  "  Mariusz Libera  <mariusz.libera@gmail.com>"'

@@ -23,7 +23,7 @@ setxkbmap \
 	-layout us,pl \
 	-option grp:shifts_toggle \
 	-option ctrl:nocaps \
-	-option compose:lctrl \
+	#-option compose:lctrl \
 	-option terminate:ctrl_alt_bksp
 
 xset -b
@@ -33,16 +33,18 @@ xrdb -merge ~/.Xresources
 
 xbindkeys
 
-xautolock \
-	-time 8 \
-	-locker "i3lock -d -i $BCKG" \
-	&
+#xautolock \
+#	-time 8 \
+#	-locker "i3lock -d -i $BCKG" \
+#	&
 
 # this doesn't seem to work
 	#-killtime 12 \
 	#-killer "systemctl suspend" \
 
 urxvtd -q -o -f
+
+[ ! -s ~/.config/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
 
 #echo 0 > ~/.cache/mail
 gnome-gmail-notifier &
