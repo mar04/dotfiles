@@ -8,8 +8,8 @@ alias cal="cal -m3"
 alias df="df -h"
 alias diff="colordiff"
 alias du="du -h"
-#alias e="emacs"
 alias free="free -h"
+alias gclean='git clean -d -x -f'
 alias grep="grep --color=auto"
 alias j="jobs"
 alias ls="ls -h --color=auto --group-directories-first"
@@ -24,9 +24,3 @@ alias tree="tree -AC"
 alias v="vim"
 alias xrnat="xrandr --output LVDS1 --mode 1366x768"
 
-#alias ml='echo "Mariusz Libera <mariusz.libera@gmail.com>"'
-#alias tslog='echo -n `date +%F` ; echo  "  Mariusz Libera  <mariusz.libera@gmail.com>"'
-
-alias gclean='git clean -d -x -f'
-
-#alias pacdump='pacman -Qeq > ~/doc/pacman_`date +%F`'

@@ -6,5 +6,5 @@ font="Droid Sans"
 nolirc=1
 quiet=1
 nojoystick=1
-heartbeat-cmd="xautolock -resetsaver &>/dev/null"
+#heartbeat-cmd="xautolock -resetsaver &>/dev/null"
 
