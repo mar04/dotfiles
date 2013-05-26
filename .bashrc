@@ -23,3 +23,11 @@ fi
 . $HOME/.aliases
 #. $HOME/.functions
 
+# set terminal window title to the name of executed command
+case "$TERM" in
+	rxvt*|xterm*)
+		set -o functrace
+		trap '[[ $BASH_SOURCE ]] || printf "\e]0;%s\a" "$BASH_COMMAND" >/dev/tty' DEBUG
+		;;
+esac
+

@@ -30,7 +30,7 @@ xbindkeys
 
 
 # DISABLE TURNING OFF SCREEN
-xset dpms force on
+xset -dpms
 xset s off
 
 

@@ -1,10 +1,8 @@
 # font
 font xft: Droid Sans 10
 
-# modifier <super>
+# modifier
 set $mod Mod4
-
-# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # kill focused window
@@ -35,7 +33,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-#bindsym $mod+n layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -77,6 +74,10 @@ bindsym $mod+Shift+asterisk move container to workspace 8
 bindsym $mod+Shift+parenleft move container to workspace 9
 bindsym $mod+Shift+parenright move container to workspace 0
 
+# scratchpad
+bindsym $mod+Y move scratchpad
+bindsym $mod+U scratchpad show
+
 # reload the configuration file
 bindsym $mod+Shift+C reload
 
@@ -86,6 +87,7 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 
+# resize mode
 set $p 1
 set $p1 10
 
@@ -107,48 +109,36 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	colors {
-	       statusline #888888
-	}
-        #status_command i3status | ~/bin/i3_status_gmail
-        status_command i3status
-}
+# upgency hint
+force_display_urgency_hint 500 ms
 
 
-#it's too hard to tell witch window has focus :( 
-#new_window 1pixel
-#except for terminals :) or not...
+# borders
+hide_edge_borders vertical
+bindsym $mod+t border toggle
+
+# config for individual applications
 for_window [class="URxvt"] border 1pixel
 for_window [class="Termite"] border 1pixel
 for_window [class="MPlayer"] border 1pixel
 for_window [class="mplayer2"] border 1pixel
-
 for_window [class="Chromium"] border none
 for_window [class="Firefox"] border none
-#for_window [class="Chromium"] hide_edge_borders both
 #for_window [class="emulator64-arm"] floating enable
-hide_edge_borders vertical
 
-
-bindsym $mod+t border toggle
-bindsym $mod+Y move scratchpad
-bindsym $mod+U scratchpad show
-
-#newer versions of i3 may auto detect that kind of windows as floating
-
-# COLORS
-# class                 border  backgr. text    indicator
+# colors
+# class                 border  backgrd text    indicator
 client.focused          #285577 #285577 #888888 #2e9ef4
 client.focused_inactive #285577 #5f676a #888888 #484e50
 client.unfocused        #285577 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #888888 #900000
 client.background	#1f1f1f
 
-
-force_display_urgency_hint 500 ms
-
+# i3bar
+bar {
+	colors {
+	       statusline #888888
+	}
+        status_command i3status
+}
 

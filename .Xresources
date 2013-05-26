@@ -12,32 +12,30 @@ Xcursor.theme: Vanilla-DMZ
 Xcursor.size:  24
 
 ! --[ Xterm ]-----------------------------------------------
-xterm*renderFont: true
 xterm*faceName: xft:UbuntuMono:size=12
+xterm*termName: xterm-256color
+xterm*saveLines: 4096
 xterm*utf8: true
 xterm*cursorColor: #83C048
-xterm*foreground:#eeeeee
-xterm*background:#1F1F1F
+xterm*background: #1F1F1F
+xterm*foreground: #EEEEEE
 
 ! --[ URxvt ]-----------------------------------------------
-URxvt.background:#1F1F1F
-URxvt.cursorColor:#83C048
-URxvt.foreground:#eeeeee
-URxvt.highlightColor:#444444
+URxvt.cursorColor: #83C048
+URxvt.background: #1F1F1F
+URxvt.foreground: #EEEEEE
+URxvt.highlightColor: #444444
 URxvt.underlinecolor: #999999
-
-URxvt.boldFont: xft:UbuntuMono:size=12:bold
-URxvt.boldItalicFont: xft:UbuntuMono:size=12:bold:italic
+! do not specify italic font - its broken
 URxvt.font: xft:UbuntuMono:size=12
-URxvt.italicFont: xft:UbuntuMono:size=12:italic
 URxvt.letterSpace: -1
 
 URxvt.internalborder: 0
 URxvt.pointerBlank: true
-URxvt.saveLines: 8192
-URxvt.scrollBar:false
-URxvt.scrollTtyKeypress: true
+URxvt.saveLines: 100000
+URxvt.scrollBar: false
 URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
 URxvt.scrollWithBuffer: true
 
 #include "/home/mariusz/.config/xcolors/tango"
