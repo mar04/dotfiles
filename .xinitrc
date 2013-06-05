@@ -3,6 +3,7 @@
 # ~/.xinitrc
 #
 
+# GLOBAL SETTINGS
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	for f in /etc/X11/xinit/xinitrc.d/*; do
 		[ -x "$f" ] && . "$f"
@@ -12,17 +13,17 @@ fi
 
 
 # WALLPAPER
-BCKG="$HOME/pic/artwork/arch_grey.png"
+BCKG="~/pic/artwork/arch_grey.png"
 feh --no-fehbg --bg-fill $BCKG
 
 
-# KEYBOARD
+# KEYBOARD MAP
 setxkbmap \
 	-layout us,pl \
 	-option grp:shifts_toggle \
 	-option ctrl:nocaps \
+	-option terminate:ctrl_alt_bksp \
 	#-option compose:lctrl \
-	-option terminate:ctrl_alt_bksp
 
 
 # KEYBOARD SHORTCUTS
@@ -43,8 +44,9 @@ xrdb -merge ~/.Xresources
 urxvtd -q -o -f
 
 
-# MPD
+# MUSIC
 [ ! -s ~/.config/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
+urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
 
 
 # GMAIL
@@ -52,6 +54,10 @@ killall gnome-keyring-daemon
 gnome-gmail-notifier &
 
 
-# I3
+# RSS
+liferea &
+
+
+# WINDOW MANAGER
 exec i3
 

@@ -112,7 +112,6 @@ bindsym $mod+r mode "resize"
 # upgency hint
 force_display_urgency_hint 500 ms
 
-
 # borders
 hide_edge_borders vertical
 bindsym $mod+t border toggle
@@ -125,6 +124,7 @@ for_window [class="mplayer2"] border 1pixel
 for_window [class="Chromium"] border none
 for_window [class="Firefox"] border none
 #for_window [class="emulator64-arm"] floating enable
+for_window [title="ncmpcpp"] move scratchpad
 
 # colors
 # class                 border  backgrd text    indicator
