@@ -6,6 +6,7 @@ PATH=$PATH:/home/mariusz/bin
 PATH=$PATH:/home/mariusz/.local/maple13_installation/bin
 
 
+export CHTOMIUM_USER_FLAGS="--disk-cache-dir=/dev/null"
 export EDITOR=vim
 export PAGER=less
 export PATH

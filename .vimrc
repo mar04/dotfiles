@@ -23,7 +23,7 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 runtime ftplugin/man.vim
 
-set foldmethod=syntax
+"set foldmethod=syntax
 
 "set shellcmdflag="-ic'
 
@@ -63,10 +63,14 @@ set bs=indent,eol,start	" allow backspacing over everything in insert mode
 
 
 " INDENTATION ----------------------------------------------------------------
-set noexpandtab
-set shiftwidth=8
-set softtabstop=8
-set tabstop=8
+"set noexpandtab
+"set shiftwidth=8
+"set softtabstop=8
+"set tabstop=8
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 set smarttab
 
