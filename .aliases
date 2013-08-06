@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 alias prompt_normal='PS1=$PS0'
 alias prompt_alarm='PS1="$PS0\a"'
@@ -15,10 +15,12 @@ alias j="jobs"
 alias ls="ls -h --color=auto --group-directories-first"
 alias ll="ls -l"
 alias lla="ll -A"
-alias m="mplayer"
+#alias m="mplayer"
 alias mpdd="mpd ~/.config/mpd/mpd.conf"
+alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config"
 alias rm="rm -I"
-alias startx='startx &> ~/.cache/xlog ; vlock'
+#alias startx='startx &> ~/.cache/xlog ; vlock'
+alias startx='startx &>/dev/null ; vlock'
 alias td="$EDITOR ~/doc/notes/todo"
 alias tree="tree -AC"
 alias v="vim"

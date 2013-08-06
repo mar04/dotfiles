@@ -4,15 +4,16 @@
 
 PATH=$PATH:/home/mariusz/bin
 PATH=$PATH:/home/mariusz/.local/maple13_installation/bin
+export PATH
 
 
-export CHTOMIUM_USER_FLAGS="--disk-cache-dir=/dev/null"
+export CHROMIUM_USER_FLAGS="--disk-cache-dir=/dev/null"
 export EDITOR=vim
 export PAGER=less
-export PATH
 export PYTHONOPTIMIZE=2
-#export SDL_AUDIODRIVER="alsa"
+export SDL_AUDIODRIVER="alsa"
 export TERMCMD=urxvtc
+export VDPAU_DRIVER=va_gl
 export VISUAL=$EDITOR
 export WINEARCH=win32
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"

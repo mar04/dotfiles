@@ -39,7 +39,7 @@ urxvtd -q -o -f
 
 # MUSIC
 [ ! -s ~/.config/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
-urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
+#urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
 
 # GMAIL
 killall gnome-keyring-daemon
