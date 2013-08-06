@@ -1,0 +1,50 @@
+mkdir emacs
+rename Learning GNU Emacs.chm
+l
+rename Head First Software Development.pdf
+rename Head First Software Development.rar
+rename Head First Algebra.pdf
+rename Head First C.pdf
+rename Head First HTML and CSS.pdf
+rename Head First HTML and CSS.rar
+rename Begg
+rename Head First Mobile Web.pdf
+rename Head First Mobile Web.rar
+rename Head First jQuery.pdf
+rename Head First jQuery.rar
+rename Head First HTML5 Programming.pdf
+rename Head First HTML5 Programming.rar
+rename Head First Android Development.pdf
+rename Head First Android Development.rar
+rename Head First WordPress.pdf
+rename Head First WordPress.rar
+rename Head First Python.pdf
+rename Head First Python.rar
+rename Head First 2D Geometry.pdf
+rename Head First Networking.pdf
+rename Head First Statistics.pdf
+open_with 
+rename Head First Physics.pdf
+rename compression
+rename information_theory
+rename coding_theory
+bu
+bulkrename 
+rename A Course in Mathematical Statistics.pdf
+rename Introduction to Probability and Statistics for Engineers and Scientists.pdf
+mkdir old
+execute_command chmod -x rem
+terminal 
+open_with zathura
+rename Think Python.pdf
+unzi
+mkdir zsh
+un
+
+open_with unzip
+mkdir rcarousel
+open_with unzip 
+delete 
+open_with gimp
+open_with vim
+open_with mpv
