@@ -7,7 +7,7 @@ mod4 + c
     $BROWSER
 
 mod4 + d
-    i3-dmenu-desktop --dmenu='dmenu -i -fn "Droid Sans:size=10"'
+    j4-dmenu-desktop --dmenu='dmenu -i -fn "Droid Sans:size=10"'
 
 control + mod4 + l
     i3lock -c 1f1f1f
