@@ -19,8 +19,6 @@ mkdir zsh
 un
 open_with unzip
 rename index.
-chmod +x
-chmod 755
 rename index.html
 vim
 open_with gimp
@@ -45,6 +43,8 @@ rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).tar.gz
 terminal 
 chmod 644v
 open_with lowriter
-delete 
 
+chmod +x
+chmod 755
+delete 
 chmod 644
