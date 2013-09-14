@@ -1,29 +1,8 @@
-mkdir emacs
-rename Learning GNU Emacs.chm
-l
-rename Head First Software Development.pdf
-rename Head First Software Development.rar
-rename Head First Algebra.pdf
-rename Head First C.pdf
-rename Head First HTML and CSS.pdf
-rename Head First HTML and CSS.rar
-rename Begg
-rename Head First Mobile Web.pdf
-rename Head First Mobile Web.rar
-rename Head First jQuery.pdf
-rename Head First jQuery.rar
-rename Head First HTML5 Programming.pdf
-rename Head First HTML5 Programming.rar
-rename Head First Android Development.pdf
-rename Head First Android Development.rar
-rename Head First WordPress.pdf
-rename Head First WordPress.rar
 rename Head First Python.pdf
 rename Head First Python.rar
 rename Head First 2D Geometry.pdf
 rename Head First Networking.pdf
 rename Head First Statistics.pdf
-open_with 
 rename Head First Physics.pdf
 rename compression
 rename information_theory
@@ -34,17 +13,38 @@ rename A Course in Mathematical Statistics.pdf
 rename Introduction to Probability and Statistics for Engineers and Scientists.pdf
 mkdir old
 execute_command chmod -x rem
-terminal 
 open_with zathura
 rename Think Python.pdf
-unzi
 mkdir zsh
 un
-
 open_with unzip
-mkdir rcarousel
-open_with unzip 
-delete 
+rename index.
+chmod +x
+chmod 755
+rename index.html
+vim
 open_with gimp
-open_with vim
+rename index.php
 open_with mpv
+ter
+search index
+mkdir design
+rename life
+open_with vim
+mkdir vid
+mkdir muz
+mkdir pub
+search dele
+mkdir read
+chmod -x
+unzi
+open_with 
+rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).gz
+rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).zip
+rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).tar.gz
+terminal 
+chmod 644v
+open_with lowriter
+delete 
+
+chmod 644

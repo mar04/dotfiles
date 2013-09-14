@@ -13,8 +13,8 @@
 #    m:0x41 + c:32
 #    Mod4 + o
 
-#"firefox"
-"chromium"
+#"chromium"
+"firefox"
     m:0x40 + c:54
     Mod4 + c
 
@@ -76,7 +76,7 @@
 # LOCKER
 # ----------------------------------------------------------------------------
 #"xautolock -locknow"
-"i3lock -i /home/mariusz/pic/artwork/arch_grey.png"
+"i3lock -c 1f1f1f"
     m:0x44 + c:46
     Control+Mod4 + l
 

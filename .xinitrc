@@ -16,15 +16,19 @@ fi
 #feh --no-fehbg --bg-fill $BCKG
 
 # KEYBOARD MAP
+# find available options in /usr/share/X11/xkb/rules/base.lst
 setxkbmap \
-	-layout us,pl \
-	-option grp:shifts_toggle \
-	-option ctrl:nocaps \
-	-option terminate:ctrl_alt_bksp \
+    -layout pl \
+    -option shift:both_capslock \
+    -option ctrl:nocaps \
+    -option terminate:ctrl_alt_bksp \
+	#-option grp:shifts_toggle \
 	#-option compose:lctrl \
+	#-layout us,pl \
 
 # KEYBOARD SHORTCUTS
-xbindkeys
+# xbindkeys
+sxhkd &
 
 # DPMS
 xset -dpms
@@ -46,7 +50,10 @@ killall gnome-keyring-daemon
 gnome-gmail-notifier &
 
 # RSS
-liferea &
+#liferea &
+
+# COMPTON
+compton --vsync opengl &
 
 # WINDOW MANAGER
 exec i3
