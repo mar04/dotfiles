@@ -1,11 +1,3 @@
-rename Head First Python.pdf
-rename Head First Python.rar
-rename Head First 2D Geometry.pdf
-rename Head First Networking.pdf
-rename Head First Statistics.pdf
-rename Head First Physics.pdf
-rename compression
-rename information_theory
 rename coding_theory
 bu
 bulkrename 
@@ -40,11 +32,19 @@ open_with
 rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).gz
 rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).zip
 rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).tar.gz
-terminal 
 chmod 644v
 open_with lowriter
 
 chmod +x
 chmod 755
-delete 
 chmod 644
+terminal 
+delete 
+rename 
+rename Metro 2033 - Dmitry Glukhovsky
+rename Metro 2033 - Dmitry Glukhovsky.mobi
+mkdir ebooks
+rename ebks
+rename ebooks
+rename ebxl
+mkdir articles

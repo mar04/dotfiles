@@ -1,9 +1,13 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-gtk-theme-name="Raleigh"
-gtk-icon-theme-name="gnome"
-gtk-font-name="Droid Sans 10"
+gtk-theme-name="Zukitwo"
+gtk-icon-theme-name="Faenza"
+gtk-font-name="Sans 10"
+gtk-cursor-theme-name="Vanilla-DMZ"
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
 gtk-button-images=0
 gtk-menu-images=0
 gtk-enable-event-sounds=0
@@ -12,8 +16,4 @@ gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintslight"
 gtk-xft-rgba="rgb"
-
-style "vimfix" {
-  bg[NORMAL] = "#242424" # this matches my gvim theme 'Normal' bg color.
-}
-widget "vim-main-window.*GtkForm" style "vimfix"
+include "/home/mariusz/.gtkrc-2.0.mine"
