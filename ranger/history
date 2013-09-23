@@ -1,5 +1,3 @@
-rename coding_theory
-bu
 bulkrename 
 rename A Course in Mathematical Statistics.pdf
 rename Introduction to Probability and Statistics for Engineers and Scientists.pdf
@@ -34,12 +32,10 @@ rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).zip
 rename Cisco_Packet_Tracer_6.0.1_for_Linux_(with_tutorials).tar.gz
 chmod 644v
 open_with lowriter
-
 chmod +x
 chmod 755
 chmod 644
 terminal 
-delete 
 rename 
 rename Metro 2033 - Dmitry Glukhovsky
 rename Metro 2033 - Dmitry Glukhovsky.mobi
@@ -48,3 +44,7 @@ rename ebks
 rename ebooks
 rename ebxl
 mkdir articles
+search .conf
+search rang
+
+delete 
