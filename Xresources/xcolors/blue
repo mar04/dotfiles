@@ -1,0 +1,20 @@
+!Theme One
+!*background: [90]#000000
+*foreground: rgb:a8/a8/a8
+*color0:     [90]#000000
+*color1:     rgb:82/5a/7b
+*color2:     rgb:d2/d2/d2
+*color3:     rgb:d1/d1/d1
+*color4:     rgb:41/41/71
+*color5:     rgb:67/32/67
+*color6:     rgb:20/b2/e7
+*color7:     rgb:a8/a8/a8
+*color8:     rgb:54/50/54
+*color9:     rgb:ff/98/d2
+*color10:    rgb:20/b2/e7
+*color11:    rgb:cc/ff/ad
+*color12:    rgb:00/7c/c0
+*color13:    rgb:00/9a/97
+*color14:    rgb:fb/ff/af
+*color15:    rgb:a9/ff/83
+

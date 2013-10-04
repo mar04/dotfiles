@@ -1,4 +1,8 @@
-!!colors ripped from rezza: http://metawire.org/~rezza/index.php
+!============================
+! colors ripped from rezza
+!  http://metawire.org/~rezza/index.php
+!============================
+
 *foreground:     rgb:dd/dd/dd
 *background:     rgb:22/22/22
 !black
@@ -24,6 +28,6 @@
 *color14:        rgb:a1/cd/cd
 !white
 *color7:         rgb:ff/ff/ff
-*color15:        rgb:dd/dd/dd! 
+*color15:        rgb:dd/dd/dd
 
-!# vim: syn=xdefaults et sw=2
+! vim: ai:si:et:ts=4:sw=4:ft=xdefaults:

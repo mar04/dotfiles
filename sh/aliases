@@ -6,24 +6,34 @@ alias prompt_status='PS1="$PS8"'
 
 alias cal="cal -m3"
 alias cmount="mount | column -t"
-alias df="df -h"
+alias cls="ls++"
+alias clsa="ls++ -A --group-directories-first"
+alias df="df -hT"
+alias dfl="df -hTl --exclude-type=tmpfs --exclude-type=devtmpfs"
 alias diff="colordiff"
 alias du="du -h"
+alias e="emacs"
+alias ebv="ebook-viewer"
+alias fbr="FBReader"
 alias free="free -h"
-alias gclean='git clean -d -x -f'
+alias gclean="git clean -d -x -f"
 alias grep="grep --color=auto"
+alias h="history"
 alias j="jobs"
 alias ls="ls -h --color=auto --group-directories-first"
-alias ll="ls -l"
-alias lla="ll -A"
+alias ll="ls -hl --color=auto --group-directories-first"
+alias lla="ls -hlA --color=auto --group-directories-first"
 #alias m="mplayer"
 alias mpdd="mpd ~/.config/mpd/mpd.conf"
 alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config"
 alias rm="rm -I"
 #alias startx='startx &> ~/.cache/xlog ; vlock'
-alias startx='startx &>/dev/null ; vlock'
+alias startx="startx &>/dev/null ; vlock"
 alias td="$EDITOR ~/doc/notes/todo"
 alias tree="tree -AC"
 alias v="vim"
 alias xrnat="xrandr --output LVDS1 --mode 1366x768"
 
+#alias nocomment='grep -Ev '\''^(#|$)'\'''
+# using rsync to copy files with progressbar
+#alias cpsync="rsync --stats --progress -ravzhE"

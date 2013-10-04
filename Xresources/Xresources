@@ -26,7 +26,7 @@ URxvt.background: #1F1F1F
 URxvt.foreground: #EEEEEE
 URxvt.highlightColor: #444444
 URxvt.underlinecolor: #999999
-! do not specify italic font - its broken
+! do not specify italic font - its broken, urxvt will make italic automatically
 URxvt.font: xft:UbuntuMono:size=12
 URxvt.letterSpace: -1
 
@@ -38,7 +38,7 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollTtyKeypress: true
 URxvt.scrollWithBuffer: true
 
-#include "/home/mariusz/.config/xcolors/tango"
+#include "xcolors/tango"
 
 ! --[ URxvt - URL/Clipboard Handling ]----------------------
 !URxvt.perl-ext-common:      default,url-select,keyboard-select

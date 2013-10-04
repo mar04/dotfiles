@@ -27,7 +27,6 @@ setxkbmap \
 	#-layout us,pl \
 
 # KEYBOARD SHORTCUTS
-# xbindkeys
 sxhkd &
 
 # DPMS
@@ -38,11 +37,11 @@ xset s off
 xset -b
 
 # URXVT
-xrdb -merge ~/.Xresources
+xrdb -merge ~/.config/Xresources/Xresources
 urxvtd -q -o -f
 
 # MUSIC
-[ ! -s ~/.config/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
+#[ ! -s ~/.config/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
 #urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
 
 # GMAIL
