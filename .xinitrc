@@ -16,15 +16,15 @@ fi
 #feh --no-fehbg --bg-fill $BCKG
 
 # KEYBOARD MAP
-# find available options in /usr/share/X11/xkb/rules/base.lst
+# available options are in /usr/share/X11/xkb/rules/base.lst
 setxkbmap \
     -layout pl \
     -option shift:both_capslock \
     -option ctrl:nocaps \
     -option terminate:ctrl_alt_bksp \
-	#-option grp:shifts_toggle \
 	#-option compose:lctrl \
-	#-layout us,pl \
+	#-option grp:shifts_toggle \
+	#-layout us,pl
 
 # KEYBOARD SHORTCUTS
 sxhkd &
@@ -36,8 +36,10 @@ xset s off
 # BELL
 xset -b
 
-# URXVT
+# X RESOURCES
 xrdb -merge ~/.config/Xresources/Xresources
+
+# URXVT DAEMON
 urxvtd -q -o -f
 
 # MUSIC
@@ -51,8 +53,12 @@ gnome-gmail-notifier &
 # RSS
 #liferea &
 
-# COMPTON
-compton --vsync opengl &
+# COMPOSITOR
+compton \
+    --backend glx \
+    --vsync opengl \
+    &
+#    --inactive-dim 0.3 \
 
 # WINDOW MANAGER
 exec i3

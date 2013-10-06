@@ -1,0 +1,7 @@
+xterm*faceName: xft:UbuntuMono:size=12
+xterm*termName: xterm-256color
+xterm*saveLines: 4096
+xterm*utf8: true
+xterm*cursorColor: #83C048
+xterm*background: #1F1F1F
+xterm*foreground: #EEEEEE

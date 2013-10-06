@@ -12,40 +12,11 @@ Xcursor.theme: Vanilla-DMZ
 Xcursor.size:  24
 
 ! --[ Xterm ]-----------------------------------------------
-xterm*faceName: xft:UbuntuMono:size=12
-xterm*termName: xterm-256color
-xterm*saveLines: 4096
-xterm*utf8: true
-xterm*cursorColor: #83C048
-xterm*background: #1F1F1F
-xterm*foreground: #EEEEEE
+!#include "urxvt"
 
 ! --[ URxvt ]-----------------------------------------------
-URxvt.cursorColor: #83C048
-URxvt.background: #1F1F1F
-URxvt.foreground: #EEEEEE
-URxvt.highlightColor: #444444
-URxvt.underlinecolor: #999999
-! do not specify italic font - its broken, urxvt will make italic automatically
-URxvt.font: xft:UbuntuMono:size=12
-URxvt.letterSpace: -1
+#include "urxvt"
 
-URxvt.internalborder: 0
-URxvt.pointerBlank: true
-URxvt.saveLines: 100000
-URxvt.scrollBar: false
-URxvt.scrollTtyOutput: false
-URxvt.scrollTtyKeypress: true
-URxvt.scrollWithBuffer: true
-
+! --[ Colors ]----------------------------------------------
 #include "xcolors/tango"
-
-! --[ URxvt - URL/Clipboard Handling ]----------------------
-!URxvt.perl-ext-common:      default,url-select,keyboard-select
-!URxvt.keysym.M-u:           perl:url-select:select_next
-!URxvt.url-select.launcher:  chromium
-!URxvt.url-select.underline: true
-!URxvt.colorUL: #4682B4
-!URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-!URxvt.keysym.M-s:           perl:keyboard-select:search
 
