@@ -12,7 +12,7 @@ Xcursor.theme: Vanilla-DMZ
 Xcursor.size:  24
 
 ! --[ Xterm ]-----------------------------------------------
-!#include "urxvt"
+!#include "xterm"
 
 ! --[ URxvt ]-----------------------------------------------
 #include "urxvt"

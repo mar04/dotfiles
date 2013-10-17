@@ -12,6 +12,9 @@ mod4 + d
 control + mod4 + l
     i3lock -c 1f1f1f
 
+mod4 + Delete
+    xkill
+
 # MPD ------------------------------------------------------------------------
 
 XF86AudioPlay

@@ -47,18 +47,22 @@ urxvtd -q -o -f
 #urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
 
 # GMAIL
-killall gnome-keyring-daemon
-gnome-gmail-notifier &
+#killall gnome-keyring-daemon
+#gnome-gmail-notifier &
+gmailchecker -c ~/.config/gmailchecker/config -b
 
 # RSS
 #liferea &
+#canto-daemon -D ~/.config/canto-ng &
 
 # COMPOSITOR
 compton \
     --backend glx \
+    --glx-no-stencil \
     --vsync opengl \
+    --inactive-dim 0.4 \
+    --use-ewmh-active-win \
     &
-#    --inactive-dim 0.3 \
 
 # WINDOW MANAGER
 exec i3

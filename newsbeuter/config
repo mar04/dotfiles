@@ -1,0 +1,24 @@
+include ~/.config/newsbeuter/colors
+include ~/.config/newsbeuter/keybindings
+
+# article-sort-order date
+articlelist-format "%-76t %>  %D"
+auto-reload no
+browser "firefox %u"
+confirm-exit no
+feedlist-format "%t %> %U"
+goto-first-unread no
+goto-next-feed no
+html-renderer internal
+keep-articles-days 0
+mark-as-read-on-hover no
+max-items 0
+pager internal
+refresh-on-startup yes
+reload-only-visible-feeds yes
+reload-threads 5
+save-path ~/doc/articles
+show-keymap-hint no
+show-read-feeds yes
+show-read-articles yes
+
