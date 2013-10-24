@@ -1,0 +1,22 @@
+#color <element> <foreground> <background> [<attribute> ...]
+
+color article color188 color237
+color background color33 color237
+color info color144 color234
+color listfocus color108 color236 standout
+color listfocus_unread color108 color236 standout bold
+color listnormal color188 color237
+color listnormal_unread color108 color237 bold
+
+
+# ATTRIBUTES
+#standout underline reverse blink dim bold protect invis
+
+# DEFAULT COLORS
+#background          white   black
+#listnormal          white   black
+#listfocus           yellow  blue   bold
+#listnormal_unread   magenta black
+#listfocus_unread    magenta blue   bold
+#info                yellow  blue   bold
+#article             white   black

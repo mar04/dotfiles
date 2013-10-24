@@ -270,6 +270,17 @@ endif
 "set ignorecase " ignore case when searching
 "set smartcase  " ... except when search pattern contains an uppercase char
 
+" vim -b : edit binary using xxd-format!
+augroup Binary
+    au!
+    au BufReadPre  *.o let &bin=1
+    au BufReadPost *.o if &bin | %!xxd
+    au BufReadPost *.o set ft=xxd | endif
+    au BufWritePre *.o if &bin | %!xxd -r
+    au BufWritePre *.o endif
+    au BufWritePost *.o if &bin | %!xxd
+    au BufWritePost *.o set nomod | endif
+augroup END
 
 nnoremap Y y$
 
