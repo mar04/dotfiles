@@ -28,5 +28,5 @@ bind-key j down
 
 bind-key i macro-prefix
 
-macro i set browser "w3m %u" ; open-in-browser ; set browser "firefox %u"
-macro d set browser "urxvtc -e mpv %u" ; open-in-browser ; set browser "firefox %u"
+macro i set browser "w3m %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+macro d set browser "urxvtc -e mpv %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"

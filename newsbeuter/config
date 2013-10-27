@@ -3,7 +3,7 @@ include ~/.config/newsbeuter/keybindings
 
 # article-sort-order date
 articlelist-format "%-76t %>  %D"
-auto-reload no
+auto-reload yes
 browser "firefox %u"
 confirm-exit no
 feedlist-format "%t %> %U"
@@ -14,8 +14,9 @@ keep-articles-days 0
 mark-as-read-on-hover no
 max-items 0
 pager internal
-refresh-on-startup yes
+#refresh-on-startup yes
 reload-only-visible-feeds yes
+reload-time 30
 reload-threads 5
 save-path ~/doc/articles
 show-keymap-hint no

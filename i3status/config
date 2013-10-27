@@ -1,7 +1,7 @@
 general {
 	colors = true
 	interval = 5
-	color_good = "#93d44f"
+	color_good = "#4e9a06"
 	color_bad = "#ff6565"
 	output_format = "i3bar"
 }
@@ -13,27 +13,27 @@ order += "battery 1"
 order += "time"
 
 wireless wlp2s0 {
-	format_up = "W: %essid"
-	format_down = "W: down"
+	format_up = "📶 %essid"
+	format_down = "down"
 	color_bad = "#888888"
 }
 
 ethernet enp1s0 {
-	format_up = "E: %ip"
-	format_down = "E: down"
+	format_up = "🔄 %ip"
+	format_down = "down"
 	color_bad = "#888888"
 	color_good = "#888888"
 }
 
 volume master {
-	format = "♪: %volume"
+	format = "🔊 %volume"
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
 }
 
 battery 1 {
-	format = "%status %percentage"
+	format = "📋 %percentage"
 	path = "/sys/class/power_supply/BAT%d/uevent"
 	low_threshold = 10
 	threshold_type = "percentage"

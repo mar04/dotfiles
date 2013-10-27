@@ -19,7 +19,8 @@ URxvt.font: \
     xft:UbuntuMono:size=12,\
     xft:DejaVuSansMono:size=10,\
     xft:DroidSansMono:size=10,\
-    xft:Inconsolata:size=12
+    xft:Inconsolata:size=12, \
+    xft:Symbola:size=8, \
 
 ! needed to fix font spacing
 URxvt.letterSpace: -1

@@ -1,5 +1,5 @@
 # font
-font xft: Droid Sans 10
+font xft: Droid Sans Bold 10
 
 # modifier
 set $mod Mod4
@@ -116,6 +116,7 @@ bindsym $mod+r mode "resize"
 force_display_urgency_hint 500 ms
 
 # borders
+#new_window none
 hide_edge_borders vertical
 bindsym $mod+t border toggle
 
@@ -129,7 +130,7 @@ for_window [class="Chromium"] border none
 for_window [class="Firefox"] border none
 for_window [class="emulator64-arm"] floating enable
 for_window [class="Unibrow"] floating enable
-for_window [title="ncmpcpp"] move scratchpad
+#for_window [title="ncmpcpp"] move scratchpad
 
 # colors
 # class                 border  backgrd text    indicator
