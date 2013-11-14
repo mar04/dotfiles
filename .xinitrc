@@ -45,6 +45,7 @@ urxvtd -q -o -f
 #urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
 
 # GMAIL
+killall gmailchecker
 gmailchecker -c ~/.config/gmailchecker/config -b
 
 # RSS

@@ -9,7 +9,7 @@ export PATH
 
 export BROWSER="firefox"
 #export CHROMIUM_USER_FLAGS="--disk-cache-dir=/dev/null"
-export CMUS_HOME="$HOME/.config/cmus"
+#export CMUS_HOME="$HOME/.config/cmus"
 export EDITOR="vim"
 export HISTFILE="$HOME/.cache/sh/history"
 export INPUTRC="$HOME/.config/sh/inputrc"

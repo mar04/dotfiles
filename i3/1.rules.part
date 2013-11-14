@@ -1,0 +1,13 @@
+# RULES ----------------------------------------------------------------------
+for_window [class="URxvt"] border 1pixel
+for_window [class="Termite"] border 1pixel
+for_window [class="MPlayer"] border 1pixel
+for_window [class="mplayer2"] border 1pixel
+for_window [class="mpv"] border 1pixel
+for_window [class="Chromium"] border none
+for_window [class="Firefox"] border none
+for_window [class="emulator64-arm"] floating enable
+for_window [class="Unibrow"] floating enable
+#for_window [title="ncmpcpp"] move scratchpad
+
+
