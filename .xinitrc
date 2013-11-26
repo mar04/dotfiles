@@ -12,18 +12,24 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # KEYBOARD MAP
-# available options are in /usr/share/X11/xkb/rules/base.lst
+# available options are in /usr/share/X11/xkb/rules/evdev.lst
 setxkbmap \
     -layout pl \
-    -option shift:both_capslock \
     -option ctrl:nocaps \
-    -option terminate:ctrl_alt_bksp \
-    #-option compose:lctrl \
-    #-option grp:shifts_toggle \
-    #-layout us,pl
+    -option lv3:ralt_alt \
+    -option compose:lctrl \
+    -option lv3:menu_switch \
+    -option shift:both_capslock \
+    -option terminate:ctrl_alt_bksp
+
+# MAP LEFT CTRL TO ESCAPE ON RELEASE
+xcape
 
 # KEYBOARD SHORTCUTS
 sxhkd &
+
+# KEY REPEAT
+xset r rate 250 30
 
 # DPMS
 xset -dpms
@@ -48,17 +54,14 @@ urxvtd -q -o -f
 killall gmailchecker
 gmailchecker -c ~/.config/gmailchecker/config -b
 
-# RSS
-
 # COMPOSITOR
 compton \
     --backend glx \
-    --glx-no-stencil \
     --vsync opengl \
+    --glx-no-stencil \
     --inactive-dim 0.4 \
     --use-ewmh-active-win \
     &
 
 # WINDOW MANAGER
 exec i3
-

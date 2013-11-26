@@ -1,0 +1,6 @@
+open_with gimp
+search impa
+search .vim
+search undo
+term
+terminal 

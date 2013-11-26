@@ -87,8 +87,9 @@ if has('gui_running')
     set guicursor+=a:blinkon0
 	set guifont=Ubuntu\ Mono\ 12
 	set cursorline
-	colorscheme jellybeans
 endif
+set background=dark
+colorscheme gruvbox
 
 filetype plugin indent on
 set showmatch
@@ -180,11 +181,6 @@ iabbrev ml Mariusz Libera
 iabbrev mtr # Maintainer: Mariusz Libera <mariusz.libera@gmail.com>
 iabbrev cpr © Mariusz Libera
 
-" Let Control-S be 'save' as it is in most other editors
-" Thanks Leo for the tip :)
-map <C-s> :w<CR>
-imap <C-s> <C-o>:w<CR>
-
 " source: http://vim.wikia.com/wiki/VimTip102
 " Let <Tab> do all the autocompletion
 "function! Smart_TabComplete()
@@ -208,7 +204,7 @@ imap <C-s> <C-o>:w<CR>
 
 set autoread
 
-" Load matchit.vim, but only if the user hasn't installed a newer version.             
+" Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp)
 	runtime! macros/matchit.vim
 endif
