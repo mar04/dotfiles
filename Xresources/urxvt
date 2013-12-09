@@ -1,9 +1,10 @@
+! comment out to leave it to colorscheme
 ! colors
 URxvt.cursorColor: #83C048
 URxvt.background: #1F1F1F
 URxvt.foreground: #EEEEEE
 URxvt.highlightColor: #444444
-URxvt.underlinecolor: #999999
+URxvt.underlineColor: #999999
 URxvt.colorUL: #4682B4
 
 ! scrollback

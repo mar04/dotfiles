@@ -1,14 +1,10 @@
-# FONT -----------------------------------------------------------------------
+# FONT -------------------------------------------------------------------{{{1
 font xft: Droid Sans Bold 10
-
-# UPGENCY HINT ---------------------------------------------------------------
+# UPGENCY HINT -----------------------------------------------------------{{{1
 force_display_urgency_hint 500 ms
-
-# BORDERS --------------------------------------------------------------------
+# BORDERS ----------------------------------------------------------------{{{1
 hide_edge_borders vertical
-
-
-# RULES ----------------------------------------------------------------------
+# RULES ------------------------------------------------------------------{{{1
 for_window [class="URxvt"] border 1pixel
 for_window [class="Emacs"] border 1pixel
 for_window [class="Termite"] border 1pixel
@@ -20,42 +16,35 @@ for_window [class="Firefox"] border none
 for_window [class="emulator64-arm"] floating enable
 for_window [class="Unibrow"] floating enable
 #for_window [title="ncmpcpp"] move scratchpad
-
-
-# I3BAR ----------------------------------------------------------------------
+assign [instance="newsbeuter"] → "1:rss"
+assign [class="Firefox"] → "2:www"
+assign [instance="vim_"] → "3:vim"
+assign [instance="ncmpcpp"] → "9:music"
+# I3BAR ------------------------------------------------------------------{{{1
 bar {
     colors {
         statusline #888888
     }
     status_command i3status
 }
-
-
-# COLORS ---------------------------------------------------------------------
+# COLORS -----------------------------------------------------------------{{{1
 # class                 border  backgrd text    indicator
 client.focused          #285577 #285577 #888888 #2e9ef4
 client.focused_inactive #285577 #5f676a #888888 #484e50
 client.unfocused        #285577 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #888888 #900000
 client.background       #1f1f1f
-
-
-# KEYBOARD -------------------------------------------------------------------
-
+# KEYBOARD ---------------------------------------------------------------{{{1
 # modifier
 set $mod Mod4
 floating_modifier $mod
-
 # border
 bindsym $mod+t border toggle
-
 # i3
 bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exit
-
-
-# ACTIONS --------------------------------------------------------------------
+# ACTIONS ----------------------------------------------------------------{{{2
 
 bindsym $mod+Q kill
 bindsym $mod+f fullscreen
@@ -69,9 +58,7 @@ bindsym $mod+Shift+H move left
 bindsym $mod+Shift+J move down
 bindsym $mod+Shift+K move up
 bindsym $mod+Shift+L move right
-
-
-# FOCUS ----------------------------------------------------------------------
+# FOCUS ------------------------------------------------------------------{{{2
 
 # change focus
 bindsym $mod+h focus left
@@ -84,9 +71,7 @@ bindsym $mod+a focus parent
 
 # float
 bindsym $mod+space focus mode_toggle
-
-
-# LAYOUT ---------------------------------------------------------------------
+# LAYOUT -----------------------------------------------------------------{{{2
 
 # horizontal split '|'
 bindcode $mod+Shift+51 split h
@@ -98,13 +83,12 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
-
-
-# WORKSPACES -----------------------------------------------------------------
+# WORKSPACES -------------------------------------------------------------{{{2
 
 # next / prev workspace
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
+bindsym $mod+Tab workspace back_and_forth
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -132,9 +116,7 @@ bindsym $mod+Shift+parenright  move container to workspace number 0
 
 # rename workspace
 bindsym $mod+v exec i3-input -F 'rename workspace to %s' -P 'New name: '
-
-
-# MODES ----------------------------------------------------------------------
+# MODES ------------------------------------------------------------------{{{1
 set $p 1
 set $p1 10
 
@@ -155,3 +137,5 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+#}}}1
+# vim:tw=78 fdm=marker fdc=3 fdl=0

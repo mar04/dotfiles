@@ -16,9 +16,7 @@ fi
 setxkbmap \
     -layout pl \
     -option ctrl:nocaps \
-    -option lv3:ralt_alt \
     -option compose:lctrl \
-    -option lv3:menu_switch \
     -option shift:both_capslock \
     -option terminate:ctrl_alt_bksp
 
@@ -48,11 +46,20 @@ urxvtd -q -o -f
 
 # MUSIC
 [ ! -s ~/.cache/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
-#urxvtc -e ncmpcpp --config ~/.config/ncmpcpp/config &
+urxvtc -name ncmpcpp -e ncmpcpp --config ~/.config/ncmpcpp/config &
 
 # GMAIL
 killall gmailchecker
 gmailchecker -c ~/.config/gmailchecker/config -b
+
+# RSS
+urxvtc -name newsbeuter -e newsbeuter &
+
+# WWW
+firefox &
+
+# VIM
+urxvtc -name vim_ -e vim &
 
 # COMPOSITOR
 compton \

@@ -1,6 +1,49 @@
 open_with gimp
 search impa
+search conf
+search sh
+rename bash
+search .dot
+rename .emacs
+search vim
+search emac
+search surr
+search nerd
+search /.vim
+search 
+open_with dtrx
+open_with wine
+open_with 
+c
+mkdir c
+search you
+search code
 search .vim
 search undo
 term
+mkdir oj
+rename dotfiles-falconindy
+search emacs
+search seed
+search speed
+search obsess
+mkdir FUTURE
+search rails
+search comment
+search tcomm
+search prett
+mkdir plugin
+mkdir doc
+mkdir proton
+mkdir color
+mk
+rename pyte
+rename colors
+search youcom
+open_with vim
+
+vim
+term;term
 terminal 
+search .cach
+search sensi

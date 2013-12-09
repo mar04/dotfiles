@@ -18,5 +18,5 @@ Xcursor.size:  24
 #include "urxvt"
 
 ! --[ Colors ]----------------------------------------------
-#include "xcolors/tango"
+#include "./xcolors/tango"
 

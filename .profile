@@ -27,3 +27,4 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 # SHELL ----------------------------------------------------------------------
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+# vim: tw=78 cc=+1

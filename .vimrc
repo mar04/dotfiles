@@ -1,45 +1,242 @@
-" Also have a look at :options and :option-list
-" check tags and ft-c-omni and omnifunc
-
-runtime bundle/plugin-pathogen/autoload/pathogen.vim
-
+" PATHOGEN ---------------------------------------------------------------{{{1
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+"}}}1
+" OPTIONS ----------------------------------------------------------------{{{1
+set nocompatible
+filetype plugin indent on
 
-" This must be first, because it changes other options as a side effect.
-set nocompatible	" Use Vim defaults (much better!)
+set autoread
+set backspace=indent,eol,start
+set hidden
+set linebreak
+"set shellcmdflag=-ic           " fucks up vimdiff for whatever reason
+set splitbelow
+set splitright
+set tabpagemax=50
+"set textwidth=78
 
+" directories ------------------------------------------------------------{{{2
+set backupdir=~/.local/share/vim/backup/
+set directory=~/.local/share/vim/swap/
+set undodir=~/.local/share/vim/undo/
+set viewdir=~/.local/share/vim/views/
+set viminfo+=n~/.local/share/vim/viminfo
+"}}}2
+" colorscheme and sytax --------------------------------------------------{{{2
+if $TERM == "linux" && !has('gui_running')
+    colorscheme slate
+else
+    set background=dark
+    colorscheme gruvbox
+endif
 
+" goes after colorscheme
+syntax on
+"}}}2
+" cursor -----------------------------------------------------------------{{{2
+" change cursor shape and color in different modes
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+" Recent versions of xterm (282 or above) also support
+" 5 -> blinking vertical bar
+" 6 -> solid vertical bar
+if &term =~ 'xterm\|rxvt'
+    " use a red blinking block cursor in insert mode
+    let &t_SI = "\<Esc>]12;red\x7"
+    let &t_SI .= "\<Esc>[1 q"
+    " use a green nonblinking block cursor otherwise
+    let &t_EI = "\<Esc>]12;#fabd2f\x7"
+    let &t_EI .= "\<Esc>[2 q"
+endif
+"}}}2
+" gui  -------------------------------------------------------------------{{{2
+set guifont=Ubuntu\ Mono\ 12
+set guioptions=ace
+"}}}2
+" history ----------------------------------------------------------------{{{2
+set backup
+set history=50
+set undofile
+"}}}2
+" indentation ------------------------------------------------------------{{{2
+set expandtab                   " only spaces
+set shiftwidth=4                " number of spaces
+set softtabstop=-1              " edit sw of spaces like a single tab
+set autoindent                  " keep indentation from previous line
+set smartindent                 " on ocasions do smarter indentation
+"}}}2
+" search -----------------------------------------------------------------{{{2
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+"}}}2
+" show whitespace --------------------------------------------------------{{{2
+"set list
+if &listchars ==# 'eol:$'
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+    if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+        let &listchars = "tab:\u25b8 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+        let &fillchars = "vert:\u259a,fold:\u00b7"
+    endif
+endif
+"}}}2
+" ui ---------------------------------------------------------------------{{{2
+"set colorcolumn=+1
+set laststatus=2
+set matchtime=3
+set mouse=a
+set number
+set relativenumber
+set ruler
+set showcmd
+set showmatch
+set showmode
+"}}}2
+" wildmenu ---------------------------------------------------------------{{{2
+set wildmenu
+set wildmode=longest:full,full
 
-"let g:clang_use_library = 1
-"let g:clang_hl_errors = 1
+" Suffixes that get lower priority when doing tab completion for filenames.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+"}}}2
+"}}}1
+" PLUGINS ---------------------------------------------------------------{{{1
+" man -------------------------------------------------------------------{{{2
+runtime ftplugin/man.vim
+"}}}2
+"let g:sneak#streak=1
+"let g:seank#use_ic_scs=1
+" }}}2
+" syntastic -------------------------------------------------------------{{{2
+let g:syntastic_check_on_open=1
+let g:syntastic_error_symbol='✗✗'
+let g:syntastic_warning_symbol='!!'
+let g:syntastic_style_error_symbol='✎✗'
+let g:syntastic_style_warning_symbol='✎!'
+"}}}2
+" yankstack --------------------------------------------------------------{{{2
+let g:yankstack_map_keys=0
+call yankstack#setup()
+"}}}2
+"}}}1
+" MAPPINGS ---------------------------------------------------------------{{{1
+" yankstack --------------------------------------------------------------{{{2
+" must go before any mappings involving y, d, c
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
+"}}}2
+" readline  --------------------------------------------------------------{{{2
+" some readline/emacs like keybindings missing from rsi plugin
+inoremap <C-_> <C-o>u
+inoremap <C-k> <C-o>D
+cnoremap <C-k> <C-f>D<C-c>
+"}}}2
+" f1-12  -----------------------------------------------------------------{{{2
+noremap <F2> :call CharTillTw("-")<CR>
+inoremap <F2> <Esc>:call CharTillTw("-")<CR>
+"TODO: autoclose is buggy - backspace and delete does not work as advertised -
+"report it
+nnoremap <F4> :AutoCloseToggle<CR>
+nnoremap <F5> :UndotreeToggle<CR>
+"}}}2
 
-"let g:netrw_http_xcmd='-source >'
-"let g:Tlist_Sort_Type='name'
-"let g:Tlist_Auto_Highlight_Tag=1
-"let g:Tlist_Display_Prototype=0
-"let g:Tlist_Display_Tag_Scope=1
-"let g:Tlist_Compact_Format=0
-"let g:Tlist_Use_Right_Window=0
-"let g:Tlist_Exit_OnlyWindow=1
-"let g:Tlist_Show_One_File=1
-"let g:Tlist_WinWidth=40
-"let g:Tlist_Enable_Fold_Column=0
-"let g:C_CFlags = "-Wall"
-"
-"let g:NERDTreeChDirMode=0
-"let g:NERDTreeWinSize=40
-""0=right/bottom 1=top/left
-"let g:NERDTreeWinPos="right"
-"let g:bufExplorerUseCurrentWindow=1
-"
-"let tlist_d_settings='c++;d:macro;g:enum;s:struct;u:union;t:typedef;v:variable;f:function;c:class;T:template;p:abstract;X:mixin;m:member;M:module'
-"let tlist_htmljinja_settings='html;a:anchor;f:javascript function'
-"
-"runtime plugin/taglist.vim
-"runtime plugin/themes.vim
-"runtime plugin/bufexplorer.vim
-"runtime plugin/a.vim
+noremap Y y$
+noremap Q gq
+nnoremap <C-l> :nohlsearch<CR>
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 
+"let mapleader = ","
+"let g:mapleader = ","
+
+":%s/\s\+$// - trim whitespace from end of lines
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+              \ | wincmd p | diffthis
+endif
+
+"}}}1
+" FUNCTIONS --------------------------------------------------------------{{{1
+" CharTillTw -------------------------------------------------------------{{{2
+"if !exists("CharTillTw")
+    function! CharTillTw(char)
+        if virtcol("$") < &tw
+            execute "normal A \<Esc>"
+        else
+            return
+        endif
+        execute "normal" . (&tw - virtcol("$") + 1) . "A" . a:char . "\<Esc>"
+    endfunction
+"endif
+"}}}2
+"}}}1
+" AUTOCOMMANDS -----------------------------------------------------------{{{1
+" vimrcEx  ---------------------------------------------------------------{{{2
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
+    au!
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " position when opening a file.
+    autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+augroup END
+"}}}2
+" binary  ----------------------------------------------------------------{{{2
+" TODO: autodetect binary?
+" vim -b : edit binary using xxd-format!
+augroup Binary
+    au!
+    au BufReadPre  *.o let &bin=1
+    au BufReadPost *.o if &bin | %!xxd
+    au BufReadPost *.o set ft=xxd | endif
+    au BufWritePre *.o if &bin | %!xxd -r
+    au BufWritePre *.o endif
+    au BufWritePost *.o if &bin | %!xxd
+    au BufWritePost *.o set nomod | endif
+augroup END
+"}}}2
+"}}}1
+" ABBREVIATIONS ----------------------------------------------------------{{{1
+iabbrev ml Mariusz Libera
+iabbrev mtr # Maintainer: Mariusz Libera <mariusz.libera@gmail.com>
+iabbrev cpr © Mariusz Libera
+"}}}1
+" TODO -------------------------------------------------------------------{{{1
+"TODO: run bash commands in interactive mode - so aliases and functions and
+"everything else works as expected
+"TODO: efficient tabs and buffers switching
+"TODO: help and completion windows should be autohiding or easily closing
+"TODO: nice, emacs like adwaita light colorscheme
+"TODO: s and S are rarely used so could be remapped to something else
+"TODO: while restoring a file from swap file auto launch diff with original
+"file
+"TODO: ^q seems useless
+"TODO: remap ^x in insert mode to something easier to press
+"TODO: investigate omnicompletion and alternatives
+"TODO: c macro expansion
+"TODO: xml and/or html tags showmatch
+"TODO: play with cinoptions
+"TODO: enable syntax folding in some filetypes
+"TODO: add paste_toggle keybinding
+"TODO: better leader mapping
+"}}}1
+" POSSIBLE ---------------------------------------------------------------{{{1
 " Automatically close preview window when not needed anymore
 "autocmd InsertLeave * call AutoClosePreviewWindow()
 "autocmd CursorMovedI * call AutoClosePreviewWindow()
@@ -59,79 +256,8 @@ set nocompatible	" Use Vim defaults (much better!)
 "	autocmd BufNewFile *.ml TSkeletonSetup ocaml.ml
 "endif
 
-set hidden
-set nomodeline
-set nowrap		" do not wrap long lines
-set number		" show line numbers
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-runtime ftplugin/man.vim
 
-"set foldmethod=syntax
-
-"set shellcmdflag="-ic'
-
-
-" SYNTAX ---------------------------------------------------------------------
-if $TERM == "linux"
-	colorscheme slate
-else
-	colorscheme zenburn
-	set cursorline
-endif
-
-if has('gui_running')
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guicursor+=a:blinkon0
-	set guifont=Ubuntu\ Mono\ 12
-	set cursorline
-endif
-set background=dark
-colorscheme gruvbox
-
-filetype plugin indent on
-set showmatch
-syntax on
-
-"set showtabline=1
-"set cmdheight=1
-"set laststatus=1
-
-" SEARCH ---------------------------------------------------------------------
-set hlsearch		" highlight matching phrases
-set ignorecase		" ignore case while searching also when completing
-set incsearch		" incremental search
-set smartcase
-
-
-
-" EDITING --------------------------------------------------------------------
-set autoindent		" keep indentation from previous line
-set bs=indent,eol,start	" allow backspacing over everything in insert mode
-"set wrap " If a line is too long for display, wrap it
-"set cin  " C-Indentation
-"set smartindent
-
-
-
-" INDENTATION ----------------------------------------------------------------
-"set noexpandtab
-"set shiftwidth=8
-"set softtabstop=8
-"set tabstop=8
-set expandtab
-set shiftwidth=4
-"set softtabstop=4
-set tabstop=4
-"set fdm=indent   " Fold by indentation
-"set nolbr         " lbr=wrap on word boundaries (for display-only-wrapping)
-"set sm            " Shortly jump to matching bracket
-set list
-
-set smarttab
-
+" seems to be file specific
 " formatoptions:
 " c - autowrap COMMENTS using textwidth
 " r - insert comment leader (?) on <enter>
@@ -142,44 +268,8 @@ set smarttab
 " t - autowrap TEXT using textwidth
 "set fo=croqnvt
 
+"vnoremap _g y:exe "grep /" . escape(@", '\\/') . "/ *.c *.h"<CR>
 
-set textwidth=78
-"set colorcolumn=79
-set cc=+1
-"let &colorcolumn=join(range(79,256),",")
-
-set showmatch
-
-set shiftround
-
-autocmd BufWritePost .vimrc source %
-
-
-set wildmenu
-set scrolloff=1
-set sidescroll=5
-
-if &listchars ==# 'eol:$'
-	set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-	if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
-		"let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
-		let &listchars = "tab:\u25b8 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
-		let &fillchars = "vert:\u259a,fold:\u00b7"
-	endif
-endif
-
-
-"set list
-
-
-
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-
-
-" ABBREVIATIONS --------------------------------------------------------------
-iabbrev ml Mariusz Libera
-iabbrev mtr # Maintainer: Mariusz Libera <mariusz.libera@gmail.com>
-iabbrev cpr © Mariusz Libera
 
 " source: http://vim.wikia.com/wiki/VimTip102
 " Let <Tab> do all the autocompletion
@@ -202,12 +292,6 @@ iabbrev cpr © Mariusz Libera
 "endfunction
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-set autoread
-
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp)
-	runtime! macros/matchit.vim
-endif
 
 "" F2: Comment selected Block with #'s
 "map <F2> :s/^\(.*\)$/#\1/g<CR>
@@ -235,57 +319,5 @@ endif
 
 " F12: Rebuild ctags database
 "map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-
-" BACKUP ---------------------------------------------------------------------
-set backup		" keep a backup file
-"set history=50		" keep 50 lines of command line history
-"set viewdir=/home/mariusz/.vim/views,.,/tmp
-
-if isdirectory(expand('~/.cache/vim'))
-	set viminfo+=n~/.cache/vim/viminfo
-	if &directory =~# '^\.,'
-		set directory^=~/.cache/vim/swap//
-	endif
-	if &backupdir =~# '^\.,'
-		set backupdir^=~/.cache/vim/backup//
-	endif
-	if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
-		set undodir^=~/.cache/vim/undo//
-	endif
-endif
-if exists('+undofile')
-	set undofile
-endif
-
-
-"set modeline
-"set modelines=5
-"set spelllang=de
-"set hls        " highlight search
-"set ignorecase " ignore case when searching
-"set smartcase  " ... except when search pattern contains an uppercase char
-
-" vim -b : edit binary using xxd-format!
-augroup Binary
-    au!
-    au BufReadPre  *.o let &bin=1
-    au BufReadPost *.o if &bin | %!xxd
-    au BufReadPost *.o set ft=xxd | endif
-    au BufWritePre *.o if &bin | %!xxd -r
-    au BufWritePre *.o endif
-    au BufWritePost *.o if &bin | %!xxd
-    au BufWritePost *.o set nomod | endif
-augroup END
-
-nnoremap Y y$
-
-"let mapleader = ","
-"let g:mapleader = ","
-
-
-"Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-	nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-end
-
+"}}}1
+" vim: fdm=marker fdl=0
