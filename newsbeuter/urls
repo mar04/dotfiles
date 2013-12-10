@@ -1,5 +1,8 @@
 http://lwn.net/headlines/newrss "IT" "news" "linux"
 http://www.phoronix.com/rss.php "IT" "news" "linux"
+http://pl.reddit.com/r/vim/.rss
+http://www.reddit.com/r/vimplugins/.rss
+http://www.reddit.com/r/vim_magic/.rss
 http://feeds.feedburner.com/ASmackerelOfOpinion "IT" "blog"
 http://blog.sanctum.geek.nz/feed/ "IT" "blog"
 http://briancarper.net/feed "IT" "blog"

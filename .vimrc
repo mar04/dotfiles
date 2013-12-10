@@ -89,8 +89,8 @@ endif
 set laststatus=2
 set matchtime=3
 set mouse=a
-set number
-set relativenumber
+"set number
+"set relativenumber
 set ruler
 set showcmd
 set showmatch
@@ -118,6 +118,11 @@ let g:syntastic_warning_symbol='!!'
 let g:syntastic_style_error_symbol='✎✗'
 let g:syntastic_style_warning_symbol='✎!'
 "}}}2
+" undotree ---------------------------------------------------------------{{{2
+let g:undotree_SplitWidth=30
+let g:undotree_SetFocusWhenToggle=1
+let g:undotree_DiffAutoOpen=0
+"}}}2
 " yankstack --------------------------------------------------------------{{{2
 let g:yankstack_map_keys=0
 call yankstack#setup()
@@ -129,6 +134,10 @@ call yankstack#setup()
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 "}}}2
+" auto-pairs -------------------------------------------------------------{{{2
+let g:AutoPairsCenterLine=0
+let g:AutoPairsFlyMode=1
+"}}}2
 " readline  --------------------------------------------------------------{{{2
 " some readline/emacs like keybindings missing from rsi plugin
 inoremap <C-_> <C-o>u
@@ -138,10 +147,13 @@ cnoremap <C-k> <C-f>D<C-c>
 " f1-12  -----------------------------------------------------------------{{{2
 noremap <F2> :call CharTillTw("-")<CR>
 inoremap <F2> <Esc>:call CharTillTw("-")<CR>
-"TODO: autoclose is buggy - backspace and delete does not work as advertised -
-"report it
-nnoremap <F4> :AutoCloseToggle<CR>
+nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
+inoremap <F3> <Esc>:set number!<CR>:set relativenumber!<CR>i
+nnoremap <F4> :set list!<CR>
+inoremap <F4> <Esc>:set list!<CR>i
 nnoremap <F5> :UndotreeToggle<CR>
+nnoremap <F6> :TagbarToggle<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
 "}}}2
 
 noremap Y y$

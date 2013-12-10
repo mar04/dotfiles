@@ -1,9 +1,12 @@
 # FONT -------------------------------------------------------------------{{{1
 font xft: Droid Sans Bold 10
+#}}}1
 # UPGENCY HINT -----------------------------------------------------------{{{1
 force_display_urgency_hint 500 ms
+#}}}1
 # BORDERS ----------------------------------------------------------------{{{1
 hide_edge_borders vertical
+#}}}1
 # RULES ------------------------------------------------------------------{{{1
 for_window [class="URxvt"] border 1pixel
 for_window [class="Emacs"] border 1pixel
@@ -20,6 +23,7 @@ assign [instance="newsbeuter"] → "1:rss"
 assign [class="Firefox"] → "2:www"
 assign [instance="vim_"] → "3:vim"
 assign [instance="ncmpcpp"] → "9:music"
+#}}}1
 # I3BAR ------------------------------------------------------------------{{{1
 bar {
     colors {
@@ -27,6 +31,7 @@ bar {
     }
     status_command i3status
 }
+#}}}1
 # COLORS -----------------------------------------------------------------{{{1
 # class                 border  backgrd text    indicator
 client.focused          #285577 #285577 #888888 #2e9ef4
@@ -34,6 +39,7 @@ client.focused_inactive #285577 #5f676a #888888 #484e50
 client.unfocused        #285577 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #888888 #900000
 client.background       #1f1f1f
+#}}}1
 # KEYBOARD ---------------------------------------------------------------{{{1
 # modifier
 set $mod Mod4
@@ -58,6 +64,7 @@ bindsym $mod+Shift+H move left
 bindsym $mod+Shift+J move down
 bindsym $mod+Shift+K move up
 bindsym $mod+Shift+L move right
+#}}}2
 # FOCUS ------------------------------------------------------------------{{{2
 
 # change focus
@@ -71,6 +78,7 @@ bindsym $mod+a focus parent
 
 # float
 bindsym $mod+space focus mode_toggle
+#}}}2
 # LAYOUT -----------------------------------------------------------------{{{2
 
 # horizontal split '|'
@@ -83,6 +91,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
+#}}}2
 # WORKSPACES -------------------------------------------------------------{{{2
 
 # next / prev workspace
@@ -116,6 +125,8 @@ bindsym $mod+Shift+parenright  move container to workspace number 0
 
 # rename workspace
 bindsym $mod+v exec i3-input -F 'rename workspace to %s' -P 'New name: '
+#}}}2
+#}}}1
 # MODES ------------------------------------------------------------------{{{1
 set $p 1
 set $p1 10
@@ -138,4 +149,4 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 #}}}1
-# vim:tw=78 fdm=marker fdc=3 fdl=0
+# vim:tw=78 fdm=marker fdc=3 fdl=0 cc=+1
