@@ -1,7 +1,7 @@
 ! comment out to leave it to colorscheme
 ! colors
 URxvt.cursorColor: #83C048
-URxvt.background: #1F1F1F
+URxvt.background: #282828
 URxvt.foreground: #EEEEEE
 URxvt.highlightColor: #444444
 URxvt.underlineColor: #999999
@@ -17,7 +17,7 @@ URxvt.scrollWithBuffer: true
 
 ! do not specify italic font - its broken, urxvt will make italic automatically
 URxvt.font: \
-    xft:UbuntuMono:size=12,\
+    xft:UbuntuMono:size=11,\
     xft:DejaVuSansMono:size=10,\
     xft:DroidSansMono:size=10,\
     xft:Inconsolata:size=12, \

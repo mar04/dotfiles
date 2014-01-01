@@ -1,29 +1,31 @@
-" PATHOGEN ---------------------------------------------------------------{{{1
+" PATHOGEN {{{1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 "}}}1
-" OPTIONS ----------------------------------------------------------------{{{1
+" OPTIONS {{{1
 set nocompatible
 filetype plugin indent on
 
 set autoread
 set backspace=indent,eol,start
+set foldtext=NeatFoldText()
+set fillchars=vert:\ ,fold:·
 set hidden
 set linebreak
-"set shellcmdflag=-ic           " fucks up vimdiff for whatever reason
+" set shellcmdflag=-ic           " fucks up vimdiff for whatever reason
 set splitbelow
 set splitright
 set tabpagemax=50
-"set textwidth=78
+" set textwidth=78
 
-" directories ------------------------------------------------------------{{{2
+" directories {{{2
 set backupdir=~/.local/share/vim/backup/
 set directory=~/.local/share/vim/swap/
 set undodir=~/.local/share/vim/undo/
 set viewdir=~/.local/share/vim/views/
 set viminfo+=n~/.local/share/vim/viminfo
 "}}}2
-" colorscheme and sytax --------------------------------------------------{{{2
+" colorscheme and sytax {{{2
 if $TERM == "linux" && !has('gui_running')
     colorscheme slate
 else
@@ -33,8 +35,10 @@ endif
 
 " goes after colorscheme
 syntax on
+" help with long lines slowness
+" set synmaxcol=128
 "}}}2
-" cursor -----------------------------------------------------------------{{{2
+" cursor {{{2
 " change cursor shape and color in different modes
 " 1 or 0 -> blinking block
 " 2 -> solid block
@@ -48,33 +52,33 @@ if &term =~ 'xterm\|rxvt'
     let &t_SI = "\<Esc>]12;red\x7"
     let &t_SI .= "\<Esc>[1 q"
     " use a green nonblinking block cursor otherwise
-    let &t_EI = "\<Esc>]12;#fabd2f\x7"
+    let &t_EI = "\<Esc>]12;#83C048\x7"
     let &t_EI .= "\<Esc>[2 q"
 endif
 "}}}2
-" gui  -------------------------------------------------------------------{{{2
+" gui {{{2
 set guifont=Ubuntu\ Mono\ 12
 set guioptions=ace
 "}}}2
-" history ----------------------------------------------------------------{{{2
+" history {{{2
 set backup
 set history=50
 set undofile
 "}}}2
-" indentation ------------------------------------------------------------{{{2
+" indentation {{{2
 set expandtab                   " only spaces
 set shiftwidth=4                " number of spaces
 set softtabstop=-1              " edit sw of spaces like a single tab
 set autoindent                  " keep indentation from previous line
 set smartindent                 " on ocasions do smarter indentation
 "}}}2
-" search -----------------------------------------------------------------{{{2
+" search {{{2
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 "}}}2
-" show whitespace --------------------------------------------------------{{{2
+" show whitespace {{{2
 "set list
 if &listchars ==# 'eol:$'
     set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -84,19 +88,19 @@ if &listchars ==# 'eol:$'
     endif
 endif
 "}}}2
-" ui ---------------------------------------------------------------------{{{2
+" ui {{{2
 "set colorcolumn=+1
 set laststatus=2
 set matchtime=3
 set mouse=a
+set noshowmode
 "set number
 "set relativenumber
 set ruler
 set showcmd
 set showmatch
-set showmode
 "}}}2
-" wildmenu ---------------------------------------------------------------{{{2
+" wildmenu {{{2
 set wildmenu
 set wildmode=longest:full,full
 
@@ -104,56 +108,102 @@ set wildmode=longest:full,full
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 "}}}2
 "}}}1
-" PLUGINS ---------------------------------------------------------------{{{1
-" man -------------------------------------------------------------------{{{2
+" PLUGINS {{{1
+" airline {{{2
+let g:airline_exclude_preview=1
+let g:airline_inactive_collapse=0
+let g:airline_theme='mariusz'
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'n',
+            \ 'i'  : 'i',
+            \ 'R'  : 'R',
+            \ 'c'  : 'c',
+            \ 'v'  : 'v',
+            \ 'V'  : 'V',
+            \ '' : '^v',
+            \ 's'  : 's',
+            \ 'S'  : 'S',
+            \ '' : '^s',
+            \ }
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_symbols.linenr=''
+let g:airline_symbols.whitespace='Ξ'
+"}}}2
+" auto-pairs {{{2
+let g:AutoPairsCenterLine=0
+let g:AutoPairsFlyMode=1
+"}}}2
+" buffergator {{{2
+let g:buffergator_suppress_keymaps=1
+"}}}2
+" man {{{2
 runtime ftplugin/man.vim
 "}}}2
 "let g:sneak#streak=1
 "let g:seank#use_ic_scs=1
 " }}}2
-" syntastic -------------------------------------------------------------{{{2
+" syntastic {{{2
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗✗'
 let g:syntastic_warning_symbol='!!'
 let g:syntastic_style_error_symbol='✎✗'
 let g:syntastic_style_warning_symbol='✎!'
 "}}}2
-" undotree ---------------------------------------------------------------{{{2
+" tcomment {{{2
+"let g:tcomment#rstrip_on-uncomment=2
+"}}}2
+" undotree {{{2
 let g:undotree_SplitWidth=30
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_DiffAutoOpen=0
 "}}}2
-" yankstack --------------------------------------------------------------{{{2
+" yankstack {{{2
 let g:yankstack_map_keys=0
 call yankstack#setup()
 "}}}2
 "}}}1
-" MAPPINGS ---------------------------------------------------------------{{{1
-" yankstack --------------------------------------------------------------{{{2
+" MAPPINGS {{{1
+" yankstack {{{2
 " must go before any mappings involving y, d, c
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
+nmap <Space>o <Plug>yankstack_substitute_older_paste
+nmap <Space>i <Plug>yankstack_substitute_newer_paste
 "}}}2
-" auto-pairs -------------------------------------------------------------{{{2
-let g:AutoPairsCenterLine=0
-let g:AutoPairsFlyMode=1
+" buffergator {{{2
+nnoremap <Space>b :BuffergatorToggle<CR>
+nnoremap <Space>t :BuffergatorTabsToggle<CR>
+nnoremap [b :BuffergatorMruCyclePrev<CR>
+nnoremap ]b :BuffergatorMruCycleNext<CR>
 "}}}2
-" readline  --------------------------------------------------------------{{{2
+" ranger {{{2
+map <Space>r :call RangerChooser()<CR>
+" }}}2
+" readline {{{2
 " some readline/emacs like keybindings missing from rsi plugin
 inoremap <C-_> <C-o>u
 inoremap <C-k> <C-o>D
 cnoremap <C-k> <C-f>D<C-c>
 "}}}2
-" f1-12  -----------------------------------------------------------------{{{2
+" symlink {{{2
+map <Space>s :call FollowSymlink()<CR>
+" }}}2
+" tagbar {{{2
+nnoremap <Space>p :TagbarToggle<CR>
+"}}}2
+" undotree {{{2
+nnoremap <Space>u :UndotreeToggle<CR>
+"}}}2
+" f1-12 {{{2
 noremap <F2> :call CharTillTw("-")<CR>
 inoremap <F2> <Esc>:call CharTillTw("-")<CR>
 nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 inoremap <F3> <Esc>:set number!<CR>:set relativenumber!<CR>i
 nnoremap <F4> :set list!<CR>
 inoremap <F4> <Esc>:set list!<CR>i
-nnoremap <F5> :UndotreeToggle<CR>
-nnoremap <F6> :TagbarToggle<CR>
-nnoremap <F7> :NERDTreeToggle<CR>
 "}}}2
 
 noremap Y y$
@@ -163,22 +213,10 @@ nnoremap <C-l> :nohlsearch<CR>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-"let mapleader = ","
-"let g:mapleader = ","
-
 ":%s/\s\+$// - trim whitespace from end of lines
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-              \ | wincmd p | diffthis
-endif
-
 "}}}1
-" FUNCTIONS --------------------------------------------------------------{{{1
-" CharTillTw -------------------------------------------------------------{{{2
+" FUNCTIONS {{{1
+" CharTillTw {{{2
 "if !exists("CharTillTw")
     function! CharTillTw(char)
         if virtcol("$") < &tw
@@ -190,9 +228,59 @@ endif
     endfunction
 "endif
 "}}}2
+" DiffOrig {{{2
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+              \ | wincmd p | diffthis
+endif
+"}}}2
+" FollowSymlink {{{2
+" Follow symlinks so we're editing the actual file instead of the symlink
+" (change the value retiurned by %).
+" Uses vim-bufkill if available.
+
+" Wipe the current buffer and load the file that the symlink points to.
+function! FollowSymlink()
+    let fname = resolve(expand('%:p'))
+    " Use bufkill to clear the buffer, but not close the window.
+    BW
+    exec "edit " . fname
+endfunction
+"}}}2
+" NeatFoldText {{{2
+function! NeatFoldText()
+    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+    let lines_count = v:foldend - v:foldstart + 1
+    let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+    let foldchar = matchstr(&fillchars, 'fold:\zs.')
+    let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+    let foldtextend = lines_count_text . repeat(foldchar, 8)
+    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+"}}}2
+" RangerChooser {{{2
+function! RangerChooser()
+    if has('gui_running')
+        exec "!$TERMCMD -e ranger --choosefiles=/tmp/chosenfile " . expand("%:p:h")
+    else
+        exec "silent !ranger --choosefiles=/tmp/chosenfile " . expand("%:p:h")
+    endif
+    if filereadable('/tmp/chosenfile')
+        exec system('escspc /tmp/chosenfile')
+        exec 'argadd ' . system('cat /tmp/chosenfile | tr "\\n" " "')
+        exec 'edit ' . system('head -n1 /tmp/chosenfile')
+        call system('rm /tmp/chosenfile')
+    endif
+    redraw!
+endfun
+"}}}2
 "}}}1
-" AUTOCOMMANDS -----------------------------------------------------------{{{1
-" vimrcEx  ---------------------------------------------------------------{{{2
+" AUTOCOMMANDS {{{1
+" vimrcEx {{{2
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
     au!
@@ -209,7 +297,7 @@ augroup vimrcEx
     \ endif
 augroup END
 "}}}2
-" binary  ----------------------------------------------------------------{{{2
+" binary {{{2
 " TODO: autodetect binary?
 " vim -b : edit binary using xxd-format!
 augroup Binary
@@ -224,12 +312,12 @@ augroup Binary
 augroup END
 "}}}2
 "}}}1
-" ABBREVIATIONS ----------------------------------------------------------{{{1
+" ABBREVIATIONS {{{1
 iabbrev ml Mariusz Libera
 iabbrev mtr # Maintainer: Mariusz Libera <mariusz.libera@gmail.com>
 iabbrev cpr © Mariusz Libera
 "}}}1
-" TODO -------------------------------------------------------------------{{{1
+" TODO {{{1
 "TODO: run bash commands in interactive mode - so aliases and functions and
 "everything else works as expected
 "TODO: efficient tabs and buffers switching
@@ -248,7 +336,7 @@ iabbrev cpr © Mariusz Libera
 "TODO: add paste_toggle keybinding
 "TODO: better leader mapping
 "}}}1
-" POSSIBLE ---------------------------------------------------------------{{{1
+" POSSIBLE {{{1
 " Automatically close preview window when not needed anymore
 "autocmd InsertLeave * call AutoClosePreviewWindow()
 "autocmd CursorMovedI * call AutoClosePreviewWindow()
@@ -258,16 +346,6 @@ iabbrev cpr © Mariusz Libera
 "		pclose
 "	endif
 "endfunction
-
-" Skeleton plugin and manual file type detection
-"if has("autocmd")
-"	autocmd BufEnter *.di :set filetype=d
-"	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-"
-"	autocmd BufNewFile *.h TSkeletonSetup cxx_header.h
-"	autocmd BufNewFile *.ml TSkeletonSetup ocaml.ml
-"endif
-
 
 " seems to be file specific
 " formatoptions:
@@ -305,21 +383,9 @@ iabbrev cpr © Mariusz Libera
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
 
-"" F2: Comment selected Block with #'s
-"map <F2> :s/^\(.*\)$/#\1/g<CR>
-"
-"" F3: Uncomment selected Block thats commented with #'s
-"map <F3> :s/^#//g<CR>
-"
-"" F4: Buffer list
-"map <silent> <F4> :BufExplorer<CR>
-"
 "" F5: Tag list
 "imap <silent> <F5> :Tlist<CR>
 "map <silent> <F5> :Tlist<CR>
-"
-"" F6: File list
-"map <silent> <F6> :NERDTreeToggle<CR>
 "
 "" F7: Find word under in all files in current dir or subdirectories
 ""map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*." . expand('%:e') <Bar> cw<CR>
@@ -332,4 +398,4 @@ iabbrev cpr © Mariusz Libera
 " F12: Rebuild ctags database
 "map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "}}}1
-" vim: fdm=marker fdl=0
+" vim: fdm=marker fdl=0 tw=78 cc=+1

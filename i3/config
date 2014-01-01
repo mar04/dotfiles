@@ -1,13 +1,13 @@
-# FONT -------------------------------------------------------------------{{{1
+# FONT {{{1
 font xft: Droid Sans Bold 10
 #}}}1
-# UPGENCY HINT -----------------------------------------------------------{{{1
+# UPGENCY HINT {{{1
 force_display_urgency_hint 500 ms
 #}}}1
-# BORDERS ----------------------------------------------------------------{{{1
+# BORDERS {{{1
 hide_edge_borders vertical
 #}}}1
-# RULES ------------------------------------------------------------------{{{1
+# RULES {{{1
 for_window [class="URxvt"] border 1pixel
 for_window [class="Emacs"] border 1pixel
 for_window [class="Termite"] border 1pixel
@@ -24,7 +24,7 @@ assign [class="Firefox"] → "2:www"
 assign [instance="vim_"] → "3:vim"
 assign [instance="ncmpcpp"] → "9:music"
 #}}}1
-# I3BAR ------------------------------------------------------------------{{{1
+# I3BAR {{{1
 bar {
     colors {
         statusline #888888
@@ -32,7 +32,7 @@ bar {
     status_command i3status
 }
 #}}}1
-# COLORS -----------------------------------------------------------------{{{1
+# COLORS {{{1
 # class                 border  backgrd text    indicator
 client.focused          #285577 #285577 #888888 #2e9ef4
 client.focused_inactive #285577 #5f676a #888888 #484e50
@@ -40,7 +40,7 @@ client.unfocused        #285577 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #888888 #900000
 client.background       #1f1f1f
 #}}}1
-# KEYBOARD ---------------------------------------------------------------{{{1
+# KEYBOARD {{{1
 # modifier
 set $mod Mod4
 floating_modifier $mod
@@ -50,7 +50,7 @@ bindsym $mod+t border toggle
 bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exit
-# ACTIONS ----------------------------------------------------------------{{{2
+# ACTIONS {{{2
 
 bindsym $mod+Q kill
 bindsym $mod+f fullscreen
@@ -65,7 +65,7 @@ bindsym $mod+Shift+J move down
 bindsym $mod+Shift+K move up
 bindsym $mod+Shift+L move right
 #}}}2
-# FOCUS ------------------------------------------------------------------{{{2
+# FOCUS {{{2
 
 # change focus
 bindsym $mod+h focus left
@@ -79,7 +79,7 @@ bindsym $mod+a focus parent
 # float
 bindsym $mod+space focus mode_toggle
 #}}}2
-# LAYOUT -----------------------------------------------------------------{{{2
+# LAYOUT {{{2
 
 # horizontal split '|'
 bindcode $mod+Shift+51 split h
@@ -92,7 +92,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 #}}}2
-# WORKSPACES -------------------------------------------------------------{{{2
+# WORKSPACES {{{2
 
 # next / prev workspace
 bindsym $mod+n workspace next
@@ -127,7 +127,7 @@ bindsym $mod+Shift+parenright  move container to workspace number 0
 bindsym $mod+v exec i3-input -F 'rename workspace to %s' -P 'New name: '
 #}}}2
 #}}}1
-# MODES ------------------------------------------------------------------{{{1
+# MODES {{{1
 set $p 1
 set $p1 10
 

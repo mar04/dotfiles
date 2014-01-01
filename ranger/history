@@ -5,12 +5,10 @@ search sh
 rename bash
 search .dot
 rename .emacs
-search vim
 search emac
 search surr
 search nerd
 search /.vim
-search 
 open_with dtrx
 open_with wine
 open_with 
@@ -18,7 +16,6 @@ c
 mkdir c
 search you
 search code
-search .vim
 search undo
 term
 mkdir oj
@@ -40,10 +37,33 @@ mk
 rename pyte
 rename colors
 search youcom
-open_with vim
 
 vim
 term;term
-terminal 
 search .cach
 search sensi
+search i3
+rename .wine_
+mkdir .wine
+mkdir asdf
+touch adsf
+mkdir ads
+rename .wine
+search med
+search dow
+rename nn2
+open_with h
+search .vim
+search fugi
+search 
+rename mariusz.vim
+terminal 
+open_with 0
+open_with t0
+open_with 0 -t
+open_with -t 0
+open_with --t 0
+open_with -t vim
+open_with t
+search vim
+open_with vim
