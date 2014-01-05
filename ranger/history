@@ -5,13 +5,13 @@ search sh
 rename bash
 search .dot
 rename .emacs
+search vim
 search emac
 search surr
-search nerd
 search /.vim
+search 
 open_with dtrx
 open_with wine
-open_with 
 c
 mkdir c
 search you
@@ -37,7 +37,7 @@ mk
 rename pyte
 rename colors
 search youcom
-
+open_with vim
 vim
 term;term
 search .cach
@@ -54,16 +54,24 @@ search dow
 rename nn2
 open_with h
 search .vim
-search fugi
-search 
-rename mariusz.vim
-terminal 
-open_with 0
-open_with t0
-open_with 0 -t
-open_with -t 0
-open_with --t 0
-open_with -t vim
+rename 3.flv
+mkdir fontconfig
+search fontco
+search font
+mkdir conf.d
+touch fonts.conf
+search .bashrc
 open_with t
-search vim
-open_with vim
+search nerd
+open_with t 0
+op
+open_with 
+open_with 6
+mkdir Align
+rename vim-easy-align
+search .vimr
+search sne
+
+terminal 
+search gof
+search gtf

@@ -111,6 +111,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " PLUGINS {{{1
 " airline {{{2
 let g:airline_exclude_preview=1
+let g:airline#extensions#tagbar#enabled=0
 let g:airline_inactive_collapse=0
 let g:airline_theme='mariusz'
 let g:airline_mode_map = {
@@ -135,25 +136,39 @@ let g:airline_symbols.linenr=''
 let g:airline_symbols.whitespace='Ξ'
 "}}}2
 " auto-pairs {{{2
-let g:AutoPairsCenterLine=0
-let g:AutoPairsFlyMode=1
+" let g:AutoPairsCenterLine=0
 "}}}2
 " buffergator {{{2
 let g:buffergator_suppress_keymaps=1
 "}}}2
+" delimitMate {{{2
+let g:delimitMate_expand_space=1
+" }}}2
+" gitgutter {{{2
+let g:gitgutter_enabled=0
+"}}}2
+" indentLine {{{2
+" let g:indentLine_char='¦'
+let g:indentLine_char = '┊'
+"}}}2
+" listToggle {{{2
+let g:lt_location_list_toggle_map = '<Space>l'
+let g:lt_quickfix_list_toggle_map = '<Space>q'
+" }}}2
 " man {{{2
 runtime ftplugin/man.vim
 "}}}2
-"let g:sneak#streak=1
-"let g:seank#use_ic_scs=1
-" }}}2
 " syntastic {{{2
 let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗✗'
-let g:syntastic_warning_symbol='!!'
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='!'
 let g:syntastic_style_error_symbol='✎✗'
-let g:syntastic_style_warning_symbol='✎!'
+let g:syntastic_style_warning_symbol='✎'
 "}}}2
+" taboo {{{2
+let g:taboo_tab_format='%N:%f  '
+" }}}2
 " tcomment {{{2
 "let g:tcomment#rstrip_on-uncomment=2
 "}}}2
@@ -166,6 +181,22 @@ let g:undotree_DiffAutoOpen=0
 let g:yankstack_map_keys=0
 call yankstack#setup()
 "}}}2
+" youcompleteme {{{2
+" let g:ycm_auto_trigger=0
+" let g:ycm_min_num_of_chars_for_completion=99
+" let g:ycm_global_ycm_extra_conf = ''
+let g:ycm_confirm_extra_conf=0
+let g:ycm_use_ultisnips_completer=0
+" doesn't seem to really work the way I wan't it
+" let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_insertion=1
+" }}}2
+" xptemplate {{{2
+let g:xptemplate_vars=''
+let g:xptemplate_vars.='&name=Mariusz Libera'
+let g:xptemplate_vars.='&author=Mariusz Libera'
+let g:xptemplate_vars.='&email=mariusz.libera@gmail.com'
+"}}}2
 "}}}1
 " MAPPINGS {{{1
 " yankstack {{{2
@@ -176,11 +207,15 @@ nmap <Space>i <Plug>yankstack_substitute_newer_paste
 " buffergator {{{2
 nnoremap <Space>b :BuffergatorToggle<CR>
 nnoremap <Space>t :BuffergatorTabsToggle<CR>
-nnoremap [b :BuffergatorMruCyclePrev<CR>
-nnoremap ]b :BuffergatorMruCycleNext<CR>
+"}}}2
+" gitgutter {{{2
+nnoremap cogg :GitGutterToggle<CR>
 "}}}2
 " ranger {{{2
 map <Space>r :call RangerChooser()<CR>
+" }}}2
+" openTerminal {{{2
+nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
 " }}}2
 " readline {{{2
 " some readline/emacs like keybindings missing from rsi plugin
@@ -197,6 +232,10 @@ nnoremap <Space>p :TagbarToggle<CR>
 " undotree {{{2
 nnoremap <Space>u :UndotreeToggle<CR>
 "}}}2
+" youcompleteme {{{2
+nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
+" }}}2
 " f1-12 {{{2
 noremap <F2> :call CharTillTw("-")<CR>
 inoremap <F2> <Esc>:call CharTillTw("-")<CR>
@@ -204,37 +243,43 @@ nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 inoremap <F3> <Esc>:set number!<CR>:set relativenumber!<CR>i
 nnoremap <F4> :set list!<CR>
 inoremap <F4> <Esc>:set list!<CR>i
+noremap <F5> :RainbowParenthesesToggle<CR>
+inoremap <F5> <Esc>:RainbowParenthesesToggle<CR>i
 "}}}2
 
+nnoremap <Space><C-l> :redraw!<CR>
 noremap Y y$
 noremap Q gq
 nnoremap <C-l> :nohlsearch<CR>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-":%s/\s\+$// - trim whitespace from end of lines
 "}}}1
 " FUNCTIONS {{{1
+" AutoClosePreviewWindow {{{2
+function! AutoClosePreviewWindow()
+    if !&l:previewwindow
+        pclose
+    endif
+endfunction
+" }}}2
 " CharTillTw {{{2
-"if !exists("CharTillTw")
-    function! CharTillTw(char)
-        if virtcol("$") < &tw
-            execute "normal A \<Esc>"
-        else
-            return
-        endif
-        execute "normal" . (&tw - virtcol("$") + 1) . "A" . a:char . "\<Esc>"
-    endfunction
-"endif
+function! CharTillTw(char)
+    if virtcol("$") < &tw
+        execute "normal A \<Esc>"
+    else
+        return
+    endif
+    execute "normal" . (&tw - virtcol("$") + 1) . "A" . a:char . "\<Esc>"
+endfunction
 "}}}2
 " DiffOrig {{{2
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-              \ | wincmd p | diffthis
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                \ | wincmd p | diffthis
 endif
 "}}}2
 " FollowSymlink {{{2
@@ -265,7 +310,7 @@ endfunction
 " RangerChooser {{{2
 function! RangerChooser()
     if has('gui_running')
-        exec "!$TERMCMD -e ranger --choosefiles=/tmp/chosenfile " . expand("%:p:h")
+        exec "silent !$TERMCMD -e ranger --choosefiles=/tmp/chosenfile " . expand("%:p:h")
     else
         exec "silent !ranger --choosefiles=/tmp/chosenfile " . expand("%:p:h")
     endif
@@ -280,6 +325,23 @@ endfun
 "}}}2
 "}}}1
 " AUTOCOMMANDS {{{1
+" autoClosePreviewWindow {{{2
+autocmd InsertLeave * call AutoClosePreviewWindow()
+" }}}2
+" binary {{{2
+" TODO: autodetect binary?
+" vim -b : edit binary using xxd-format!
+augroup Binary
+    au!
+    au BufReadPre  *.o let &bin=1
+    au BufReadPost *.o if &bin | %!xxd
+    au BufReadPost *.o set ft=xxd | endif
+    au BufWritePre *.o if &bin | %!xxd -r
+    au BufWritePre *.o endif
+    au BufWritePost *.o if &bin | %!xxd
+    au BufWritePost *.o set nomod | endif
+augroup END
+"}}}2
 " vimrcEx {{{2
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
@@ -297,20 +359,6 @@ augroup vimrcEx
     \ endif
 augroup END
 "}}}2
-" binary {{{2
-" TODO: autodetect binary?
-" vim -b : edit binary using xxd-format!
-augroup Binary
-    au!
-    au BufReadPre  *.o let &bin=1
-    au BufReadPost *.o if &bin | %!xxd
-    au BufReadPost *.o set ft=xxd | endif
-    au BufWritePre *.o if &bin | %!xxd -r
-    au BufWritePre *.o endif
-    au BufWritePost *.o if &bin | %!xxd
-    au BufWritePost *.o set nomod | endif
-augroup END
-"}}}2
 "}}}1
 " ABBREVIATIONS {{{1
 iabbrev ml Mariusz Libera
@@ -320,32 +368,15 @@ iabbrev cpr © Mariusz Libera
 " TODO {{{1
 "TODO: run bash commands in interactive mode - so aliases and functions and
 "everything else works as expected
-"TODO: efficient tabs and buffers switching
 "TODO: help and completion windows should be autohiding or easily closing
-"TODO: nice, emacs like adwaita light colorscheme
-"TODO: s and S are rarely used so could be remapped to something else
-"TODO: while restoring a file from swap file auto launch diff with original
-"file
-"TODO: ^q seems useless
-"TODO: remap ^x in insert mode to something easier to press
-"TODO: investigate omnicompletion and alternatives
 "TODO: c macro expansion
-"TODO: xml and/or html tags showmatch
 "TODO: play with cinoptions
 "TODO: enable syntax folding in some filetypes
 "TODO: add paste_toggle keybinding
-"TODO: better leader mapping
 "}}}1
 " POSSIBLE {{{1
-" Automatically close preview window when not needed anymore
-"autocmd InsertLeave * call AutoClosePreviewWindow()
-"autocmd CursorMovedI * call AutoClosePreviewWindow()
-"
-"function! AutoClosePreviewWindow()
-"	if !&l:previewwindow
-"		pclose
-"	endif
-"endfunction
+
+":%s/\s\+$// - trim whitespace from end of lines
 
 " seems to be file specific
 " formatoptions:
