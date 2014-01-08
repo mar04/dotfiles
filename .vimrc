@@ -56,7 +56,11 @@ endif
 "}}}2
 " gui {{{2
 set guifont=Ubuntu\ Mono\ 11
-set guioptions=ace
+set guioptions=ac
+set guiheadroom=0
+set guicursor=n-v-c-ve-o:block-blinkon0-Cursor
+set guicursor+=i-ci:ver25-blinkon0-iCursor
+set guicursor+=r-cr:hor20-blinkon0-iCursor
 "}}}2
 " history {{{2
 set backup
@@ -235,17 +239,19 @@ nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
 " }}}2
 " f1-12 {{{2
-noremap <F2> :call CharTillTw("-")<CR>
+noremap  <F2> :call CharTillTw("-")<CR>
 inoremap <F2> <Esc>:call CharTillTw("-")<CR>
 nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 inoremap <F3> <Esc>:set number!<CR>:set relativenumber!<CR>i
 nnoremap <F4> :set list!<CR>
 inoremap <F4> <Esc>:set list!<CR>i
-noremap <F5> :RainbowParenthesesToggle<CR>
+noremap  <F5> :RainbowParenthesesToggle<CR>
 inoremap <F5> <Esc>:RainbowParenthesesToggle<CR>i
 "}}}2
-
+nnoremap <Space>: :TabMessage 
 nnoremap <Space><C-l> :redraw!<CR>
+nnoremap <Space>gt :call MoveToNextTab()<CR>
+nnoremap <Space>gT :call MoveToPrevTab()<CR>
 noremap Y y$
 noremap Q gq
 nnoremap <C-l> :nohlsearch<CR>
@@ -293,6 +299,51 @@ function! FollowSymlink()
     exec "edit " . fname
 endfunction
 "}}}2
+" MoveToTab {{{2
+function! MoveToPrevTab()
+  "there is only one window
+  if tabpagenr('$') == 1 && winnr('$') == 1
+    return
+  endif
+  "preparing new window
+  let l:tab_nr = tabpagenr('$')
+  let l:cur_buf = bufnr('%')
+  if tabpagenr() != 1
+    close!
+    if l:tab_nr == tabpagenr('$')
+      tabprev
+    endif
+    sp
+  else
+    close!
+    exe "0tabnew"
+  endif
+  "opening current buffer in new window
+  exe "b".l:cur_buf
+endfunc
+
+function! MoveToNextTab()
+  "there is only one window
+  if tabpagenr('$') == 1 && winnr('$') == 1
+    return
+  endif
+  "preparing new window
+  let l:tab_nr = tabpagenr('$')
+  let l:cur_buf = bufnr('%')
+  if tabpagenr() < tab_nr
+    close!
+    if l:tab_nr == tabpagenr('$')
+      tabnext
+    endif
+    sp
+  else
+    close!
+    tabnew
+  endif
+  "opening current buffer in new window
+  exe "b".l:cur_buf
+endfunc
+"}}}2
 " NeatFoldText {{{2
 function! NeatFoldText()
     let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
@@ -320,6 +371,17 @@ function! RangerChooser()
     endif
     redraw!
 endfun
+"}}}2
+" TabMessage {{{2
+function! TabMessage(cmd)
+    redir => message
+    silent execute a:cmd
+    redir END
+    tabnew
+    silent put=message
+    set nomodified
+endfunction
+command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 "}}}2
 "}}}1
 " AUTOCOMMANDS {{{1
