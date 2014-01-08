@@ -5,39 +5,39 @@ font xft: Droid Sans Bold 10
 force_display_urgency_hint 500 ms
 #}}}1
 # BORDERS {{{1
-hide_edge_borders vertical
+new_float           pixel   1
+new_window          pixel   1
+hide_edge_borders   both
 #}}}1
 # RULES {{{1
-for_window [class="URxvt"] border 1pixel
-for_window [class="Emacs"] border 1pixel
-for_window [class="Termite"] border 1pixel
-for_window [class="MPlayer"] border 1pixel
-for_window [class="mplayer2"] border 1pixel
-for_window [class="mpv"] border 1pixel
-for_window [class="Chromium"] border none
-for_window [class="Firefox"] border none
-for_window [class="emulator64-arm"] floating enable
-for_window [class="Unibrow"] floating enable
-#for_window [title="ncmpcpp"] move scratchpad
+for_window    [class="emulator64-arm"]   floating   enable
+for_window    [class="Unibrow"]          floating   enable
+#for_window   [title="ncmpcpp"]          move       scratchpad
+
 assign [instance="newsbeuter"] → "1:rss"
-assign [class="Firefox"] → "2:www"
-assign [instance="vim_"] → "3:vim"
-assign [instance="ncmpcpp"] → "9:music"
+assign [class="Firefox"]       → "2:www"
+assign [instance="vim_"]       → "3:vim"
+assign [instance="ncmpcpp"]    → "9:music"
 #}}}1
 # I3BAR {{{1
 bar {
     colors {
         statusline #888888
+
+        #colorclass        <border> <background> <text>
+        focused_workspace  #928374  #928374      #000000
+        urgent_workspace   #900000  #900000      #000000
+        inactive_workspace #504945  #504945      #000000
     }
     status_command i3status
 }
 #}}}1
 # COLORS {{{1
 # class                 border  backgrd text    indicator
-client.focused          #285577 #285577 #888888 #2e9ef4
-client.focused_inactive #285577 #5f676a #888888 #484e50
-client.unfocused        #285577 #333333 #888888 #292d2e
-client.urgent           #2f343a #900000 #888888 #900000
+client.focused          #000000 #83a598 #000000 #2e9ef4
+client.focused_inactive #000000 #7c6f64 #83a598 #2e9ef4
+client.unfocused        #000000 #504945 #c1c1c1 #484e50
+client.urgent           #000000 #900000 #c1c1c1 #900000
 client.background       #1f1f1f
 #}}}1
 # KEYBOARD {{{1
@@ -149,4 +149,4 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 #}}}1
-# vim:tw=78 fdm=marker fdc=3 fdl=0 cc=+1
+# vim:tw=78 fdm=marker fdl=0 cc=+1

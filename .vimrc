@@ -9,14 +9,12 @@ filetype plugin indent on
 set autoread
 set backspace=indent,eol,start
 set foldtext=NeatFoldText()
-set fillchars=vert:\ ,fold:·
 set hidden
 set linebreak
 " set shellcmdflag=-ic           " fucks up vimdiff for whatever reason
 set splitbelow
 set splitright
 set tabpagemax=50
-" set textwidth=78
 
 " directories {{{2
 set backupdir=~/.local/share/vim/backup/
@@ -50,14 +48,14 @@ syntax on
 if &term =~ 'xterm\|rxvt'
     " use a red blinking block cursor in insert mode
     let &t_SI = "\<Esc>]12;red\x7"
-    let &t_SI .= "\<Esc>[1 q"
+    let &t_SI .= "\<Esc>[2 q"
     " use a green nonblinking block cursor otherwise
     let &t_EI = "\<Esc>]12;#83C048\x7"
     let &t_EI .= "\<Esc>[2 q"
 endif
 "}}}2
 " gui {{{2
-set guifont=Ubuntu\ Mono\ 12
+set guifont=Ubuntu\ Mono\ 11
 set guioptions=ace
 "}}}2
 " history {{{2
@@ -79,23 +77,20 @@ set ignorecase
 set smartcase
 "}}}2
 " show whitespace {{{2
-"set list
 if &listchars ==# 'eol:$'
     set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
     if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
         let &listchars = "tab:\u25b8 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
-        let &fillchars = "vert:\u259a,fold:\u00b7"
+        let &fillchars = "vert:\ ,fold:\u00b7"
     endif
 endif
 "}}}2
 " ui {{{2
-"set colorcolumn=+1
+set colorcolumn=+1
 set laststatus=2
 set matchtime=3
 set mouse=a
 set noshowmode
-"set number
-"set relativenumber
 set ruler
 set showcmd
 set showmatch
@@ -135,36 +130,30 @@ let g:airline_right_sep=''
 let g:airline_symbols.linenr=''
 let g:airline_symbols.whitespace='Ξ'
 "}}}2
-" auto-pairs {{{2
-" let g:AutoPairsCenterLine=0
-"}}}2
 " buffergator {{{2
 let g:buffergator_suppress_keymaps=1
 "}}}2
-" delimitMate {{{2
-let g:delimitMate_expand_space=1
-" }}}2
 " gitgutter {{{2
 let g:gitgutter_enabled=0
 "}}}2
 " indentLine {{{2
-" let g:indentLine_char='¦'
 let g:indentLine_char = '┊'
 "}}}2
 " listToggle {{{2
 let g:lt_location_list_toggle_map = '<Space>l'
 let g:lt_quickfix_list_toggle_map = '<Space>q'
-" }}}2
+"}}}2
 " man {{{2
 runtime ftplugin/man.vim
 "}}}2
 " syntastic {{{2
-let g:syntastic_check_on_open=1
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='!'
-let g:syntastic_style_error_symbol='✎✗'
+let g:syntastic_full_redraws=0
+let g:syntastic_style_error_symbol='✗'
 let g:syntastic_style_warning_symbol='✎'
+let g:syntastic_warning_symbol='⚠'
 "}}}2
 " taboo {{{2
 let g:taboo_tab_format='%N:%f  '
@@ -172,6 +161,13 @@ let g:taboo_tab_format='%N:%f  '
 " tcomment {{{2
 "let g:tcomment#rstrip_on-uncomment=2
 "}}}2
+" ultisnips {{{2
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsListSnippets="<C-\\>"
+" }}}2
 " undotree {{{2
 let g:undotree_SplitWidth=30
 let g:undotree_SetFocusWhenToggle=1
@@ -182,15 +178,13 @@ let g:yankstack_map_keys=0
 call yankstack#setup()
 "}}}2
 " youcompleteme {{{2
-" let g:ycm_auto_trigger=0
-" let g:ycm_min_num_of_chars_for_completion=99
-" let g:ycm_global_ycm_extra_conf = ''
+set completeopt-=preview
+let g:ycm_allow_changing_updatetime=0
 let g:ycm_confirm_extra_conf=0
-let g:ycm_use_ultisnips_completer=0
-" doesn't seem to really work the way I wan't it
-" let g:ycm_autoclose_preview_window_after_completion=1
-" let g:ycm_autoclose_preview_window_after_insertion=1
-" }}}2
+let g:ycm_key_list_select_completion=['<Down>']
+let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_use_ultisnips_completer=1
+"}}}2
 " xptemplate {{{2
 let g:xptemplate_vars=''
 let g:xptemplate_vars.='&name=Mariusz Libera'
@@ -226,6 +220,10 @@ cnoremap <C-k> <C-f>D<C-c>
 " symlink {{{2
 map <Space>s :call FollowSymlink()<CR>
 " }}}2
+" tabularize {{{2
+nnoremap <Space>a :Tabularize /
+vnoremap <Space>a :Tabularize /
+"}}}2
 " tagbar {{{2
 nnoremap <Space>p :TagbarToggle<CR>
 "}}}2
@@ -342,6 +340,11 @@ augroup Binary
     au BufWritePost *.o set nomod | endif
 augroup END
 "}}}2
+" filetypedetect {{{2
+augroup filetypedetect
+    au BufNewFile,BufRead .tmux.conf*,tmux.conf* set ft=tmux
+augroup END
+" }}}2
 " vimrcEx {{{2
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx

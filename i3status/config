@@ -1,9 +1,10 @@
 general {
-	colors = true
-	interval = 5
-	color_good = "#4e9a06"
-	color_bad = "#ff6565"
-	output_format = "i3bar"
+    color_bad      = "#ff6565"
+    color_degraded = "#79740e"
+    color_good     = "#888888"
+    colors         = true
+    interval       = 5
+    output_format  = "i3bar"
 }
 
 order += "wireless wlp2s0"
@@ -13,34 +14,38 @@ order += "battery 1"
 order += "time"
 
 wireless wlp2s0 {
-	format_up = "📶 %essid"
-	format_down = "down"
-	color_bad = "#888888"
+    color_bad   = "#888888"
+    color_good  = "#317725"
+    format_down = "down"
+    format_up   = "📶 %essid"
 }
 
 ethernet enp1s0 {
-	format_up = "🔄 %ip"
-	format_down = "down"
-	color_bad = "#888888"
-	color_good = "#888888"
+    color_bad   = "#888888"
+    color_good  = "#888888"
+    format_down = "✕"
+    format_up   = "🔄 %ip"
 }
 
 volume master {
-	format = "🔊 %volume"
-	device = "default"
-	mixer = "Master"
-	mixer_idx = 0
+    color_degraded = "#B63426"
+    device         = "default"
+    format         = "🔊 %volume"
+    format_muted   = "🔈"
+    mixer          = "Master"
+    mixer_idx      = 0
 }
 
 battery 1 {
-	format = "📋 %percentage - %status"
-	path = "/sys/class/power_supply/BAT%d/uevent"
-	low_threshold = 10
-	threshold_type = "percentage"
-	last_full_capacity = true
+    format             = "📋 %percentage - %status"
+    format_down        = "⚡ no battery"
+    last_full_capacity = true
+    low_threshold      = 10
+    path               = "/sys/class/power_supply/BAT%d/uevent"
+    threshold_type     = "percentage"
 }
 
 time {
-	format = "%Y-%m-%d - %H:%M"
+    format = "%Y-%m-%d - %H:%M"
 }
 
