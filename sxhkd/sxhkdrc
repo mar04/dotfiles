@@ -6,11 +6,14 @@ mod4 + Return
 mod4 + c
     $BROWSER
 
-mod4 + d
-    j4-dmenu-desktop --dmenu='dmenu -i -fn "Droid Sans:size=10"'
+# mod4 + d
+#     j4-dmenu-desktop --dmenu='dmenu -i -fn "Droid Sans:size=10"'
+
+mod4 + b
+    quickswitch.py --dmenu='dmenu -i -l 20 -fn "Droid Sans:size=10"'
 
 control + mod4 + l
-    i3lock -c 1f1f1f
+    xset s activate
 
 mod4 + Delete
     xkill

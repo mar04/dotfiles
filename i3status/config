@@ -3,14 +3,10 @@ general {
     color_degraded = "#79740e"
     color_good     = "#888888"
     colors         = true
-    interval       = 5
+    interval       = 10
     output_format  = "i3bar"
 }
 
-order += "wireless wlp2s0"
-order += "ethernet enp1s0"
-order += "volume master"
-order += "battery 1"
 order += "time"
 
 wireless wlp2s0 {
@@ -46,6 +42,6 @@ battery 1 {
 }
 
 time {
-    format = "%Y-%m-%d - %H:%M"
+    format = "%H:%M"
 }
 

@@ -10,14 +10,20 @@ new_window          pixel   1
 hide_edge_borders   both
 #}}}1
 # RULES {{{1
-for_window    [class="emulator64-arm"]   floating   enable
-for_window    [class="Unibrow"]          floating   enable
-#for_window   [title="ncmpcpp"]          move       scratchpad
+for_window  [class="emulator64-arm"]  floating  enable
+for_window  [class="Unibrow"]         floating  enable
+for_window  [class="Xfce4-notifyd"]   floating  enable
+for_window  [class="Orage"]           floating  enable
+for_window  [class="Skype"]           floating  enable
+for_window  [class="Xfce4-notifyd"]   border    none
+for_window  [class="Synapse"]         border    none
+#for_window  [title="ncmpcpp"]         move      scratchpad
 
-assign [instance="newsbeuter"] → "1:rss"
-assign [class="Firefox"]       → "2:www"
-assign [instance="vim_"]       → "3:vim"
-assign [instance="ncmpcpp"]    → "9:music"
+assign  [class="Liferea"]     →  "1:rss"
+assign  [class="Firefox"]     →  "2:www"
+assign  [instance="vim_"]     →  "3:vim"
+assign  [class="Rhythmbox"]   →  "9:music"
+assign  [instance="ncmpcpp"]  →  "9:music"
 #}}}1
 # I3BAR {{{1
 bar {
@@ -49,7 +55,6 @@ bindsym $mod+t border toggle
 # i3
 bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
-bindsym $mod+Shift+E exit
 # ACTIONS {{{2
 
 bindsym $mod+Q kill
@@ -83,6 +88,7 @@ bindsym $mod+space focus mode_toggle
 
 # horizontal split '|'
 bindcode $mod+Shift+51 split h
+bindsym $mod+backslash split h
 
 # vertical split '-'
 bindcode $mod+20 split v
@@ -147,6 +153,20 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# exit mode
+mode "Exit | Reboot | Hibernate | Poweroff" {
+        bindsym e exit
+        bindsym r exec systemctl reboot
+        bindsym h exec systemctl hibernate
+        bindsym p exec systemctl poweroff
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode "Exit | Reboot | Hibernate | Poweroff"
 bindsym $mod+r mode "resize"
 #}}}1
+exec i3-msg workspace 1:rss
 # vim:tw=78 fdm=marker fdl=0 cc=+1

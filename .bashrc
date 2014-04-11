@@ -12,7 +12,11 @@ stty -ixon
 [ "$TERM" != "linux" ] && ~/bin/gruvbox_256palette
 
 shopt -s autocd
+shopt -s cdspell
+shopt -s checkjobs
 shopt -s checkwinsize
+shopt -s direxpand
+shopt -s dirspell
 shopt -s histappend
 
 PS0='\[\e[0;34m\]\u\[\e[0m\]@\h \[\e[0;32m\]\w\[\e[0m\]\[\e[0;34m\] \$\[\e[0m\]'

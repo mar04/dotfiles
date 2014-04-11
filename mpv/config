@@ -1,5 +1,5 @@
 # Write your default config options here!
-ao=alsa
+ao=pulse
 af=scaletempo
 vo=vaapi
 hwdec=vaapi

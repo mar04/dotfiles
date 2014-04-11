@@ -32,7 +32,7 @@ else
 endif
 
 " goes after colorscheme
-syntax on
+syntax enable
 " help with long lines slowness
 " set synmaxcol=128
 "}}}2
@@ -92,16 +92,13 @@ endif
 " ui {{{2
 set colorcolumn=+1
 set laststatus=2
-set matchtime=3
 set mouse=a
+set noshowmatch
 set noshowmode
-set ruler
-set showcmd
-set showmatch
 "}}}2
 " wildmenu {{{2
 set wildmenu
-set wildmode=longest:full,full
+" set wildmode=longest:full,full
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -137,15 +134,21 @@ let g:airline_symbols.whitespace='Ξ'
 " buffergator {{{2
 let g:buffergator_suppress_keymaps=1
 "}}}2
+" ctrlp {{{2
+let g:ctrlp_max_files = 100000
+"}}}2
+" delimitMate {{{2
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
+let g:delimitMate_jump_expansion=1
+let g:delimitMate_balance_matchpairs=1
+"}}}2
 " gitgutter {{{2
 let g:gitgutter_enabled=0
 "}}}2
 " indentLine {{{2
-let g:indentLine_char = '┊'
-"}}}2
-" listToggle {{{2
-let g:lt_location_list_toggle_map = '<Space>l'
-let g:lt_quickfix_list_toggle_map = '<Space>q'
+let g:indentLine_char='┊'
+let g:indentLine_enabled=0
 "}}}2
 " man {{{2
 runtime ftplugin/man.vim
@@ -155,22 +158,15 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_full_redraws=0
-let g:syntastic_style_error_symbol='✗'
+let g:syntastic_style_error_symbol='✎'
 let g:syntastic_style_warning_symbol='✎'
 let g:syntastic_warning_symbol='⚠'
 "}}}2
 " taboo {{{2
 let g:taboo_tab_format='%N:%f  '
 " }}}2
-" tcomment {{{2
-"let g:tcomment#rstrip_on-uncomment=2
-"}}}2
 " ultisnips {{{2
 let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsListSnippets="<C-\\>"
 " }}}2
 " undotree {{{2
 let g:undotree_SplitWidth=30
@@ -184,16 +180,15 @@ call yankstack#setup()
 " youcompleteme {{{2
 set completeopt-=preview
 let g:ycm_allow_changing_updatetime=0
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+" let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_path_to_python_interpreter='/bin/python2'
+let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_use_ultisnips_completer=1
-"}}}2
-" xptemplate {{{2
-let g:xptemplate_vars=''
-let g:xptemplate_vars.='&name=Mariusz Libera'
-let g:xptemplate_vars.='&author=Mariusz Libera'
-let g:xptemplate_vars.='&email=mariusz.libera@gmail.com'
 "}}}2
 "}}}1
 " MAPPINGS {{{1
@@ -206,14 +201,26 @@ nmap <Space>i <Plug>yankstack_substitute_newer_paste
 nnoremap <Space>b :BuffergatorToggle<CR>
 nnoremap <Space>t :BuffergatorTabsToggle<CR>
 "}}}2
+" clang-format {{{2
+map <Space>= :pyf ~/bin/clang-format.py<CR>
+" imap <C-I> <ESC>:pyf ~/bin/clang-format.py<CR>i
+" }}}2
 " gitgutter {{{2
 nnoremap cogg :GitGutterToggle<CR>
 "}}}2
-" ranger {{{2
-map <Space>r :call RangerChooser()<CR>
-" }}}2
+" listToggle {{{2
+let g:lt_location_list_toggle_map = '<Space>l'
+let g:lt_quickfix_list_toggle_map = '<Space>q'
+"}}}2
+" moveTab {{{2
+nnoremap <Space>gt :call MoveToNextTab()<CR>
+nnoremap <Space>gT :call MoveToPrevTab()<CR>
+"}}}2
 " openTerminal {{{2
 nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
+" }}}2
+" ranger {{{2
+map <Space>r :call RangerChooser()<CR>
 " }}}2
 " readline {{{2
 " some readline/emacs like keybindings missing from rsi plugin
@@ -225,15 +232,28 @@ cnoremap <C-k> <C-f>D<C-c>
 map <Space>s :call FollowSymlink()<CR>
 " }}}2
 " tabularize {{{2
-nnoremap <Space>a :Tabularize /
-vnoremap <Space>a :Tabularize /
+noremap <Space>a :Tabularize /
 "}}}2
 " tagbar {{{2
-nnoremap <Space>p :TagbarToggle<CR>
+noremap <Space>p :TagbarToggle<CR>
+"}}}2
+" tcomment {{{2
+let g:tcommentMapLeader1=''
+let g:tcommentMapLeader2=''
+noremap <Space>cb :TCommentBlock<CR>
+" }}}2
+" toggleComments {{{2
+nnoremap <Space>ct :call gruvbox#comment_toggle()<CR>
 "}}}2
 " undotree {{{2
-nnoremap <Space>u :UndotreeToggle<CR>
+noremap <Space>u :UndotreeToggle<CR>
 "}}}2
+" ultisnips {{{2
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsListSnippets="<C-\\>"
+" }}}2
 " youcompleteme {{{2
 nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
@@ -247,14 +267,16 @@ nnoremap <F4> :set list!<CR>
 inoremap <F4> <Esc>:set list!<CR>i
 noremap  <F5> :RainbowParenthesesToggle<CR>
 inoremap <F5> <Esc>:RainbowParenthesesToggle<CR>i
+set pastetoggle=<F11>
 "}}}2
 nnoremap <Space>: :TabMessage 
 nnoremap <Space><C-l> :redraw!<CR>
-nnoremap <Space>gt :call MoveToNextTab()<CR>
-nnoremap <Space>gT :call MoveToPrevTab()<CR>
+nnoremap <Space>cs :setlocal spell! spelllang=en_us
 noremap Y y$
 noremap Q gq
 nnoremap <C-l> :nohlsearch<CR>
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -407,82 +429,29 @@ augroup filetypedetect
     au BufNewFile,BufRead .tmux.conf*,tmux.conf* set ft=tmux
 augroup END
 " }}}2
-" vimrcEx {{{2
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-    au!
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    " position when opening a file.
-    autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-augroup END
+" keepCursorPosition {{{2
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" position when opening a file.
+autocmd BufReadPost *
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 "}}}2
-"}}}1
-" ABBREVIATIONS {{{1
-iabbrev ml Mariusz Libera
-iabbrev mtr # Maintainer: Mariusz Libera <mariusz.libera@gmail.com>
-iabbrev cpr © Mariusz Libera
 "}}}1
 " TODO {{{1
 "TODO: run bash commands in interactive mode - so aliases and functions and
 "everything else works as expected
-"TODO: help and completion windows should be autohiding or easily closing
 "TODO: c macro expansion
 "TODO: play with cinoptions
-"TODO: enable syntax folding in some filetypes
-"TODO: add paste_toggle keybinding
 "}}}1
 " POSSIBLE {{{1
 
 ":%s/\s\+$// - trim whitespace from end of lines
 
-" seems to be file specific
-" formatoptions:
-" c - autowrap COMMENTS using textwidth
-" r - insert comment leader (?) on <enter>
-" o - insert comment leader on 'o' or 'O'
-" q - gq formats comments (?)
-" n - recon numbered lists
-" v - wrap on blanks
-" t - autowrap TEXT using textwidth
-"set fo=croqnvt
-
 "vnoremap _g y:exe "grep /" . escape(@", '\\/') . "/ *.c *.h"<CR>
 
-
-" source: http://vim.wikia.com/wiki/VimTip102
-" Let <Tab> do all the autocompletion
-"function! Smart_TabComplete()
-"	let line = getline('.') 					" curline
-"	let substr = strpart(line, -1, col('.'))	" from start to cursor
-"	let substr = matchstr(substr, "[^ \t]*$")	" word till cursor
-"	if (strlen(substr)==0)						" nothing to match on empty string
-"		return "\<tab>"
-"	endif
-"	let has_period = match(substr, '\.') != -1	" position of period, if any
-"	let has_slash = match(substr, '\/') != -1	" position of slash, if any
-"	if (!has_period && !has_slash)
-"		return "\<C-X>\<C-P>"					" existing text matching
-"	elseif ( has_slash )
-"		return "\<C-X>\<C-F>"					" file matching
-"	else
-"		return "\<C-X>\<C-O>"					" plugin matching
-"	endif
-"endfunction
-"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-
-"" F5: Tag list
-"imap <silent> <F5> :Tlist<CR>
-"map <silent> <F5> :Tlist<CR>
-"
 "" F7: Find word under in all files in current dir or subdirectories
 ""map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*." . expand('%:e') <Bar> cw<CR>
 ""map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*." . expand('%:e')<CR>

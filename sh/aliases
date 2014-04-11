@@ -5,8 +5,6 @@ alias prompt_alarm='PS1="$PS0\a"'
 alias prompt_status='PS1="$PS8"'
 
 alias cal="cal -m3"
-alias cls="ls++"
-alias clsa="ls++ -A --group-directories-first"
 alias cmount="mount | column -t"
 alias df="df -hT"
 alias dfl="df -hTl --exclude-type=tmpfs --exclude-type=devtmpfs"
@@ -28,10 +26,11 @@ alias m="mpv"
 alias mpdd="mpd ~/.config/mpd/mpd.conf"
 alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config"
 alias news="newsbeuter"
+alias psc='ps xawf -eo pid,user,cgroup,args'
 alias qa="$EDITOR ~/doc/notes/quotes"
 alias ql="cat ~/doc/notes/quotes"
 alias rm="rm -I"
-alias startx="startx &>/dev/null ; vlock"
+alias startx="startx &>/dev/null ; killall gmailchecker ; vlock"
 #alias startx='startx &> ~/.cache/xlog ; vlock'
 alias td="$EDITOR ~/doc/notes/todo"
 alias tree="tree -AC"
