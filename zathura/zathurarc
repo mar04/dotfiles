@@ -1,0 +1,3 @@
+set font "Droid Sans 10"
+set inputbar-fg "#000000"
+set statusbar-fg "#a5a5a5"

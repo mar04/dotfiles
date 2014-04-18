@@ -17,14 +17,17 @@ URxvt.scrollWithBuffer: true
 
 ! do not specify italic font - its broken, urxvt will make italic automatically
 URxvt.font: \
-    xft:UbuntuMono:size=11,\
-    xft:DejaVuSansMono:size=10,\
-    xft:DroidSansMono:size=10,\
+    xft:UbuntuMono:size=12,\
+    xft:DejaVuSansMono:size=11,\
+    xft:DroidSansMono:size=11,\
     xft:Inconsolata:size=12, \
-    xft:Symbola:size=8, \
+    xft:Symbola:size=9, \
 
 ! needed to fix font spacing
 URxvt.letterSpace: -1
+! URxvt.lineSpace: 2
+URxvt.tripleclickwords: true
+URxvt.insecure: true
 ! hide mouse pointer
 URxvt.pointerBlank: true
 URxvt.internalborder: 0

@@ -93,12 +93,10 @@ endif
 set colorcolumn=+1
 set laststatus=2
 set mouse=a
-set noshowmatch
 set noshowmode
 "}}}2
 " wildmenu {{{2
 set wildmenu
-" set wildmode=longest:full,full
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -134,9 +132,6 @@ let g:airline_symbols.whitespace='Ξ'
 " buffergator {{{2
 let g:buffergator_suppress_keymaps=1
 "}}}2
-" ctrlp {{{2
-let g:ctrlp_max_files = 100000
-"}}}2
 " delimitMate {{{2
 let g:delimitMate_expand_cr=1
 let g:delimitMate_expand_space=1
@@ -148,22 +143,53 @@ let g:gitgutter_enabled=0
 "}}}2
 " indentLine {{{2
 let g:indentLine_char='┊'
-let g:indentLine_enabled=0
+let g:indentLine_enabled=1
+let g:indentLine_fileType=['c', 'cpp', 'sh', 'php', 'perl']
+" let g:indentLine_fileTypeExclude=['help', 'text', 'html']
+" let g:indentLine_setColors=0
+" let g:indentLine_color_term=245
+"}}}2
+" lusty {{{2
+let g:LustyExplorerDefaultMappings=0
+" let g:LustyJugglerDefaultMappings=0
 "}}}2
 " man {{{2
 runtime ftplugin/man.vim
 "}}}2
+" nerdTree {{{2
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeShowGitStatus=0
+"}}}2
+" rainbow {{{2
+let g:rainbow_active=1
+"}}}2
 " syntastic {{{2
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_aggregate_errors=1
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_full_redraws=0
 let g:syntastic_style_error_symbol='✎'
 let g:syntastic_style_warning_symbol='✎'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_html_checkers=['jshint', 'w3']
 "}}}2
 " taboo {{{2
 let g:taboo_tab_format='%N:%f  '
+" }}}2
+" tagbar {{{2
+let g:tagbar_autoclose=1
+let g:tagbar_autofocus=1
+let g:tagbar_compact=1
+let g:tagbar_type_snippets={
+    \ 'ctagstype' : 'snippets',
+    \ 'kinds' : [
+        \ 's:snippets',
+    \ ]
+\ }
+" }}}2
+" tagbar-phpctags {{{2
+let g:tagbar_phpctags_bin="~/code/git/phpctags/phpctags"
 " }}}2
 " ultisnips {{{2
 let g:UltiSnipsEditSplit='vertical'
@@ -212,9 +238,19 @@ nnoremap cogg :GitGutterToggle<CR>
 let g:lt_location_list_toggle_map = '<Space>l'
 let g:lt_quickfix_list_toggle_map = '<Space>q'
 "}}}2
+" lusty {{{2
+nnoremap <Space>k :LustyBufferExplorer<CR>
+nnoremap <Space>v :LustyBufferGrep<CR>
+nnoremap <Space>h :LustyFilesystemExplorer<CR>
+nnoremap <Space>f :LustyFilesystemExplorerFromHere<CR>
+"}}}2
 " moveTab {{{2
 nnoremap <Space>gt :call MoveToNextTab()<CR>
 nnoremap <Space>gT :call MoveToPrevTab()<CR>
+"}}}2
+" nerdTree {{{2
+nnoremap <Space>n :NERDTreeToggle<CR>
+nnoremap <Space>N :NERDTreeFind<CR>
 "}}}2
 " openTerminal {{{2
 nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
@@ -272,9 +308,14 @@ set pastetoggle=<F11>
 nnoremap <Space>: :TabMessage 
 nnoremap <Space><C-l> :redraw!<CR>
 nnoremap <Space>cs :setlocal spell! spelllang=en_us
+nnoremap <Space><CR> ak
 noremap Y y$
 noremap Q gq
-nnoremap <C-l> :nohlsearch<CR>
+nnoremap <C-n> gt
+nnoremap <C-p> gT
+nnoremap <silent> <C-l> :nohlsearch<CR>
+nnoremap <C-w>t :tabnew<CR>
+nnoremap <C-w><C-t> :tabnew<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -445,6 +486,9 @@ autocmd BufReadPost *
 "everything else works as expected
 "TODO: c macro expansion
 "TODO: play with cinoptions
+"TODO: use ctrl-h ctrl-l ctrl-k s ctrl-y ctrl-e
+"TODO: use ctrl-n and ctrl-p like emacs in insert mode, but only if there is no completion
+"TODO: buffergator - option to save selected buffers
 "}}}1
 " POSSIBLE {{{1
 
@@ -463,4 +507,4 @@ autocmd BufReadPost *
 " F12: Rebuild ctags database
 "map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "}}}1
-" vim: fdm=marker fdl=0 tw=78 cc=+1
+" vim: fdm=marker fdl=0 cc=+1
