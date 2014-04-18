@@ -146,12 +146,9 @@ let g:indentLine_char='┊'
 let g:indentLine_enabled=1
 let g:indentLine_fileType=['c', 'cpp', 'sh', 'php', 'perl']
 " let g:indentLine_fileTypeExclude=['help', 'text', 'html']
-" let g:indentLine_setColors=0
-" let g:indentLine_color_term=245
 "}}}2
 " lusty {{{2
 let g:LustyExplorerDefaultMappings=0
-" let g:LustyJugglerDefaultMappings=0
 "}}}2
 " man {{{2
 runtime ftplugin/man.vim
@@ -159,9 +156,6 @@ runtime ftplugin/man.vim
 " nerdTree {{{2
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeShowGitStatus=0
-"}}}2
-" rainbow {{{2
-let g:rainbow_active=1
 "}}}2
 " syntastic {{{2
 let g:syntastic_always_populate_loc_list=1
