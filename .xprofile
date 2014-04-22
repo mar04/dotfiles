@@ -69,5 +69,3 @@ synapse -s &
 # NETWORK MANAGER
 nm-applet &
 
-# CAFFEINE
-caffeine &

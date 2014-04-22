@@ -6,7 +6,6 @@ execute pathogen#infect()
 set nocompatible
 filetype plugin indent on
 
-set autoread
 set backspace=indent,eol,start
 set foldtext=NeatFoldText()
 set hidden
@@ -14,7 +13,6 @@ set linebreak
 " set shellcmdflag=-ic           " fucks up vimdiff for whatever reason
 set splitbelow
 set splitright
-set tabpagemax=50
 
 " directories {{{2
 set backupdir=~/.local/share/vim/backup/
@@ -34,7 +32,7 @@ endif
 " goes after colorscheme
 syntax enable
 " help with long lines slowness
-" set synmaxcol=128
+set synmaxcol=150
 "}}}2
 " cursor {{{2
 " change cursor shape and color in different modes
@@ -55,7 +53,7 @@ if &term =~ 'xterm\|rxvt'
 endif
 "}}}2
 " gui {{{2
-set guifont=Ubuntu\ Mono\ 11
+set guifont=Ubuntu\ Mono\ 12
 set guioptions=ac
 set guiheadroom=0
 set guicursor=n-v-c-ve-o:block-blinkon0-Cursor
@@ -130,7 +128,17 @@ let g:airline_symbols.linenr=''
 let g:airline_symbols.whitespace='Ξ'
 "}}}2
 " buffergator {{{2
+let g:buffergator_autoexpand_on_split=0
+let g:buffergator_display_regime="bufname"
 let g:buffergator_suppress_keymaps=1
+"}}}2
+" colorizer {{{2
+let g:colorizer_auto_filetype='css,html'
+let g:colorizer_fgcontrast=1
+"}}}2
+" cursorcross {{{2
+let g:cursorcross_dynamic='w'
+let g:cursorcross_mappings=0
 "}}}2
 " delimitMate {{{2
 let g:delimitMate_expand_cr=1
@@ -157,16 +165,20 @@ runtime ftplugin/man.vim
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeShowGitStatus=0
 "}}}2
+" php-cs-fixer {{{2
+let g:php_cs_fixer_enable_default_mapping=0
+"}}}2
 " syntastic {{{2
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_aggregate_errors=1
-let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_full_redraws=0
 let g:syntastic_style_error_symbol='✎'
 let g:syntastic_style_warning_symbol='✎'
 let g:syntastic_warning_symbol='⚠'
-let g:syntastic_html_checkers=['jshint', 'w3']
+let g:syntastic_html_checkers=['jshint', 'w3', 'tidy']
+let g:syntastic_php_phpcs_args="--standard=PSR2"
 "}}}2
 " taboo {{{2
 let g:taboo_tab_format='%N:%f  '
@@ -185,8 +197,14 @@ let g:tagbar_type_snippets={
 " tagbar-phpctags {{{2
 let g:tagbar_phpctags_bin="~/code/git/phpctags/phpctags"
 " }}}2
+" tcomment {{{2
+let g:tcommentTextObjectInlineComment=""
+" }}}2
 " ultisnips {{{2
 let g:UltiSnipsEditSplit='vertical'
+let g:snips_author="Mariusz Libera"
+let g:snips_author_email="mariusz.libera@gmail.com"
+let g:snips_email="mariusz.libera@gmail.com"
 " }}}2
 " undotree {{{2
 let g:undotree_SplitWidth=30
@@ -199,15 +217,15 @@ call yankstack#setup()
 "}}}2
 " youcompleteme {{{2
 set completeopt-=preview
-let g:ycm_allow_changing_updatetime=0
+" let g:ycm_allow_changing_updatetime=0
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 " let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
-let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_path_to_python_interpreter='/bin/python2'
-let g:ycm_seed_identifiers_with_syntax=1
+" let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_use_ultisnips_completer=1
 "}}}2
 "}}}1
@@ -218,15 +236,8 @@ nmap <Space>o <Plug>yankstack_substitute_older_paste
 nmap <Space>i <Plug>yankstack_substitute_newer_paste
 "}}}2
 " buffergator {{{2
-nnoremap <Space>b :BuffergatorToggle<CR>
-nnoremap <Space>t :BuffergatorTabsToggle<CR>
-"}}}2
-" clang-format {{{2
-map <Space>= :pyf ~/bin/clang-format.py<CR>
-" imap <C-I> <ESC>:pyf ~/bin/clang-format.py<CR>i
-" }}}2
-" gitgutter {{{2
-nnoremap cogg :GitGutterToggle<CR>
+nnoremap <silent> <Space>b :BuffergatorToggle<CR>
+nnoremap <silent> <Space>t :BuffergatorTabsToggle<CR>
 "}}}2
 " listToggle {{{2
 let g:lt_location_list_toggle_map = '<Space>l'
@@ -238,13 +249,9 @@ nnoremap <Space>v :LustyBufferGrep<CR>
 nnoremap <Space>h :LustyFilesystemExplorer<CR>
 nnoremap <Space>f :LustyFilesystemExplorerFromHere<CR>
 "}}}2
-" moveTab {{{2
-nnoremap <Space>gt :call MoveToNextTab()<CR>
-nnoremap <Space>gT :call MoveToPrevTab()<CR>
-"}}}2
 " nerdTree {{{2
-nnoremap <Space>n :NERDTreeToggle<CR>
-nnoremap <Space>N :NERDTreeFind<CR>
+nnoremap <silent> <Space>n :NERDTreeToggle<CR>
+nnoremap <silent> <Space>N :NERDTreeFind<CR>
 "}}}2
 " openTerminal {{{2
 nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
@@ -257,15 +264,28 @@ map <Space>r :call RangerChooser()<CR>
 inoremap <C-_> <C-o>u
 inoremap <C-k> <C-o>D
 cnoremap <C-k> <C-f>D<C-c>
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 "}}}2
 " symlink {{{2
 map <Space>s :call FollowSymlink()<CR>
 " }}}2
+" tabs {{{2
+nnoremap <Space>gt :call MoveToNextTab()<CR>
+nnoremap <Space>gT :call MoveToPrevTab()<CR>
+nnoremap <C-n> gt
+nnoremap <C-p> gT
+nnoremap <C-w>t :tabnew<CR>
+nnoremap <C-w><C-t> :tabnew<CR>
+" redirect command output to a buffer in a new tab
+nnoremap <Space>: :TabMessage 
+"}}}2
 " tabularize {{{2
 noremap <Space>a :Tabularize /
 "}}}2
 " tagbar {{{2
-noremap <Space>p :TagbarToggle<CR>
+noremap <silent> <Space>p :TagbarToggle<CR>
 "}}}2
 " tcomment {{{2
 let g:tcommentMapLeader1=''
@@ -273,6 +293,8 @@ let g:tcommentMapLeader2=''
 noremap <Space>cb :TCommentBlock<CR>
 " }}}2
 " toggleComments {{{2
+" all comments change foreground color to background becoming invisible
+" works with my custom function in gruvbox theme
 nnoremap <Space>ct :call gruvbox#comment_toggle()<CR>
 "}}}2
 " undotree {{{2
@@ -289,32 +311,23 @@ nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
 " }}}2
 " f1-12 {{{2
-noremap  <F2> :call CharTillTw("-")<CR>
-inoremap <F2> <Esc>:call CharTillTw("-")<CR>
-nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
-inoremap <F3> <Esc>:set number!<CR>:set relativenumber!<CR>i
-nnoremap <F4> :set list!<CR>
-inoremap <F4> <Esc>:set list!<CR>i
-noremap  <F5> :RainbowParenthesesToggle<CR>
-inoremap <F5> <Esc>:RainbowParenthesesToggle<CR>i
+noremap <F2> :IndentLinesToggle<CR>
+noremap <F3> :RainbowParenthesesToggle<CR>
+noremap <F3> :SyntasticToggleMode<CR>
+noremap <F4> :GitGutterToggle<CR>
+" <F5> is vdebug run
+noremap <F6> :ColorToggle<CR>
+" <F10> is vdebug set_breakpoint
 set pastetoggle=<F11>
 "}}}2
-nnoremap <Space>: :TabMessage 
+nnoremap <silent> <C-l> :nohlsearch<CR>
 nnoremap <Space><C-l> :redraw!<CR>
-nnoremap <Space>cs :setlocal spell! spelllang=en_us
+" split line
 nnoremap <Space><CR> ak
 noremap Y y$
 noremap Q gq
-nnoremap <C-n> gt
-nnoremap <C-p> gT
-nnoremap <silent> <C-l> :nohlsearch<CR>
-nnoremap <C-w>t :tabnew<CR>
-nnoremap <C-w><C-t> :tabnew<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
 "}}}1
 " FUNCTIONS {{{1
 " AutoClosePreviewWindow {{{2
@@ -459,11 +472,14 @@ augroup Binary
     au BufWritePost *.o set nomod | endif
 augroup END
 "}}}2
-" filetypedetect {{{2
-augroup filetypedetect
-    au BufNewFile,BufRead .tmux.conf*,tmux.conf* set ft=tmux
+" checktime {{{2
+" check more often if the file is modified outside of vim
+augroup CheckTime
+    au BufWinEnter * checktime
+    au CursorHold  * checktime
+    au CursorHoldI * checktime
 augroup END
-" }}}2
+"}}}2
 " keepCursorPosition {{{2
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -501,4 +517,4 @@ autocmd BufReadPost *
 " F12: Rebuild ctags database
 "map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "}}}1
-" vim: fdm=marker fdl=0 cc=+1
+" vim: fdm=marker fdl=0 cc=81
