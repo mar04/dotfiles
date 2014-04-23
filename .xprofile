@@ -61,6 +61,9 @@ synapse -s &
 # GMAIL
 gmailchecker -c ~/.config/gmailchecker/config -b
 
+# CLIPBOARD
+clipit &
+
 # PIM
 osmo &
 

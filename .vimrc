@@ -330,6 +330,10 @@ set pastetoggle=<F11>
 "}}}2
 nnoremap <silent> <C-l> :nohlsearch<CR>
 nnoremap <Space><C-l> :redraw!<CR>
+" change directory to that of current file
+nnoremap <Space>cd :cd %:p:h<CR>
+" trim whitespace from end of lines
+nnoremap <Space>x :%s/\s\+$//
 " split line
 nnoremap <Space><CR> ak
 noremap Y y$
@@ -449,6 +453,7 @@ function! RangerChooser()
 endfun
 "}}}2
 " TabMessage {{{2
+" redirect cmd output to a buffer in a new tab
 function! TabMessage(cmd)
     redir => message
     silent execute a:cmd
@@ -508,7 +513,6 @@ autocmd BufReadPost *
 "}}}1
 " POSSIBLE {{{1
 
-":%s/\s\+$// - trim whitespace from end of lines
 
 "vnoremap _g y:exe "grep /" . escape(@", '\\/') . "/ *.c *.h"<CR>
 
@@ -517,8 +521,6 @@ autocmd BufReadPost *
 ""map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*." . expand('%:e')<CR>
 "map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*.tmpl **/*.py **/*.cc **/*.c **/*.cxx **/*.cpp **/*.h"<CR>
 "
-"" ,cd: Change directory to that of current file
-"map ,cd :cd %:p:h<CR>
 
 " F12: Rebuild ctags database
 "map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
