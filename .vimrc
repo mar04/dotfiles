@@ -268,6 +268,10 @@ cnoremap <C-k> <C-f>D<C-c>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 "}}}2
+" sudo save {{{2
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+" }}}2
 " symlink {{{2
 map <Space>s :call FollowSymlink()<CR>
 " }}}2
@@ -297,14 +301,18 @@ noremap <Space>cb :TCommentBlock<CR>
 " works with my custom function in gruvbox theme
 nnoremap <Space>ct :call gruvbox#comment_toggle()<CR>
 "}}}2
-" undotree {{{2
-noremap <Space>u :UndotreeToggle<CR>
-"}}}2
 " ultisnips {{{2
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-\\>"
+" }}}2
+" undotree {{{2
+noremap <Space>u :UndotreeToggle<CR>
+"}}}2
+" upper/lower {{{2
+nnoremap gu gU
+nnoremap gl gu
 " }}}2
 " youcompleteme {{{2
 nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
@@ -326,8 +334,6 @@ nnoremap <Space><C-l> :redraw!<CR>
 nnoremap <Space><CR> ak
 noremap Y y$
 noremap Q gq
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
 "}}}1
 " FUNCTIONS {{{1
 " AutoClosePreviewWindow {{{2

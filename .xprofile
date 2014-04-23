@@ -30,7 +30,8 @@ sxhkd &
 xset r rate 250 30
 
 # SCREENSAVER
-xset s 400
+# controll screenlocker by dpms timeout, so that it can be inhibited
+xset s off
 xss-lock -- i3lock -n -d -c 888888 &
 
 # BELL
@@ -39,33 +40,32 @@ xset -b
 # X RESOURCES
 xrdb -merge ~/.config/Xresources/Xresources
 
-# URXVT DAEMON
-urxvtd -q -o -f
-
-# GMAIL
-gmailchecker -c ~/.config/gmailchecker/config -b
-
-# RSS
-liferea &
-
-# WWW
-firefox &
-
 # COMPOSITOR
 compton &
 
 # POWER MANAGER
 xfce4-power-manager &
 
-# CALENDAR
-orage &
+# NETWORK MANAGER
+nm-applet &
 
 # PULSEAUDIO
 pasystray &
 
+# URXVT DAEMON
+urxvtd -q -o -f
+
 # SYNAPSE
 synapse -s &
 
-# NETWORK MANAGER
-nm-applet &
+# GMAIL
+gmailchecker -c ~/.config/gmailchecker/config -b
 
+# PIM
+osmo &
+
+# RSS
+liferea &
+
+# WWW
+firefox &
