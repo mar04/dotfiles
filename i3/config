@@ -15,6 +15,7 @@ for_window  [class="Unibrow"]         floating  enable
 for_window  [class="Xfce4-notifyd"]   floating  enable
 for_window  [class="Orage"]           floating  enable
 for_window  [class="Skype"]           floating  enable
+for_window  [class="scummvm"]           floating  enable
 for_window  [class="Xfce4-notifyd"]   border    none
 for_window  [class="Synapse"]         border    none
 #for_window  [title="ncmpcpp"]         move      scratchpad

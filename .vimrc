@@ -32,7 +32,7 @@ endif
 " goes after colorscheme
 syntax enable
 " help with long lines slowness
-set synmaxcol=150
+set synmaxcol=200
 "}}}2
 " cursor {{{2
 " change cursor shape and color in different modes
@@ -103,6 +103,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " PLUGINS {{{1
 " airline {{{2
 let g:airline_exclude_preview=1
+" let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tagbar#enabled=0
 let g:airline_inactive_collapse=0
 let g:airline_theme='mariusz'
@@ -168,6 +169,28 @@ let g:NERDTreeShowGitStatus=0
 " php-cs-fixer {{{2
 let g:php_cs_fixer_enable_default_mapping=0
 "}}}2
+" startify {{{2
+let g:startify_list_order=[
+    \ ['SESSIONS'], 'sessions',
+    \ ['BOOKMARKS'], 'bookmarks',
+    \ ['RECENT FILES'], 'files',
+    \ ]
+let g:startify_bookmarks=[
+    \ '~/.vimrc',
+    \ '~/.profile',
+    \ '~/.config/Xresources/Xresources',
+    \ ]
+let g:startify_session_detection=1
+" let g:startify_session_autoload=0
+let g:startify_session_persistence=1
+" let g:startify_session_savevars=[]
+" let g:startify_session_savecmds=[]
+let g:startify_session_delete_buffers=1
+let g:startify_change_to_dir=1
+" let g:startify_change_to_vcs_root=1
+" let g:startify_skiplist_server=[]
+let g:startify_enable_special=0
+"}}}2
 " syntastic {{{2
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_aggregate_errors=1
@@ -178,6 +201,7 @@ let g:syntastic_style_error_symbol='✎'
 let g:syntastic_style_warning_symbol='✎'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_html_checkers=['jshint', 'w3', 'tidy']
+let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_php_phpcs_args="--standard=PSR2"
 "}}}2
 " taboo {{{2
@@ -218,16 +242,17 @@ call yankstack#setup()
 " youcompleteme {{{2
 set completeopt-=preview
 " let g:ycm_allow_changing_updatetime=0
+" let g:ycm_cache_omnifunc=0
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 " let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
+" let g:ycm_complete_in_strings=0
 let g:ycm_key_list_previous_completion=['<Up>']
 let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_path_to_python_interpreter='/bin/python2'
 " let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_use_ultisnips_completer=1
-"}}}2
 "}}}1
 " MAPPINGS {{{1
 " yankstack {{{2
@@ -320,22 +345,26 @@ nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
 " }}}2
 " f1-12 {{{2
 noremap <F2> :IndentLinesToggle<CR>
-noremap <F3> :RainbowParenthesesToggle<CR>
 noremap <F3> :SyntasticToggleMode<CR>
 noremap <F4> :GitGutterToggle<CR>
 " <F5> is vdebug run
 noremap <F6> :ColorToggle<CR>
+noremap <F7> :RainbowParenthesesToggle<CR>
 " <F10> is vdebug set_breakpoint
 set pastetoggle=<F11>
 "}}}2
 nnoremap <silent> <C-l> :nohlsearch<CR>
 nnoremap <Space><C-l> :redraw!<CR>
+nnoremap <silent> <C-w><C-w> :call ToggleTabline()<CR>
+nnoremap ; :
+nnoremap : ;
+nnoremap <C-s> :w<CR>
 " change directory to that of current file
 nnoremap <Space>cd :cd %:p:h<CR>
 " trim whitespace from end of lines
-nnoremap <Space>x :%s/\s\+$//
+nnoremap <Space>z :%s/\s\+$//
 " split line
-nnoremap <Space><CR> ak
+nnoremap <Space><CR> a\\k
 noremap Y y$
 noremap Q gq
 "}}}1
@@ -464,6 +493,15 @@ function! TabMessage(cmd)
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 "}}}2
+" ToggleTabline {{{2
+function! ToggleTabline()
+    if &showtabline
+        set showtabline=0
+    else
+        set showtabline=2
+    endif
+endfunction
+"}}}2
 "}}}1
 " AUTOCOMMANDS {{{1
 " autoClosePreviewWindow {{{2
@@ -500,6 +538,10 @@ autocmd BufReadPost *
             \ if line("'\"") > 1 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
             \ endif
+"}}}2
+" parentDir {{{2
+ " Automatically create parent directory on save if directory doesn't exist
+au BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h")) | execute "silent! !mkdir -p ".shellescape(expand('%:h'), 1) | redraw! | endif
 "}}}2
 "}}}1
 " TODO {{{1
