@@ -14,18 +14,18 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollTtyKeypress: true
 URxvt.scrollWithBuffer: true
 
-
 ! do not specify italic font - its broken, urxvt will make italic automatically
 URxvt.font: \
     xft:UbuntuMono:size=12,\
     xft:DejaVuSansMono:size=11,\
     xft:DroidSansMono:size=11,\
-    xft:Inconsolata:size=12, \
-    xft:Symbola:size=9, \
+    xft:Inconsolata:size=12,\
+    xft:Symbola:size=9,\
+    xft:SourceCodePro:size=12,\
 
 ! needed to fix font spacing
 URxvt.letterSpace: -1
-! URxvt.lineSpace: 2
+URxvt.lineSpace: 2
 URxvt.tripleclickwords: true
 URxvt.insecure: true
 ! hide mouse pointer

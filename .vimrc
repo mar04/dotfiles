@@ -150,6 +150,9 @@ let g:delimitMate_balance_matchpairs=1
 " gitgutter {{{2
 let g:gitgutter_enabled=0
 "}}}2
+" inccomplete {{{2
+let g:inccomplete_sort='ignorecase'
+"}}}2
 " indentLine {{{2
 let g:indentLine_char='┊'
 let g:indentLine_enabled=1
@@ -201,6 +204,7 @@ let g:syntastic_style_error_symbol='✎'
 let g:syntastic_style_warning_symbol='✎'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_html_checkers=['jshint', 'w3', 'tidy']
+let g:syntastic_css_checkers=['csslint', 'prettycss', 'recess']
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_php_phpcs_args="--standard=PSR2"
 "}}}2
@@ -253,6 +257,7 @@ let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_path_to_python_interpreter='/bin/python2'
 " let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_use_ultisnips_completer=1
+"}}}2
 "}}}1
 " MAPPINGS {{{1
 " yankstack {{{2
@@ -282,7 +287,7 @@ nnoremap <silent> <Space>N :NERDTreeFind<CR>
 nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
 " }}}2
 " ranger {{{2
-map <Space>r :call RangerChooser()<CR>
+nnoremap <Space>r :call RangerChooser()<CR>
 " }}}2
 " readline {{{2
 " some readline/emacs like keybindings missing from rsi plugin
@@ -298,7 +303,7 @@ inoremap <C-U> <C-G>u<C-U>
 cmap w!! w !sudo tee > /dev/null %
 " }}}2
 " symlink {{{2
-map <Space>s :call FollowSymlink()<CR>
+nnoremap <Space>s :call FollowSymlink()<CR>
 " }}}2
 " tabs {{{2
 nnoremap <Space>gt :call MoveToNextTab()<CR>
@@ -337,7 +342,9 @@ noremap <Space>u :UndotreeToggle<CR>
 "}}}2
 " upper/lower {{{2
 nnoremap gu gU
+nnoremap guu gUU
 nnoremap gl gu
+nnoremap gll guu
 " }}}2
 " youcompleteme {{{2
 nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>

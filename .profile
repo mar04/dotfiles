@@ -3,7 +3,8 @@
 #
 
 # PATH -----------------------------------------------------------------------
-export PATH="$HOME/{.gem/ruby/2.1.0/bin,bin}:$PATH"
+PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # APPS -----------------------------------------------------------------------
 export BROWSER="firefox"
