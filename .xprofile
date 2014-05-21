@@ -13,15 +13,19 @@ fi
 
 # KEYBOARD MAP
 # available options are in /usr/share/X11/xkb/rules/evdev.lst
-setxkbmap \
-    -layout pl \
-    -option ctrl:nocaps \
-    -option compose:lctrl \
-    -option shift:both_capslock \
-    -option terminate:ctrl_alt_bksp
+# setxkbmap \
+#     -layout pl \
+#     -option ctrl:nocaps \
+#     -option compose:lctrl \
+#     -option shift:both_capslock \
+#     -option terminate:ctrl_alt_bksp
 
-# MAP LEFT CTRL TO ESCAPE ON RELEASE
-xcape
+# sets all of the above + turns space into Hyper_L that is another Ctrl
+xkbcomp ~/.config/my_keyboard "$DISPLAY"
+
+# space works as ctrl when used as modifier and as space when used alone
+# capsloc works as ctrl when used as modifier ans as escape when used alone
+xcape -e "Hyper_L=space;Control_L=Escape"
 
 # KEYBOARD SHORTCUTS
 sxhkd &
