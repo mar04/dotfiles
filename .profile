@@ -4,6 +4,7 @@
 
 # PATH -----------------------------------------------------------------------
 PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+PATH="$HOME/.local/android-studio/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # APPS -----------------------------------------------------------------------
