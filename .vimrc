@@ -365,11 +365,14 @@ nnoremap <Space><C-l> :redraw!<CR>
 nnoremap <silent> <C-w><C-w> :call ToggleTabline()<CR>
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 nnoremap <C-s> :w<CR>
 " change directory to that of current file
 nnoremap <Space>cd :cd %:p:h<CR>
 " trim whitespace from end of lines
 nnoremap <Space>z :%s/\s\+$//
+vnoremap <Space>z :s/\s\+$//
 " split line
 nnoremap <Space><CR> a\\k
 noremap Y y$

@@ -16,17 +16,15 @@ for_window  [class="Xfce4-notifyd"]   floating  enable
 for_window  [class="Orage"]           floating  enable
 for_window  [class="Skype"]           floating  enable
 for_window  [class="scummvm"]         floating  enable
-for_window  [class="Xfce4-notifyd"]   border    none
 for_window  [class="Synapse"]         border    none
-#for_window  [title="ncmpcpp"]         move      scratchpad
+for_window  [class="PacketTracer6" title="^(?!(Cisco Packet Tracer|PT Activity))"]   floating  enable
+for_window  [class="PacketTracer6" title="User Profile"] kill
 
 assign  [class="transmission"]  →  "0:torrent"
 assign  [class="Liferea"]       →  "1:rss"
 assign  [class="Firefox"]       →  "2:www"
-# assign  [instance="vim_"]       →  "3:vim"
 assign  [class="Rhythmbox"]     →  "9:music"
 assign  [class="Clementine"]    →  "9:music"
-# assign  [instance="ncmpcpp"]    →  "9:music"
 #}}}1
 # I3BAR {{{1
 bar {
