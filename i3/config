@@ -17,7 +17,7 @@ for_window  [class="Orage"]           floating  enable
 for_window  [class="Skype"]           floating  enable
 for_window  [class="scummvm"]         floating  enable
 for_window  [class="Synapse"]         border    none
-for_window  [class="PacketTracer6" title="^(?!(Cisco Packet Tracer|PT Activity))"]   floating  enable
+for_window  [class="PacketTracer6" title="^(?!(Cisco Packet Tracer|PT Activity))"]   floating enable , border normal
 for_window  [class="PacketTracer6" title="User Profile"] kill
 
 assign  [class="transmission"]  →  "0:torrent"

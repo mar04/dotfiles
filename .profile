@@ -9,13 +9,14 @@ export PATH="$HOME/bin:$PATH"
 
 # APPS -----------------------------------------------------------------------
 export BROWSER="firefox"
+export DE='xfce'
 export EDITOR="vim"
 export PAGER="less"
 export TERMCMD="urxvtc"
 export VISUAL="$EDITOR"
 
 # CONFIG ---------------------------------------------------------------------
-export CHROMIUM_USER_FLAGS="--disk-cache-size=20000000 --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=14.0.0.125"
+export CHROMIUM_USER_FLAGS="--disk-cache-size=2000000 --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=14.0.0.125"
 export HISTFILE="$HOME/.local/share/bash/history"
 export INPUTRC="$HOME/.config/sh/inputrc"
 export LESS="-Ri"
@@ -32,6 +33,6 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 # SHELL ----------------------------------------------------------------------
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && (startx; exit)
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ; exit
 
 # vim: tw=78 cc=+1

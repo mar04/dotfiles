@@ -1,0 +1,45 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "user_off",
+    "geometry": {
+       "height": 289,
+       "width": 439,
+       "x": 0,
+       "y": 0
+    },
+    "name": "PT Activity",
+    "percent": 0.36,
+    "swallows": [
+       {
+       "class": "^PacketTracer6$",
+       // "instance": "^PacketTracer6$",
+       "title": "^PT\\ Activity"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "user_off",
+    "geometry": {
+       "height": 632,
+       "width": 813,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Cisco Packet Tracer",
+    "percent": 0.64,
+    "swallows": [
+       {
+       "class": "^PacketTracer6$",
+       // "instance": "^PacketTracer6$",
+       "title": "^Cisco\\ Packet\\ Tracer"
+       }
+    ],
+    "type": "con"
+}
+

@@ -31,7 +31,6 @@ dex -ae MARIUSZ
 
 thunar --daemon &
 
-export DE="xfce"
 exec i3
 # exec compiz --replace --sm-disable ccp
 # exec startxfce4

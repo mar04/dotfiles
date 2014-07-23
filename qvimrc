@@ -1,0 +1,37 @@
+" vim config for use with Qt Creator's FakeVim
+inoremap <C-e> <End>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-u> <Esc><Right>d0i
+inoremap <C-h> <BS>
+inoremap <C-i> <C-Space>
+inoremap <C-d> <Del>
+" doesn't work
+" inoremap <C-k> <Esc>Da
+
+nnoremap gu gU
+nnoremap guu gUU
+nnoremap gl gu
+nnoremap gll guu
+
+
+nnoremap <silent> <C-l> :nohlsearch<CR>
+nnoremap <Space><C-l> :redraw!<CR>
+nnoremap <silent> <C-w><C-w> :call ToggleTabline()<CR>
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" nnoremap <C-s> :w<CR>
+
+" trim whitespace from end of lines
+nnoremap <Space>z :%s/\s\+$//
+vnoremap <Space>z :s/\s\+$//
+
+" split line
+nnoremap <Space><CR> a\\k
+
+noremap Y y$
+noremap Q gq
