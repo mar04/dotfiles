@@ -1,0 +1,41 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "floating": "user_off",
+    "geometry": {
+       "height": 609,
+       "width": 276,
+       "x": 294,
+       "y": 104
+    },
+    "name": "Dia Toolbox",
+    "percent": 0.12,
+    "swallows": [
+       {
+       "class": "^Dia$",
+       "window_role": "^toolbox_window$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "geometry": {
+       "height": 400,
+       "width": 555,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Dia Diagram",
+    "percent": 0.88,
+    "swallows": [
+       {
+       "class": "^Dia$",
+       "window_role": "^diagram_window$"
+       }
+    ],
+    "type": "con"
+}
+
