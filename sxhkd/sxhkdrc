@@ -6,11 +6,8 @@ mod4 + Return
 mod4 + c
     $BROWSER
 
-# mod4 + d
-#     j4-dmenu-desktop --dmenu='dmenu -i -fn "Droid Sans:size=10"'
-
 mod4 + b
-    quickswitch.py --dmenu='dmenu -i -l 20 -fn "Droid Sans:size=10"'
+    xwinmosaic
 
 control + mod4 + l
     xset s activate
@@ -20,23 +17,23 @@ mod4 + Delete
 
 # MPD ------------------------------------------------------------------------
 
-XF86AudioPlay
-    mpc toggle
-
-XF86AudioStop
-    mpc stop
-
-XF86AudioPrev
-    mpc prev
-
-XF86AudioNext
-    mpc next
-
-shift + XF86AudioPrev
-    mpc seek -00:00:10
-
-shift + XF86AudioNext
-    mpc seek +00:00:10
+# XF86AudioPlay
+#     mpc toggle
+#
+# XF86AudioStop
+#     mpc stop
+#
+# XF86AudioPrev
+#     mpc prev
+#
+# XF86AudioNext
+#     mpc next
+#
+# shift + XF86AudioPrev
+#     mpc seek -00:00:10
+#
+# shift + XF86AudioNext
+#     mpc seek +00:00:10
 
 # VOLUME ---------------------------------------------------------------------
 

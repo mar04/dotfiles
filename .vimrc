@@ -163,7 +163,7 @@ let g:indentLine_fileType=['c', 'cpp', 'sh', 'php', 'perl']
 let g:LustyExplorerDefaultMappings=0
 "}}}2
 " man {{{2
-runtime ftplugin/man.vim
+runtime ~/.vim/bundle/man/ftplugin/man.vim
 "}}}2
 " nerdTree {{{2
 let g:NERDTreeMinimalUI=1
@@ -367,6 +367,9 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+" more natural surround mappings
+nmap s ys
+vmap s S
 nnoremap <C-s> :w<CR>
 " change directory to that of current file
 nnoremap <Space>cd :cd %:p:h<CR>

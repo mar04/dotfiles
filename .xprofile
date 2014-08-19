@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-# ~/.xprofile
-#
-
 # KEYBOARD MAP
 # available options are in /usr/share/X11/xkb/rules/evdev.lst
 # setxkbmap \
@@ -15,12 +11,10 @@
 # sets all of the above + turns space into Hyper_L that is another Ctrl
 xkbcomp ~/.config/my_keyboard "$DISPLAY"
 
-# space works as ctrl when used as modifier and as space when used alone
-# capsloc works as ctrl when used as modifier ans as escape when used alone
+# space acts as ctrl when used as modifier and as space when used alone
+# capsloc acts as ctrl when used as modifier and as escape when used alone
 xcape -e "Hyper_L=space;Control_L=Escape"
 
 # KEY REPEAT
 xset r rate 250 30
 
-# X RESOURCES
-xrdb -merge ~/.config/Xresources/Xresources

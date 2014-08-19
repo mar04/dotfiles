@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-# ~/.xinitrc
-#
-
 # GLOBAL SETTINGS
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
     for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -11,10 +7,13 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
     unset f
 fi
 
-. ~/.xprofile
+source ~/.xprofile
 
 # KEYBOARD SHORTCUTS
 sxhkd &
+
+# X RESOURCES
+xrdb -merge ~/.config/Xresources/Xresources
 
 # SCREENSAVER
 # controll screenlocker by dpms timeout, so that it can be inhibited
@@ -29,8 +28,4 @@ urxvtd -q -o -f
 
 dex -ae MARIUSZ
 
-thunar --daemon &
-
 exec i3
-# exec compiz --replace --sm-disable ccp
-# exec startxfce4

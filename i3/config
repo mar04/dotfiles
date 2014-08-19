@@ -12,10 +12,10 @@ hide_edge_borders   both
 # RULES {{{1
 for_window  [class="emulator64-arm"]  floating  enable
 for_window  [class="Unibrow"]         floating  enable
-for_window  [class="Xfce4-notifyd"]   floating  enable
 for_window  [class="Orage"]           floating  enable
 for_window  [class="Skype"]           floating  enable
 for_window  [class="scummvm"]         floating  enable
+# for_window  [class="Wrapper-1.0"]         floating  enable
 for_window  [class="Synapse"]         border    none
 for_window  [class="PacketTracer6" title="^(?!(Cisco Packet Tracer|PT Activity))"]   floating enable , border normal
 for_window  [class="PacketTracer6" title="User Profile"] kill
