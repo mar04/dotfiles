@@ -172,6 +172,10 @@ let g:NERDTreeShowGitStatus=0
 " php-cs-fixer {{{2
 let g:php_cs_fixer_enable_default_mapping=0
 "}}}2
+" racer {{{2
+let g:racer_cmd="/usr/bin/racer"
+let $RUST_SRC_PATH="/home/mariusz/var/rust/src"
+"}}}2
 " startify {{{2
 let g:startify_list_order=[
     \ ['SESSIONS'], 'sessions',
@@ -252,6 +256,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 " let g:ycm_complete_in_strings=0
+let g:ycm_filetype_blacklist = { 'python' : 1 }
+let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
 let g:ycm_key_list_previous_completion=['<Up>']
 let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_path_to_python_interpreter='/bin/python2'
@@ -565,6 +571,9 @@ au BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h"))
 "TODO: use ctrl-h ctrl-l ctrl-k s ctrl-y ctrl-e
 "TODO: use ctrl-n and ctrl-p like emacs in insert mode, but only if there is no completion
 "TODO: buffergator - option to save selected buffers
+"TODO: delete in line dil
+"TODO: paste in line pil consider pasting a text with newline inline
+"TODO: yank in line yil
 "}}}1
 " POSSIBLE {{{1
 

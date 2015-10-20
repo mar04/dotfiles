@@ -1,8 +1,0 @@
-! xterm*faceName: xft:SourceCodePro:size=10
-xterm*faceName: xft:DejaVuSansMono:size=10
-xterm*termName: xterm-256color
-xterm*saveLines: 4096
-xterm*utf8: true
-xterm*cursorColor: #83C048
-xterm*background: #1F1F1F
-xterm*foreground: #EEEEEE

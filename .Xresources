@@ -1,0 +1,93 @@
+! --[ Font Rendering ]--------------------------------------
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.autohint: true
+Xft.lcdfilter: lcddefault
+
+! --[ Mouse ]-----------------------------------------------
+Xcursor.theme: Vanilla-DMZ
+Xcursor.size:  24
+
+! --[ Xterm ]-----------------------------------------------
+xterm*faceName: xft:DejaVuSansMono:size=10
+xterm*termName: xterm-256color
+xterm*saveLines: 4096
+xterm*utf8: true
+xterm*cursorColor: #83C048
+xterm*background: #1F1F1F
+xterm*foreground: #EEEEEE
+
+! --[ URxvt ]-----------------------------------------------
+! comment out to leave it to colorscheme
+! colors
+URxvt.cursorColor: #83C048
+URxvt.background: #282828
+URxvt.foreground: #EEEEEE
+URxvt.highlightColor: #444444
+URxvt.underlineColor: #999999
+URxvt.colorUL: #4682B4
+
+! scrollback
+URxvt.scrollBar: false
+URxvt.saveLines: 100000
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollWithBuffer: true
+
+! do not specify italic font - its broken, urxvt will make italic automatically
+URxvt.font: \
+    xft:UbuntuMono:size=12,\
+    xft:DejaVuSansMono:size=11,\
+    xft:DroidSansMono:size=11,\
+    xft:Inconsolata:size=12,\
+    xft:Symbola:size=9,\
+    xft:SourceCodePro:size=12,\
+
+! needed to fix font spacing
+URxvt.letterSpace: -1
+URxvt.lineSpace: 2
+URxvt.tripleclickwords: true
+URxvt.insecure: true
+! hide mouse pointer
+URxvt.pointerBlank: true
+URxvt.internalborder: 0
+! dims inactive, works better than compton, but obviously is limitted to urxvt
+!URxvt.fading: 40
+
+! extensions
+URxvt.perl-ext-common: default,url-select,keyboard-select,matcher
+
+! URLs
+URxvt.url-launcher: /usr/bin/firefox -new-tab
+Urxvt.matcher.button: 1
+URxvt.keysym.Mod4-i: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/firefox -new-tab
+URxvt.url-select.underline: true
+
+! keyboard select
+URxvt.keysym.Mod4-b: perl:keyboard-select:activate
+
+! --[ Colors ]----------------------------------------------
+! tango theme
+*background:              #000000
+*foreground:              #babdb6
+*color0:                  #2e3436
+*color1:                  #cc0000
+*color2:                  #4e9a06
+*color3:                  #c4a000
+*color4:                  #3465a4
+*color5:                  #75507b
+*color6:                  #06989a
+*color7:                  #d3d7cf
+*color8:                  #555753
+*color9:                  #ef2929
+*color10:                 #8ae234
+*color11:                 #fce94f
+*color12:                 #729fcf
+*color13:                 #ad7fa8
+*color14:                 #34e2e2
+*color15:                 #eeeeec
+

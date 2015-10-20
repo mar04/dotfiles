@@ -4,6 +4,8 @@ alias prompt_normal='PS1=$PS0'
 alias prompt_alarm='PS1="$PS0\a"'
 alias prompt_status='PS1="$PS8"'
 
+# alias aero2='sudo usb_modeswitch -v 12d1 -p 1446 -V 12d1 -P 1436 -J'
+# alias aero2="sudo /usr/lib/udev/usb_modeswitch '/2-1.2'"
 alias cal="cal -m3"
 alias cmount="mount | column -t"
 alias df="df -hT"

@@ -1,3 +1,14 @@
 set font "Droid Sans 10"
-set inputbar-fg "#000000"
+set inputbar-fg "#ffffff"
 set statusbar-fg "#a5a5a5"
+map D toggle_page_mode
+map d scroll half-down
+map u scroll half-up
+map f scroll full-down
+map b scroll full-up
+map i zoom in
+map o zoom out
+map p print
+map ; feedkeys :
+map B feedkeys :blist<Tab>
+map I feedkeys :info<Return>

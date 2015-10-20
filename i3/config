@@ -15,6 +15,8 @@ for_window  [class="Unibrow"]         floating  enable
 for_window  [class="Orage"]           floating  enable
 for_window  [class="Skype"]           floating  enable
 for_window  [class="scummvm"]         floating  enable
+for_window  [class="Plasma-desktop"]  floating  enable
+
 # for_window  [class="Wrapper-1.0"]         floating  enable
 for_window  [class="Synapse"]         border    none
 for_window  [class="PacketTracer6" title="^(?!(Cisco Packet Tracer|PT Activity))"]   floating enable , border normal
@@ -27,17 +29,17 @@ assign  [class="Rhythmbox"]     →  "9:music"
 assign  [class="Clementine"]    →  "9:music"
 #}}}1
 # I3BAR {{{1
-bar {
-    colors {
-        statusline #888888
-
-        #colorclass        <border> <background> <text>
-        focused_workspace  #928374  #928374      #000000
-        urgent_workspace   #900000  #900000      #000000
-        inactive_workspace #504945  #504945      #000000
-    }
-    status_command i3status
-}
+# bar {
+#     colors {
+#         statusline #888888
+#
+#         #colorclass        <border> <background> <text>
+#         focused_workspace  #928374  #928374      #000000
+#         urgent_workspace   #900000  #900000      #000000
+#         inactive_workspace #504945  #504945      #000000
+#     }
+#     status_command i3status
+# }
 #}}}1
 # COLORS {{{1
 # class                 border  backgrd text    indicator

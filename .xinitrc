@@ -1,31 +1,34 @@
 #!/bin/bash
 # GLOBAL SETTINGS
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-    for f in /etc/X11/xinit/xinitrc.d/*; do
-        [ -x "$f" ] && . "$f"
-    done
-    unset f
-fi
+# if [ -d /etc/X11/xinit/xinitrc.d ]; then
+#     for f in /etc/X11/xinit/xinitrc.d/*; do
+#         [ -x "$f" ] && . "$f"
+#     done
+#     unset f
+# fi
 
 source ~/.xprofile
 
 # KEYBOARD SHORTCUTS
-sxhkd &
+# sxhkd &
 
 # X RESOURCES
-xrdb -merge ~/.config/Xresources/Xresources
+# xrdb -merge ~/.config/Xresources/Xresources
 
 # SCREENSAVER
 # controll screenlocker by dpms timeout, so that it can be inhibited
-xset s off
-xss-lock -- i3lock -n -d -c 888888 &
+# xset s off
+# xss-lock -- i3lock -n -d -c 888888 &
 
 # BELL
-xset -b
+# xset -b
 
 # URXVT DAEMON
-urxvtd -q -o -f
+# urxvtd -q -o -f
 
-dex -ae MARIUSZ
+# dex -ae MARIUSZ
 
-exec i3
+# exec i3
+exec startkde
+# exec cinnamon-session
+# exec gnome-session
