@@ -27,6 +27,7 @@ export PYTHONDOCS="/usr/share/doc/python2/html/"
 export PYTHONSTARTUP="$HOME/.config/python_startup.py"
 export QT_LOGGING_RULES="*.debug=false"
 # export QT_STYLE_OVERRIDE="gtk"
+RANGER_LOAD_DEFAULT_RC=FALSE
 # export SDL_AUDIODRIVER="alsa"
 # export VDPAU_DRIVER="va_gl"
 export WINEARCH="win32"
