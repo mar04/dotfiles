@@ -26,6 +26,7 @@ export PS1=$PS0
 source ~/.config/sh/aliases
 #source ~/.config/sh/functions
 source /usr/share/doc/ranger/examples/bash_automatic_cd.sh
+source /usr/share/doc/ranger/examples/bash_subshell_notice.sh
 
 
 # set terminal window title to the name of executed command
