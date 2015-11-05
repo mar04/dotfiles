@@ -2,9 +2,13 @@
 # ~/.profile
 #
 
+
+
 # PATH -----------------------------------------------------------------------
-PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+export GOPATH=$HOME/code/go
+# PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 # PATH="$HOME/.local/android-studio/bin:$PATH"
+PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/bin:$PATH"
 
 # APPS -----------------------------------------------------------------------
@@ -27,7 +31,7 @@ export PYTHONDOCS="/usr/share/doc/python2/html/"
 export PYTHONSTARTUP="$HOME/.config/python_startup.py"
 export QT_LOGGING_RULES="*.debug=false"
 # export QT_STYLE_OVERRIDE="gtk"
-RANGER_LOAD_DEFAULT_RC=FALSE
+export RANGER_LOAD_DEFAULT_RC=FALSE
 # export SDL_AUDIODRIVER="alsa"
 # export VDPAU_DRIVER="va_gl"
 export WINEARCH="win32"
