@@ -28,7 +28,17 @@ source ~/.xprofile
 
 # dex -ae MARIUSZ
 
+# WM
 # exec i3
-exec startkde
+# exec wingo
+
+# DE
 # exec cinnamon-session
 # exec gnome-session
+exec startkde
+# exec startxfce4
+
+# CRAP
+# exec budgie-session
+# exec enlightenment_start
+# exec startlxqt

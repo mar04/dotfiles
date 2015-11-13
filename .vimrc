@@ -150,6 +150,9 @@ let g:delimitMate_balance_matchpairs=1
 " gitgutter {{{2
 let g:gitgutter_enabled=0
 "}}}2
+" go {{{2
+let g:go_highlight_trailing_whitespace_error=0
+"}}}2
 " inccomplete {{{2
 let g:inccomplete_sort='ignorecase'
 "}}}2
@@ -285,10 +288,6 @@ nnoremap <Space>v :LustyBufferGrep<CR>
 nnoremap <Space>h :LustyFilesystemExplorer<CR>
 nnoremap <Space>f :LustyFilesystemExplorerFromHere<CR>
 "}}}2
-" nerdTree {{{2
-nnoremap <silent> <Space>n :NERDTreeToggle<CR>
-nnoremap <silent> <Space>N :NERDTreeFind<CR>
-"}}}2
 " openTerminal {{{2
 nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
 " }}}2
@@ -361,7 +360,7 @@ noremap <F2> :IndentLinesToggle<CR>
 noremap <F3> :SyntasticToggleMode<CR>
 noremap <F4> :GitGutterToggle<CR>
 " <F5> is vdebug run
-noremap <F6> :ColorToggle<CR>
+" noremap <F6> :ColorToggle<CR>
 noremap <F7> :RainbowParenthesesToggle<CR>
 " <F10> is vdebug set_breakpoint
 set pastetoggle=<F11>
