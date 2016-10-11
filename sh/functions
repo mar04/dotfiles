@@ -1,5 +1,12 @@
 #!/bin/bash
 
+pacver() {
+    pacman -Qi "$1" | grep "Version"
+}
+pacdes() {
+    pacman -Qi "$1" | grep "Description"
+}
+
 #. .functions
 #
 #extract() {
@@ -46,8 +53,6 @@
 # configure xdg-open
 # Enhance colored ls output
 #eval $(dircolors -b)
-## Bash history
-#export HISTCONTROL=ignoredups
 #
 ## x - archive extractor
 ## usage: x <file>

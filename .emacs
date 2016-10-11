@@ -3,7 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
+ '(ansi-color-names-vector
+   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(column-number-mode t)
  '(custom-enabled-themes (quote (adwaita)))
  '(fill-column 78)
@@ -11,6 +12,9 @@
  '(inhibit-startup-echo-area-message "mariusz")
  '(inhibit-startup-screen t)
  '(mouse-avoidance-mode (quote banish) nil (avoid))
+ '(package-selected-packages
+   (quote
+    (company cargo flycheck-rust rust-mode pkgbuild-mode fill-column-indicator)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 (custom-set-faces

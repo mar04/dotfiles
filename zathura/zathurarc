@@ -1,6 +1,9 @@
 set font "Droid Sans 10"
 set inputbar-fg "#ffffff"
 set statusbar-fg "#a5a5a5"
+set show-recent 0
+set default-bg "#e8e8e7"
+set default-fg "#e8e8e7"
 map D toggle_page_mode
 map d scroll half-down
 map u scroll half-up

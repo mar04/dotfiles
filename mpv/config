@@ -1,7 +1,8 @@
 # Write your default config options here!
 ao=pulse
-af=scaletempo
-vo=vaapi
+# af=scaletempo
+vo=opengl
 hwdec=vaapi
-quiet
+really-quiet
+# keep-open
 

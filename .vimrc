@@ -179,28 +179,6 @@ let g:php_cs_fixer_enable_default_mapping=0
 let g:racer_cmd="/usr/bin/racer"
 let $RUST_SRC_PATH="/home/mariusz/var/rust/src"
 "}}}2
-" startify {{{2
-let g:startify_list_order=[
-    \ ['SESSIONS'], 'sessions',
-    \ ['BOOKMARKS'], 'bookmarks',
-    \ ['RECENT FILES'], 'files',
-    \ ]
-let g:startify_bookmarks=[
-    \ '~/.vimrc',
-    \ '~/.profile',
-    \ '~/.config/Xresources/Xresources',
-    \ ]
-let g:startify_session_detection=1
-" let g:startify_session_autoload=0
-let g:startify_session_persistence=1
-" let g:startify_session_savevars=[]
-" let g:startify_session_savecmds=[]
-let g:startify_session_delete_buffers=1
-let g:startify_change_to_dir=1
-" let g:startify_change_to_vcs_root=1
-" let g:startify_skiplist_server=[]
-let g:startify_enable_special=0
-"}}}2
 " syntastic {{{2
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_aggregate_errors=1

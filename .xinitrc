@@ -30,15 +30,15 @@ source ~/.xprofile
 
 # WM
 # exec i3
+# exec openbox-session
 # exec wingo
 
 # DE
-# exec cinnamon-session
 # exec gnome-session
+# exec mate-session
 exec startkde
 # exec startxfce4
 
 # CRAP
-# exec budgie-session
-# exec enlightenment_start
-# exec startlxqt
+# exec budgie-desktop
+# exec cinnamon-session

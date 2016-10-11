@@ -2,7 +2,7 @@
 
 alias prompt_normal='PS1=$PS0'
 alias prompt_alarm='PS1="$PS0\a"'
-alias prompt_status='PS1="$PS8"'
+# alias prompt_status='PS1="$PS8"'
 
 # alias aero2='sudo usb_modeswitch -v 12d1 -p 1446 -V 12d1 -P 1436 -J'
 # alias aero2="sudo /usr/lib/udev/usb_modeswitch '/2-1.2'"
@@ -16,6 +16,7 @@ alias e="emacs"
 alias ebv="ebook-viewer"
 #alias fbr="FBReader"
 alias free="free -h"
+alias g="grep --color=auto"
 alias gclean="git clean -d -x -f"
 alias grep="grep --color=auto"
 alias gtick="aoss gtick"
@@ -27,11 +28,14 @@ alias ls="ls -h --color=auto --group-directories-first"
 alias m="mpv"
 # alias mpdd="mpd ~/.config/mpd/mpd.conf"
 # alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config"
+alias paclog="less /var/log/pacman.log"
 alias psc='ps xawf -eo pid,user,cgroup,args'
-alias qa="$EDITOR ~/doc/notes/quotes"
+alias qa="\$EDITOR ~/doc/notes/quotes"
 alias ql="cat ~/doc/notes/quotes"
 alias rm="rm -I"
-alias td="$EDITOR ~/doc/notes/todo"
+alias td="\$EDITOR ~/doc/notes/todo"
 alias tree="tree -AC"
 alias v="vim"
+alias vim="nvim"
 alias xrnat="xrandr --output LVDS1 --mode 1366x768"
+
