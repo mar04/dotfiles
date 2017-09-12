@@ -7,7 +7,7 @@
 #     unset f
 # fi
 
-source ~/.xprofile
+# source ~/.xprofile
 
 # KEYBOARD SHORTCUTS
 # sxhkd &
@@ -38,7 +38,3 @@ source ~/.xprofile
 # exec mate-session
 exec startkde
 # exec startxfce4
-
-# CRAP
-# exec budgie-desktop
-# exec cinnamon-session

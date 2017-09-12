@@ -7,6 +7,10 @@ pacdes() {
     pacman -Qi "$1" | grep "Description"
 }
 
+whereis2() {
+    whereis "$1" | cut -d: -f2
+}
+
 #. .functions
 #
 #extract() {

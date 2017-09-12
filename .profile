@@ -11,9 +11,9 @@ export PATH="$HOME/bin:$PATH"
 # APPS -----------------------------------------------------------------------
 export BROWSER="firefox"
 # export DE='xfce'
-export EDITOR="vim"
+export EDITOR="nvim"
 export PAGER="less"
-export TERMCMD="urxvtc"
+# export TERMCMD="urxvtc"
 export VISUAL="$EDITOR"
 
 _RUST="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu"
@@ -26,7 +26,8 @@ export HISTFILE="$HOME/.local/share/bash/history"
 export INPUTRC="$HOME/.config/sh/inputrc"
 export LESS="-FXRi"
 export LESSHISTFILE="/dev/null"
-export MANPATH="$(manpath):$_RUST/share/man"
+export MANPATH="$(manpath):$_RUST/share/man:$HOME/.local/share/man"
+# export MOZ_USE_XINPUT2=1
 export PYTHONDOCS="/usr/share/doc/python2/html/"
 #export PYTHONOPTIMIZE="2"
 export PYTHONSTARTUP="$HOME/.config/python_startup.py"
@@ -37,7 +38,7 @@ export RUST_SRC_PATH="$_RUST/lib/rustlib/src/rust/src"
 export SAL_USE_VCLPLUGIN="gtk3"
 # export SDL_AUDIODRIVER="alsa"
 # export VDPAU_DRIVER="va_gl"
-export WINEARCH="win32"
+# export WINEARCH="win32"
 export WINEDEBUG="-all"
 
 # SHELL ----------------------------------------------------------------------
