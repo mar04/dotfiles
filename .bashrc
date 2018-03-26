@@ -20,6 +20,8 @@ source ~/.config/sh/functions
 # source ~/.config/sh/colored_man_pages.bash
 source /usr/share/doc/ranger/examples/bash_automatic_cd.sh
 source /usr/share/doc/ranger/examples/bash_subshell_notice.sh
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh

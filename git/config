@@ -8,7 +8,8 @@
 	showbranch = true
 	status = true
 [core]
-	editor = vim
+	editor = nvim
+	excludesfile = /home/mariusz/.config/git/gitignore
 
 [http]
     postBuffer = 524288000

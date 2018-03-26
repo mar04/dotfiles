@@ -11,6 +11,7 @@
 
 # KEYBOARD SHORTCUTS
 # sxhkd &
+xbindkeys
 
 # X RESOURCES
 # xrdb -merge ~/.config/Xresources/Xresources
