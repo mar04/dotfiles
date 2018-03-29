@@ -4,6 +4,8 @@ Plug '/usr/share/vim/vimfiles/'                      "fzf
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
 Plug 'w0rp/ale'                                     "linting
@@ -86,7 +88,7 @@ set synmaxcol=200
 " use a green nonblinking block cursor otherwise
 " let &t_EI = "\<Esc>]12;#83C048\x7"
 " let &t_EI .= "\<Esc>[2 q"
-set guicursor=
+" set guicursor=
 "}}}2
 " history {{{2
 set backup
@@ -376,7 +378,7 @@ set pastetoggle=<F11>
 nnoremap <silent> <C-l> :nohlsearch<CR>
 nnoremap <Space><C-l> :redraw!<CR>
 nnoremap <silent> <C-w><C-w> :call ToggleTabline()<CR>
-nnoremap \m :Map<CR>
+nnoremap <Leader>m :ShowMap<CR>
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
@@ -502,12 +504,12 @@ function! RangerChooser()
 endfunction
 "}}}2
 " Map {{{2
-function! s:Map()
+function! s:ShowMap()
     let old_reg = getreg("a")
     let old_reg_type = getregtype("a")
     try
         redir @a
-        silent map | call feedkeys("\<CR>")    
+        silent map | call feedkeys("\<CR>")
         redir END
         vnew
         put a
@@ -519,7 +521,7 @@ function! s:Map()
         call setreg("a", old_reg, old_reg_type)
     endtry
 endfunction
-com! Map call s:Map()
+com! ShowMap call s:ShowMap()
 "}}}2
 " ToggleTabline {{{2
 function! ToggleTabline()
@@ -529,6 +531,16 @@ function! ToggleTabline()
         set showtabline=2
     endif
 endfunction
+"}}}2
+" ToggleHelp {{{2
+" function! ToggleHelp()
+"     let bnr = bufwinnr(:buffername)
+"     if &showtabline
+"         set showtabline=0
+"     else
+"         set showtabline=2
+"     endif
+" endfunction
 "}}}2
 "}}}1
 " AUTOCOMMANDS {{{1
