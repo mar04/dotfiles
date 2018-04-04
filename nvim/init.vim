@@ -534,16 +534,6 @@ function! ToggleTabline()
     endif
 endfunction
 "}}}2
-" ToggleHelp {{{2
-" function! ToggleHelp()
-"     let bnr = bufwinnr(:buffername)
-"     if &showtabline
-"         set showtabline=0
-"     else
-"         set showtabline=2
-"     endif
-" endfunction
-"}}}2
 "}}}1
 " AUTOCOMMANDS {{{1
 " autoClosePreviewWindow {{{2
