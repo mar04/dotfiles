@@ -20,9 +20,9 @@ shopt -s histreedit
 shopt -s lithist
 
 
-source ~/.config/sh/aliases
-source ~/.config/sh/functions
-# source ~/.config/sh/colored_man_pages.bash
+source "$XDG_CONFIG_HOME/sh/aliases"
+source "$XDG_CONFIG_HOME/sh/functions"
+# source "$XDG_CONFIG_HOME/sh/colored_man_pages.bash"
 source /usr/share/doc/ranger/examples/bash_automatic_cd.sh
 source /usr/share/doc/ranger/examples/bash_subshell_notice.sh
 source /usr/share/fzf/completion.bash

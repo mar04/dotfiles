@@ -11,7 +11,7 @@
 
 # KEYBOARD SHORTCUTS
 # sxhkd &
-xbindkeys
+xbindkeys -f "$XDG_CONFIG_HOME/xbindkeysrc"
 
 # X RESOURCES
 # xrdb -merge ~/.config/Xresources/Xresources
@@ -35,7 +35,7 @@ xbindkeys
 # exec wingo
 
 # DE
+# exec startxfce4
 # exec gnome-session
 # exec mate-session
 exec startkde
-# exec startxfce4

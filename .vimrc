@@ -11,11 +11,12 @@ set splitbelow
 set splitright
 
 " directories {{{2
-set backupdir=~/.local/share/vim/backup/
-set directory=~/.local/share/vim/swap/
-set undodir=~/.local/share/vim/undo/
-set viewdir=~/.local/share/vim/views/
-set viminfo+=n~/.local/share/vim/viminfo
+set backupdir=$XDG_CACHE_HOME/backup
+set directory=$XDG_CACHE_HOME/vim/swap
+set undodir=$XDG_CACHE_HOME/vim/undo
+set viewdir=$XDG_CACHE_HOME/vim/views
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 "}}}2
 " colorscheme and sytax {{{2
 colorscheme slate
