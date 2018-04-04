@@ -28,6 +28,8 @@ export FZF_DEFAULT_OPTS="--exact"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d"
 
+export GNUPGHOME="$HOME/.config/gnupg"
+
 export HISTCONTROL="ignoreboth:erasedups"
 export HISTFILE="$HOME/.local/share/bash/history"
 export HISTFILESIZE="10000"

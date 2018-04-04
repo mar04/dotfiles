@@ -1,7 +1,3 @@
-" PATHOGEN {{{1
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-"}}}1
 " OPTIONS {{{1
 set nocompatible
 filetype plugin indent on
@@ -22,13 +18,7 @@ set viewdir=~/.local/share/vim/views/
 set viminfo+=n~/.local/share/vim/viminfo
 "}}}2
 " colorscheme and sytax {{{2
-if $TERM == "linux" && !has('gui_running')
-    colorscheme slate
-else
-    set background=dark
-    colorscheme gruvbox
-endif
-
+colorscheme slate
 " goes after colorscheme
 syntax enable
 " help with long lines slowness
@@ -100,172 +90,7 @@ set wildmenu
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 "}}}2
 "}}}1
-" PLUGINS {{{1
-" airline {{{2
-let g:airline_exclude_preview=1
-" let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tagbar#enabled=0
-let g:airline_inactive_collapse=0
-let g:airline_theme='mariusz'
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'n',
-            \ 'i'  : 'i',
-            \ 'R'  : 'R',
-            \ 'c'  : 'c',
-            \ 'v'  : 'v',
-            \ 'V'  : 'V',
-            \ '' : '^v',
-            \ 's'  : 's',
-            \ 'S'  : 'S',
-            \ '' : '^s',
-            \ }
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_symbols.linenr=''
-let g:airline_symbols.whitespace='Ξ'
-"}}}2
-" buffergator {{{2
-let g:buffergator_autoexpand_on_split=0
-let g:buffergator_display_regime="bufname"
-let g:buffergator_suppress_keymaps=1
-"}}}2
-" colorizer {{{2
-let g:colorizer_auto_filetype='css,html'
-let g:colorizer_fgcontrast=1
-"}}}2
-" cursorcross {{{2
-let g:cursorcross_dynamic='w'
-let g:cursorcross_mappings=0
-"}}}2
-" delimitMate {{{2
-let g:delimitMate_expand_cr=1
-let g:delimitMate_expand_space=1
-let g:delimitMate_jump_expansion=1
-let g:delimitMate_balance_matchpairs=1
-"}}}2
-" gitgutter {{{2
-let g:gitgutter_enabled=0
-"}}}2
-" go {{{2
-let g:go_highlight_trailing_whitespace_error=0
-"}}}2
-" inccomplete {{{2
-let g:inccomplete_sort='ignorecase'
-"}}}2
-" indentLine {{{2
-let g:indentLine_char='┊'
-let g:indentLine_enabled=1
-let g:indentLine_fileType=['c', 'cpp', 'sh', 'php', 'perl']
-" let g:indentLine_fileTypeExclude=['help', 'text', 'html']
-"}}}2
-" lusty {{{2
-let g:LustyExplorerDefaultMappings=0
-"}}}2
-" man {{{2
-runtime ~/.vim/bundle/man/ftplugin/man.vim
-"}}}2
-" nerdTree {{{2
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeShowGitStatus=0
-"}}}2
-" php-cs-fixer {{{2
-let g:php_cs_fixer_enable_default_mapping=0
-"}}}2
-" racer {{{2
-let g:racer_cmd="/usr/bin/racer"
-let $RUST_SRC_PATH="/home/mariusz/var/rust/src"
-"}}}2
-" syntastic {{{2
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_aggregate_errors=1
-" let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_full_redraws=0
-let g:syntastic_style_error_symbol='✎'
-let g:syntastic_style_warning_symbol='✎'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_html_checkers=['jshint', 'w3', 'tidy']
-let g:syntastic_css_checkers=['csslint', 'prettycss', 'recess']
-let g:syntastic_javascript_checkers=['jshint']
-let g:syntastic_php_phpcs_args="--standard=PSR2"
-"}}}2
-" taboo {{{2
-let g:taboo_tab_format='%N:%f  '
-" }}}2
-" tagbar {{{2
-let g:tagbar_autoclose=1
-let g:tagbar_autofocus=1
-let g:tagbar_compact=1
-let g:tagbar_type_snippets={
-    \ 'ctagstype' : 'snippets',
-    \ 'kinds' : [
-        \ 's:snippets',
-    \ ]
-\ }
-" }}}2
-" tagbar-phpctags {{{2
-let g:tagbar_phpctags_bin="~/code/git/phpctags/phpctags"
-" }}}2
-" tcomment {{{2
-let g:tcommentTextObjectInlineComment=""
-" }}}2
-" ultisnips {{{2
-let g:UltiSnipsEditSplit='vertical'
-let g:snips_author="Mariusz Libera"
-let g:snips_author_email="mariusz.libera@gmail.com"
-let g:snips_email="mariusz.libera@gmail.com"
-" }}}2
-" undotree {{{2
-let g:undotree_SplitWidth=30
-let g:undotree_SetFocusWhenToggle=1
-let g:undotree_DiffAutoOpen=0
-"}}}2
-" yankstack {{{2
-let g:yankstack_map_keys=0
-call yankstack#setup()
-"}}}2
-" youcompleteme {{{2
-set completeopt-=preview
-" let g:ycm_allow_changing_updatetime=0
-" let g:ycm_cache_omnifunc=0
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-" let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_complete_in_comments=1
-let g:ycm_confirm_extra_conf=0
-" let g:ycm_complete_in_strings=0
-let g:ycm_filetype_blacklist = { 'python' : 1 }
-let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
-let g:ycm_key_list_previous_completion=['<Up>']
-let g:ycm_key_list_select_completion=['<Down>']
-let g:ycm_path_to_python_interpreter='/bin/python2'
-" let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_use_ultisnips_completer=1
-"}}}2
-"}}}1
 " MAPPINGS {{{1
-" yankstack {{{2
-" must go before any mappings involving y, d, c
-nmap <Space>o <Plug>yankstack_substitute_older_paste
-nmap <Space>i <Plug>yankstack_substitute_newer_paste
-"}}}2
-" buffergator {{{2
-nnoremap <silent> <Space>b :BuffergatorToggle<CR>
-nnoremap <silent> <Space>t :BuffergatorTabsToggle<CR>
-"}}}2
-" listToggle {{{2
-let g:lt_location_list_toggle_map = '<Space>l'
-let g:lt_quickfix_list_toggle_map = '<Space>q'
-"}}}2
-" lusty {{{2
-nnoremap <Space>k :LustyBufferExplorer<CR>
-nnoremap <Space>v :LustyBufferGrep<CR>
-nnoremap <Space>h :LustyFilesystemExplorer<CR>
-nnoremap <Space>f :LustyFilesystemExplorerFromHere<CR>
-"}}}2
 " openTerminal {{{2
 nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
 " }}}2
@@ -298,40 +123,11 @@ nnoremap <C-w><C-t> :tabnew<CR>
 " redirect command output to a buffer in a new tab
 nnoremap <Space>: :TabMessage 
 "}}}2
-" tabularize {{{2
-noremap <Space>a :Tabularize /
-"}}}2
-" tagbar {{{2
-noremap <silent> <Space>p :TagbarToggle<CR>
-"}}}2
-" tcomment {{{2
-let g:tcommentMapLeader1=''
-let g:tcommentMapLeader2=''
-noremap <Space>cb :TCommentBlock<CR>
-" }}}2
-" toggleComments {{{2
-" all comments change foreground color to background becoming invisible
-" works with my custom function in gruvbox theme
-nnoremap <Space>ct :call gruvbox#comment_toggle()<CR>
-"}}}2
-" ultisnips {{{2
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsListSnippets="<C-\\>"
-" }}}2
-" undotree {{{2
-noremap <Space>u :UndotreeToggle<CR>
-"}}}2
 " upper/lower {{{2
 nnoremap gu gU
 nnoremap guu gUU
 nnoremap gl gu
 nnoremap gll guu
-" }}}2
-" youcompleteme {{{2
-nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
-nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
 " }}}2
 " f1-12 {{{2
 noremap <F2> :IndentLinesToggle<CR>
@@ -539,31 +335,5 @@ autocmd BufReadPost *
  " Automatically create parent directory on save if directory doesn't exist
 au BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h")) | execute "silent! !mkdir -p ".shellescape(expand('%:h'), 1) | redraw! | endif
 "}}}2
-"}}}1
-" TODO {{{1
-"TODO: run bash commands in interactive mode - so aliases and functions and
-"everything else works as expected
-"TODO: c macro expansion
-"TODO: play with cinoptions
-"TODO: use ctrl-h ctrl-l ctrl-k s ctrl-y ctrl-e
-"TODO: use ctrl-n and ctrl-p like emacs in insert mode, but only if there is no completion
-"TODO: buffergator - option to save selected buffers
-"TODO: delete in line dil
-"TODO: paste in line pil consider pasting a text with newline inline
-"TODO: yank in line yil
-"}}}1
-" POSSIBLE {{{1
-
-
-"vnoremap _g y:exe "grep /" . escape(@", '\\/') . "/ *.c *.h"<CR>
-
-"" F7: Find word under in all files in current dir or subdirectories
-""map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*." . expand('%:e') <Bar> cw<CR>
-""map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*." . expand('%:e')<CR>
-"map <F7> :execute "vimgrep /" . expand("<cword>") . "/j **/*.tmpl **/*.py **/*.cc **/*.c **/*.cxx **/*.cpp **/*.h"<CR>
-"
-
-" F12: Rebuild ctags database
-"map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "}}}1
 " vim: fdm=marker fdl=0 cc=81

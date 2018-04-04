@@ -113,6 +113,7 @@ set colorcolumn=+1
 " set mouse=   
 set noshowmode
 set number
+set scrolloff=1
 "}}}2
 " wildmenu {{{2
 " Suffixes that get lower priority when doing tab completion for filenames.
@@ -365,6 +366,7 @@ nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
 " }}}2
 " f1-12 {{{2
+nnoremap <F1> <nop>
 noremap <F2> :IndentLinesToggle<CR>
 noremap <F3> :SyntasticToggleMode<CR>
 noremap <F4> :GitGutterToggle<CR>
