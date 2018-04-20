@@ -6,6 +6,9 @@ pacver() {
 pacdes() {
     pacman -Qi "$1" | grep "Description"
 }
+lsusers() {
+    awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd
+}
 
 whereis2() {
     whereis "$1" | cut -d: -f2

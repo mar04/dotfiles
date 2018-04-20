@@ -40,8 +40,11 @@ export FZF_ALT_C_COMMAND="fd -t d"
 export GOPATH="$HOME/code/go"
 # GPG ------------------------------------------------------------------------
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 # HTTPIE ---------------------------------------------------------------------
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
+# ICEAUTH --------------------------------------------------------------------
+export ICEAUTHORITY="$XDG_RUNTIME_DIR/ICEauthority"
 # JAVA -----------------------------------------------------------------------
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd"
 # LESS -----------------------------------------------------------------------
