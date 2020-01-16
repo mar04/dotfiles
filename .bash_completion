@@ -1,4 +1,4 @@
 source ~/.config/sh/go-bash-completion.bash
-source ~/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/etc/bash_completion.d/cargo
-source ~/.config/sh/rustup-bash-completion.bash
-source ~/.config/sh/snapper-bash-completion.bash
+# source ~/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/etc/bash_completion.d/cargo
+# source ~/.config/sh/rustup-bash-completion.bash
+# source ~/.config/sh/snapper-bash-completion.bash

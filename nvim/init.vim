@@ -1,50 +1,39 @@
 " PLUGINS {{{1
 call plug#begin('~/.config/nvim/plugged')
-Plug '/usr/share/vim/vimfiles/'                      "fzf
-Plug 'ntpeters/vim-better-whitespace'
+" Plug '/usr/share/vim/vimfiles/'                      "fzf
+" Plug 'ntpeters/vim-better-whitespace'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'w0rp/ale'                                     "linting
-"Plug 'sjbach/lusty'
-Plug 'CyCoreSystems/vim-cisco-ios'
-Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Raimondi/delimitMate'                         "completion for ([{
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/ListToggle'
-Plug 'Valloric/MatchTagAlways'
-Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'chrisbra/color_highlight'
-" Plug 'davidhalter/jedi-vim'
-" Plug 'fatih/vim-go'
-" Plug 'garyburd/go-explorer'
-" Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
-Plug 'mar04/vim-buffergator'
-Plug 'marijnh/tern_for_vim'
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'mbbill/undotree'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
-Plug 'qpkorr/vim-bufkill'
-" Plug 'rust-lang/rust.vim'
+Plug 'qpkorr/vim-bufkill'                           "kill buffer without closing splits, etc.
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-abolish'                            "case insensitive replace
+Plug 'tpope/vim-characterize'                       "ga to see character name
+" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'                             "extends . repeat to plugins
+Plug 'tpope/vim-rsi'                                "emacs style editing in insert mode
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'xaizek/vim-inccomplete'
-Plug 'AndrewRadev/linediff.vim'
-Plug 'romainl/vim-cool'
-Plug 'regedarek/ZoomWin'                    "don't use version 24
-Plug 'jakykong/vim-zim'
+Plug 'tpope/vim-unimpaired'                         "paired commands
+Plug 'AndrewRadev/linediff.vim'                     "diff blocks of text
+Plug 'romainl/vim-cool'                             "disable search hl when not needed
+Plug 'regedarek/ZoomWin'                            "don't use version 24
 call plug#end()
 "}}}1
 " OPTIONS {{{1
@@ -52,6 +41,10 @@ filetype plugin indent on
 
 set foldtext=NeatFoldText()
 set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 set linebreak
 " set shellcmdflag=-ic           " fucks up vimdiff for whatever reason
 set splitbelow
@@ -91,7 +84,9 @@ set synmaxcol=200
 " set guicursor=
 "}}}2
 " history {{{2
-set backup
+" set backup
+set nobackup
+set nowritebackup
 set undofile
 "}}}2
 " indentation {{{2
@@ -106,6 +101,7 @@ set smartcase
 "}}}2
 " show whitespace {{{2
 set listchars="tab:\u25b8 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+" set listchars=eol:↵,tab:<->,trail:␣,nbsp:␣,extends:>,precedes:<
 set fillchars="vert:\ ,fold:\u00b7"
 "}}}2
 " ui {{{2
@@ -160,15 +156,14 @@ let g:ale_sign_style_warning='✎'
 let g:ale_sign_column_always=1
 "}}}2
 " better whitespace {{{2
-" let g:better_whitespace_
-" let g:strip_whitespace_
+" let g:better_whitespace_ctermcolor='red'
 "}}}2
 " buffergator {{{2
 let g:buffergator_autoexpand_on_split=0
 let g:buffergator_display_regime="bufname"
 let g:buffergator_suppress_keymaps=1
 "}}}2
-" colorizer {{{2
+" cool {{{2
 let g:CoolTotalMatches=1
 "}}}2
 " colorizer {{{2
@@ -188,11 +183,8 @@ let g:delimitMate_balance_matchpairs=1
 " gitgutter {{{2
 let g:gitgutter_enabled=0
 "}}}2
-" go {{{2
-let g:go_highlight_trailing_whitespace_error=0
-"}}}2
 " inccomplete {{{2
-let g:inccomplete_sort='ignorecase'
+" let g:inccomplete_sort='ignorecase'
 "}}}2
 " indentLine {{{2
 let g:indentLine_char='┊'
@@ -206,26 +198,6 @@ runtime ~/.vim/bundle/man/ftplugin/man.vim
 " nerdTree {{{2
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeShowGitStatus=0
-"}}}2
-" php-cs-fixer {{{2
-let g:php_cs_fixer_enable_default_mapping=0
-"}}}2
-" racer {{{2
-let g:racer_cmd="/home/mariusz/.cargo/bin/racer"
-"}}}2
-" syntastic {{{2
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_aggregate_errors=1
-" let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_full_redraws=0
-let g:syntastic_style_error_symbol='✎'
-let g:syntastic_style_warning_symbol='✎'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_html_checkers=['jshint', 'w3', 'tidy']
-let g:syntastic_css_checkers=['csslint', 'prettycss', 'recess']
-let g:syntastic_javascript_checkers=['jshint']
-let g:syntastic_php_phpcs_args="--standard=PSR2"
 "}}}2
 " taboo {{{2
 let g:taboo_tab_format='%N:%f  '
@@ -241,46 +213,36 @@ let g:tagbar_type_snippets={
     \ ]
 \ }
 " }}}2
-" tagbar-phpctags {{{2
-let g:tagbar_phpctags_bin="~/code/git/phpctags/phpctags"
-" }}}2
 " tcomment {{{2
-let g:tcommentTextObjectInlineComment=""
+let g:tcomment_textObject_inlineComment=""
 " }}}2
 " ultisnips {{{2
-let g:UltiSnipsEditSplit='vertical'
-let g:snips_author="Mariusz Libera"
-let g:snips_author_email="mariusz.libera@gmail.com"
-let g:snips_email="mariusz.libera@gmail.com"
+" let g:UltiSnipsEditSplit='vertical'
+" let g:snips_author="Mariusz Libera"
+" let g:snips_author_email="mariusz.libera@gmail.com"
+" let g:snips_email="mariusz.libera@gmail.com"
 " }}}2
 " undotree {{{2
 let g:undotree_SplitWidth=30
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_DiffAutoOpen=0
 "}}}2
-" yankstack {{{2
-let g:yankstack_map_keys=0
-"call yankstack#setup()
-"}}}2
 " youcompleteme {{{2
-set completeopt-=preview
-" let g:ycm_allow_changing_updatetime=0
-" let g:ycm_cache_omnifunc=0
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-" let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_complete_in_comments=1
-let g:ycm_confirm_extra_conf=0
-" let g:ycm_complete_in_strings=0
-let g:ycm_filetype_blacklist = { 'python' : 1 }
-let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
-let g:ycm_key_list_previous_completion=['<Up>']
-let g:ycm_key_list_select_completion=['<Down>']
-let g:ycm_path_to_python_interpreter='/bin/python2'
-" let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_use_ultisnips_completer=1
-"}}}2
-" zim {{{2
-let g:zim_notebooks_dir="$HOME/doc/zim-notes"
+" set completeopt-=preview
+" " let g:ycm_allow_changing_updatetime=0
+" " let g:ycm_cache_omnifunc=0
+" let g:ycm_collect_identifiers_from_comments_and_strings=1
+" " let g:ycm_collect_identifiers_from_tags_files=1
+" let g:ycm_complete_in_comments=1
+" let g:ycm_confirm_extra_conf=0
+" " let g:ycm_complete_in_strings=0
+" let g:ycm_filetype_blacklist = { 'python' : 1 }
+" let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
+" let g:ycm_key_list_previous_completion=['<Up>']
+" let g:ycm_key_list_select_completion=['<Down>']
+" let g:ycm_path_to_python_interpreter='/bin/python2'
+" " let g:ycm_seed_identifiers_with_syntax=1
+" let g:ycm_use_ultisnips_completer=1
 "}}}2
 " zoomwin {{{2
 let g:zoomwin_localoptlist=[
@@ -300,7 +262,8 @@ let g:zoomwin_localoptlist=[
 "}}}2
 "}}}1
 " MAPPINGS {{{1
-" yankstack {{{2
+:let mapleader=","
+" yankstack {{{2 "FIXME
 " must go before any mappings involving y, d, c
 nmap <Space>o <Plug>yankstack_substitute_older_paste
 nmap <Space>i <Plug>yankstack_substitute_newer_paste
@@ -309,15 +272,125 @@ nmap <Space>i <Plug>yankstack_substitute_newer_paste
 nnoremap <silent> <Space>b :BuffergatorToggle<CR>
 nnoremap <silent> <Space>t :BuffergatorTabsToggle<CR>
 "}}}2
+" coc {{{2
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" }}}2
 " listToggle {{{2
 let g:lt_location_list_toggle_map = '<Space>l'
 let g:lt_quickfix_list_toggle_map = '<Space>q'
 "}}}2
-" openTerminal {{{2
-nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
+" openTerminal {{{2 "FIXME
+" nnoremap <Space>y :exec 'silent !$TERMCMD -e bash -c "cd ' . expand("%:p:h") ' ; bash -i"'<CR>
 " }}}2
-" ranger {{{2
-nnoremap <Space>r :call RangerChooser()<CR>
+" ranger {{{2  "FIXME
+" nnoremap <Space>r :call RangerChooser()<CR>
 " }}}2
 " readline {{{2
 " some readline/emacs like keybindings missing from rsi plugin
@@ -329,7 +402,7 @@ cnoremap <C-k> <C-f>D<C-c>
 inoremap <C-U> <C-G>u<C-U>
 "}}}2
 " symlink {{{2
-nnoremap <Space>s :call FollowSymlink()<CR>
+" nnoremap <Space>s :call FollowSymlink()<CR>
 " }}}2
 " tabs {{{2
 nnoremap <Space>gt :call MoveToNextTab()<CR>
@@ -342,15 +415,15 @@ nnoremap <C-w><C-t> :tabnew<CR>
 nnoremap <Space>: :TabMessage 
 "}}}2
 " tcomment {{{2
-let g:tcommentMapLeader1=''
-let g:tcommentMapLeader2=''
-noremap <Space>cb :TCommentBlock<CR>
+let g:tcomment_mapLeader1=''
+let g:tcomment_mapLeader2=''
+" noremap <Space>cb :TCommentBlock<CR>
 " }}}2
 " ultisnips {{{2
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsListSnippets="<C-\\>"
+" let g:UltiSnipsExpandTrigger="<Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+" let g:UltiSnipsListSnippets="<C-\\>"
 " }}}2
 " undotree {{{2
 noremap <Space>u :UndotreeToggle<CR>
@@ -362,8 +435,8 @@ nnoremap gl gu
 nnoremap gll guu
 " }}}2
 " youcompleteme {{{2
-nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
-nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
+" nnoremap <Space>gd :YcmCompleter GoToDefinition<CR>
+" nnoremap <Space>gD :YcmCompleter GoToDeclaration<CR>
 " }}}2
 " f1-12 {{{2
 nnoremap <F1> <nop>
@@ -380,15 +453,15 @@ set pastetoggle=<F11>
 nnoremap <silent> <C-l> :nohlsearch<CR>
 nnoremap <Space><C-l> :redraw!<CR>
 nnoremap <silent> <C-w><C-w> :call ToggleTabline()<CR>
-nnoremap <Leader>m :ShowMap<CR>
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
+nnoremap <Space>m :ShowMap<CR>
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
 " more natural surround mappings
 nmap s ys
 vmap s S
-nnoremap <C-s> :w<CR>
+" nnoremap <C-s> :w<CR>
 " change directory to that of current file
 nnoremap <Space>cd :cd %:p:h<CR>
 " trim whitespace from end of lines
@@ -579,13 +652,5 @@ au BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h"))
  " Automatically source the config file after editing it.
 autocmd bufwritepost $MYVIMRC source $MYVIMRC
 "}}}2
-"}}}1
-" TODO {{{1
-"TODO: run bash commands in interactive mode - so aliases and functions and everything else works as expected
-"TODO: c macro expansion
-"TODO: play with cinoptions
-"TODO: use ctrl-h ctrl-l ctrl-k s ctrl-y ctrl-e
-"TODO: use ctrl-n and ctrl-p like emacs in insert mode, but only if there is no completion
-"TODO: buffergator - option to save selected buffers
 "}}}1
 " vim: fdm=marker fdl=0 cc=81

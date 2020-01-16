@@ -3,15 +3,33 @@
 pacver() {
     pacman -Qi "$1" | grep "Version"
 }
+
 pacdes() {
     pacman -Qi "$1" | grep "Description"
 }
+
 lsusers() {
     awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd
 }
 
+manswitch() {
+    man "$1" | less -p "^ +$2";
+}
+
 whereis2() {
     whereis "$1" | cut -d: -f2
+}
+
+sysupd_testing() {
+    # don't put any 8s or 1s in the path
+    repo=/etc/pacman.d/repo-active
+    for r in "$repo"/8*; do
+        sudo mv -v "$r" "$(echo "$r"| sed 's/8/1/')"
+    done
+    grep -v '^#' /etc/pacman.d/ignored | cut -d'=' -f 2- | tr ' ' '\n'| yay -S --needed --noconfirm -
+    for r in "$repo"/1*; do
+        sudo mv -v "$r" "$(echo "$r"| sed 's/1/8/')"
+    done
 }
 
 #. .functions

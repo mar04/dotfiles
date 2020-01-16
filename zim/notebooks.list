@@ -1,0 +1,16 @@
+[NotebookList]
+Default=~/doc/zim-notes
+1=~/doc/zim-notes
+2=~/doc/niemiecki
+
+[Notebook 1]
+uri=~/doc/zim-notes
+name=zim-notes
+interwiki=None
+icon=None
+
+[Notebook 2]
+uri=~/doc/niemiecki
+name=niemiecki
+interwiki=None
+icon=None

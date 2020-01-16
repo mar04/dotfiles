@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=X-Zim-CustomTool
+Version=1.0
+GenericName=
+Name=grep
+Comment=grep it
+Exec=
+TryExec=
+Icon=
+MimeType=
+Terminal=false
+NoDisplay=false
+X-Zim-ExecTool=konsole --hold -e grep --color=always -Ri %t %n
+X-Zim-ReadOnly=true
+X-Zim-ShowInToolBar=true
+X-Zim-ShowInContextMenu=Text
+X-Zim-ReplaceSelection=false
+

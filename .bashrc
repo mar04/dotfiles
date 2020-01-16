@@ -46,3 +46,14 @@ fi
 export GPG_TTY="$(tty)"
 
 export PS1="[\$?] \[\e[0;34m\]\u\[\e[0m\]@\h \[\e[0;32m\]\w\[\e[0m\]\[\e[0;34m\] \$\[\e[0m\]"
+
+# Adding the kdesrc-build directory to the path
+export PATH="$HOME/kde/src/kdesrc-build:$PATH"
+
+# Creating alias for running software built with kdesrc-build
+kdesrc-run ()
+{
+  source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$1"
+}
+
+

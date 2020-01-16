@@ -1,4 +1,16 @@
+#kwin zoom in/out
+# "xte  'key equal' "
 "qdbus org.kde.kglobalaccel /component/kwin invokeShortcut view_zoom_in"
    Mod4 + Super_L + b:4
+
+# "xte  'key minus' "
 "qdbus org.kde.kglobalaccel /component/kwin invokeShortcut view_zoom_out"
    Mod4 + Super_L + b:5
+
+
+#remap mousewheel tilt from horizontal scrolling to left/right keys
+"xte 'key Left'"
+   b:6
+
+"xte 'key Right'"
+   b:7

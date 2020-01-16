@@ -5,6 +5,7 @@
     # -option compose:lctrl \
 setxkbmap \
     -layout pl \
+    -variant pld \
     -option shift:both_capslock \
     -option terminate:ctrl_alt_bksp
 

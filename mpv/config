@@ -1,8 +1,9 @@
 # Write your default config options here!
 ao=pulse
 # af=scaletempo
-vo=vaapi
+vo=gpu
 hwdec=vaapi
 really-quiet
 # keep-open
+# save-position-on-quit
 

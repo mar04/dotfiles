@@ -1,0 +1,8 @@
+# Do not copy the mtime
+--no-mtime
+
+-o ~/dow/%(title)s.%(ext)s
+
+
+# Download best format available but not better that 720p or better if 720p or lower is not available
+-f 'bestvideo[height<=720]+bestaudio/best'

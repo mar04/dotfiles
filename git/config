@@ -10,8 +10,14 @@
 [core]
 	editor = nvim
 	excludesfile = /home/mariusz/.config/git/gitignore
-
+	askPass = ksshaskpass
 [http]
     postBuffer = 524288000
 [push]
 	default = simple
+[merge]
+	tool = meld
+[url "https://anongit.kde.org/"]
+	insteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:

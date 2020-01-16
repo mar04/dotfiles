@@ -32,7 +32,6 @@ xbindkeys -f "$XDG_CONFIG_HOME/xbindkeysrc"
 # WM
 # exec i3
 # exec openbox-session
-# exec wingo
 
 # DE
 # exec startxfce4
