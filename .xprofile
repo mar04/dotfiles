@@ -1,12 +1,11 @@
 #!/bin/bash
 # KEYBOARD MAP
 # available options are in /usr/share/X11/xkb/rules/evdev.lst
-    # -option ctrl:nocaps \
-    # -option compose:lctrl \
 setxkbmap \
     -layout pl \
     -variant pld \
-    -option shift:both_capslock \
+    -option shift:both_shiftlock \
+    -option compose:lwin-altgr \
     -option terminate:ctrl_alt_bksp
 
 # sets all of the above + turns space into Hyper_L that is another Ctrl

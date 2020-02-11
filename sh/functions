@@ -32,6 +32,16 @@ sysupd_testing() {
     done
 }
 
+yay-testing() {
+    repo=/etc/pacman.d/repo-active
+    for r in "$repo"/8*; do
+        sudo mv -v "$r" "$(echo "$r"| sed 's/8/1/')"
+    done
+    yay "$@"
+    for r in "$repo"/1*; do
+        sudo mv -v "$r" "$(echo "$r"| sed 's/1/8/')"
+    done
+}
 #. .functions
 #
 #extract() {

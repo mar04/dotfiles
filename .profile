@@ -25,10 +25,11 @@ export HISTTIMEFORMAT="%F %T "
 export PROMPT_COMMAND='history -a' #save history always
 # CCACHE ---------------------------------------------------------------------
 export CCACHE_DIR="/mnt/LINDATA/ccache"
-export CCACHE_MAXSIZE="32G"
-export CCACHE_COMPRESS="1"
+# export CCACHE_MAXSIZE="32G"
+# export CCACHE_COMPRESS="1"
 # CHROMIUM -------------------------------------------------------------------
 # export CHROMIUM_USER_FLAGS="--disk-cache-size=2000000 --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=14.0.0.125"
+export CHROMIUM_USER_FLAGS="--disk-cache-dir=/dev/null --disk-cache-size=1"
 # DVDCSS ---------------------------------------------------------------------
 export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
 # FIREFOX --------------------------------------------------------------------
@@ -61,13 +62,14 @@ export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
 # NPM ------------------------------------------------------------------------
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # PYTHON ---------------------------------------------------------------------
-#export PYTHONOPTIMIZE="2"
+# export PYTHONOPTIMIZE="2"
 # export PYTHONSTARTUP="$XDG_CONFIG_HOME/python_startup.py"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint.d"
 export IPYTHONDIR="$XDG_CONFIG_HOME/jupyter"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
 # QT -------------------------------------------------------------------------
 # export QT_LOGGING_RULES="*=false"
+# export QT_LOGGING_RULES="kwin_*.debug=true"
 # export QT_STYLE_OVERRIDE="gtk"
 # RANGER ---------------------------------------------------------------------
 export RANGER_LOAD_DEFAULT_RC="FALSE"
@@ -80,7 +82,8 @@ export INPUTRC="$XDG_CONFIG_HOME/sh/inputrc"
 # export RUST_SRC_PATH="$_RUST/lib/rustlib/src/rust/src"
 # export MANPATH="$(manpath):$_RUST/share/man:$XDG_DATA_HOME/man"
 # LIBREOFFICE ----------------------------------------------------------------
-export SAL_USE_VCLPLUGIN="gtk3_kde5"
+# export SAL_USE_VCLPLUGIN="gtk3_kde5"
+# export SAL_USE_VCLPLUGIN="kf5"
 # SCREEN ---------------------------------------------------------------------
 export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
 # SDDM -----------------------------------------------------------------------
